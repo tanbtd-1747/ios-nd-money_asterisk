@@ -12,6 +12,7 @@
 		AEBA03682238B36100D12F2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA03672238B36100D12F2C /* ViewController.swift */; };
 		AEBA036B2238B36100D12F2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEBA03692238B36100D12F2C /* Main.storyboard */; };
 		AEBA036D2238B36200D12F2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEBA036C2238B36200D12F2C /* Assets.xcassets */; };
+		AEBA03802238E4DF00D12F2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEBA037F2238E4DF00D12F2C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		AEBA036A2238B36100D12F2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AEBA036C2238B36200D12F2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEBA03712238B36200D12F2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEBA037F2238E4DF00D12F2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF71254C9F84380D0CE685A7 /* Pods-Money*.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money*.debug.xcconfig"; path = "Target Support Files/Pods-Money*/Pods-Money*.debug.xcconfig"; sourceTree = "<group>"; };
 		DB19ADF54A591F908C567355 /* Pods_Money_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Money_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				AEBA03712238B36200D12F2C /* Info.plist */,
+				AEBA037F2238E4DF00D12F2C /* GoogleService-Info.plist */,
 				AEBA037C2238B72300D12F2C /* Resources */,
 				AEBA03782238B70400D12F2C /* Application */,
 				AEBA037A2238B71800D12F2C /* Data */,
@@ -145,6 +148,7 @@
 				AEBA035F2238B36100D12F2C /* Frameworks */,
 				AEBA03602238B36100D12F2C /* Resources */,
 				AEBA03772238B5B100D12F2C /* ShellScript */,
+				1BC1258FBF20C635F9C606F2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -195,12 +199,49 @@
 			files = (
 				AEBA036D2238B36200D12F2C /* Assets.xcassets in Resources */,
 				AEBA036B2238B36100D12F2C /* Main.storyboard in Resources */,
+				AEBA03802238E4DF00D12F2C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1BC1258FBF20C635F9C606F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Money*/Pods-Money*-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Money*/Pods-Money*-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AEBA03772238B5B100D12F2C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
