@@ -13,6 +13,7 @@
 		AEBA036B2238B36100D12F2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEBA03692238B36100D12F2C /* Main.storyboard */; };
 		AEBA036D2238B36200D12F2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEBA036C2238B36200D12F2C /* Assets.xcassets */; };
 		AEBA03802238E4DF00D12F2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEBA037F2238E4DF00D12F2C /* GoogleService-Info.plist */; };
+		AEBA038C2238FD7D00D12F2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEBA038A2238FD7D00D12F2C /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		AEBA036C2238B36200D12F2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEBA03712238B36200D12F2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEBA037F2238E4DF00D12F2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AEBA038B2238FD7D00D12F2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Scenes/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF71254C9F84380D0CE685A7 /* Pods-Money*.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money*.debug.xcconfig"; path = "Target Support Files/Pods-Money*/Pods-Money*.debug.xcconfig"; sourceTree = "<group>"; };
 		DB19ADF54A591F908C567355 /* Pods_Money_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Money_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				AEBA03692238B36100D12F2C /* Main.storyboard */,
+				AEBA038A2238FD7D00D12F2C /* LaunchScreen.storyboard */,
 				AEBA03672238B36100D12F2C /* ViewController.swift */,
 			);
 			path = Scenes;
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEBA036D2238B36200D12F2C /* Assets.xcassets in Resources */,
+				AEBA038C2238FD7D00D12F2C /* LaunchScreen.storyboard in Resources */,
 				AEBA036B2238B36100D12F2C /* Main.storyboard in Resources */,
 				AEBA03802238E4DF00D12F2C /* GoogleService-Info.plist in Resources */,
 			);
@@ -302,6 +306,14 @@
 				AEBA036A2238B36100D12F2C /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AEBA038A2238FD7D00D12F2C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEBA038B2238FD7D00D12F2C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -428,7 +440,6 @@
 			baseConfigurationReference = BF71254C9F84380D0CE685A7 /* Pods-Money*.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9B9A8JD2BS;
 				INFOPLIST_FILE = "Money*/Info.plist";
@@ -448,7 +459,6 @@
 			baseConfigurationReference = 672E996E5DFA3FF671661440 /* Pods-Money*.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9B9A8JD2BS;
 				INFOPLIST_FILE = "Money*/Info.plist";
