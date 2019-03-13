@@ -9,23 +9,29 @@
 /* Begin PBXBuildFile section */
 		1DF063910094F84F10D9DCD1 /* Pods_Money_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB19ADF54A591F908C567355 /* Pods_Money_.framework */; };
 		AEBA03662238B36100D12F2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA03652238B36100D12F2C /* AppDelegate.swift */; };
-		AEBA03682238B36100D12F2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA03672238B36100D12F2C /* ViewController.swift */; };
 		AEBA036B2238B36100D12F2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEBA03692238B36100D12F2C /* Main.storyboard */; };
 		AEBA036D2238B36200D12F2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEBA036C2238B36200D12F2C /* Assets.xcassets */; };
 		AEBA03802238E4DF00D12F2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEBA037F2238E4DF00D12F2C /* GoogleService-Info.plist */; };
-		AEBA038C2238FD7D00D12F2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEBA038A2238FD7D00D12F2C /* LaunchScreen.storyboard */; };
+		AEBA03842238F1D400D12F2C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA03832238F1D400D12F2C /* GradientView.swift */; };
+		AEBA03862238F24C00D12F2C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA03852238F24C00D12F2C /* Theme.swift */; };
+		AEBA038E223908F200D12F2C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA038D223908F200D12F2C /* RoundedButton.swift */; };
+		AEFB0256223912DD00EB3437 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB0255223912DD00EB3437 /* LoginViewController.swift */; };
+		AEFB0259223914A900EB3437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEFB0257223914A900EB3437 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		672E996E5DFA3FF671661440 /* Pods-Money*.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money*.release.xcconfig"; path = "Target Support Files/Pods-Money*/Pods-Money*.release.xcconfig"; sourceTree = "<group>"; };
 		AEBA03622238B36100D12F2C /* Money*.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Money*.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEBA03652238B36100D12F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AEBA03672238B36100D12F2C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AEBA036A2238B36100D12F2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AEBA036C2238B36200D12F2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEBA03712238B36200D12F2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEBA037F2238E4DF00D12F2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		AEBA038B2238FD7D00D12F2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Scenes/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AEBA03832238F1D400D12F2C /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		AEBA03852238F24C00D12F2C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		AEBA038D223908F200D12F2C /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		AEFB0255223912DD00EB3437 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AEFB0258223914A900EB3437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Scenes/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF71254C9F84380D0CE685A7 /* Pods-Money*.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money*.debug.xcconfig"; path = "Target Support Files/Pods-Money*/Pods-Money*.debug.xcconfig"; sourceTree = "<group>"; };
 		DB19ADF54A591F908C567355 /* Pods_Money_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Money_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -88,6 +94,7 @@
 				AEBA037D2238B73A00D12F2C /* Extensions */,
 				AEBA037B2238B71C00D12F2C /* Scenes */,
 				AEBA037E2238B75000D12F2C /* Utils */,
+				AEBA03822238F19500D12F2C /* Widgets */,
 			);
 			path = "Money*";
 			sourceTree = "<group>";
@@ -111,8 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				AEBA03692238B36100D12F2C /* Main.storyboard */,
-				AEBA038A2238FD7D00D12F2C /* LaunchScreen.storyboard */,
-				AEBA03672238B36100D12F2C /* ViewController.swift */,
+				AEFB0257223914A900EB3437 /* LaunchScreen.storyboard */,
+				AEBA03872238F34900D12F2C /* Login */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -135,8 +142,26 @@
 		AEBA037E2238B75000D12F2C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				AEBA03852238F24C00D12F2C /* Theme.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		AEBA03822238F19500D12F2C /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				AEBA03832238F1D400D12F2C /* GradientView.swift */,
+				AEBA038D223908F200D12F2C /* RoundedButton.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		AEBA03872238F34900D12F2C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				AEFB0255223912DD00EB3437 /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +176,7 @@
 				AEBA035F2238B36100D12F2C /* Frameworks */,
 				AEBA03602238B36100D12F2C /* Resources */,
 				AEBA03772238B5B100D12F2C /* ShellScript */,
-				1BC1258FBF20C635F9C606F2 /* [CP] Embed Pods Frameworks */,
+				89E29323C663B781595A86C7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -201,7 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEBA036D2238B36200D12F2C /* Assets.xcassets in Resources */,
-				AEBA038C2238FD7D00D12F2C /* LaunchScreen.storyboard in Resources */,
+				AEFB0259223914A900EB3437 /* LaunchScreen.storyboard in Resources */,
 				AEBA036B2238B36100D12F2C /* Main.storyboard in Resources */,
 				AEBA03802238E4DF00D12F2C /* GoogleService-Info.plist in Resources */,
 			);
@@ -210,7 +235,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1BC1258FBF20C635F9C606F2 /* [CP] Embed Pods Frameworks */ = {
+		89E29323C663B781595A86C7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -292,8 +317,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEBA03682238B36100D12F2C /* ViewController.swift in Sources */,
+				AEBA038E223908F200D12F2C /* RoundedButton.swift in Sources */,
+				AEBA03862238F24C00D12F2C /* Theme.swift in Sources */,
 				AEBA03662238B36100D12F2C /* AppDelegate.swift in Sources */,
+				AEFB0256223912DD00EB3437 /* LoginViewController.swift in Sources */,
+				AEBA03842238F1D400D12F2C /* GradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,10 +336,10 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		AEBA038A2238FD7D00D12F2C /* LaunchScreen.storyboard */ = {
+		AEFB0257223914A900EB3437 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AEBA038B2238FD7D00D12F2C /* Base */,
+				AEFB0258223914A900EB3437 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
