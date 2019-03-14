@@ -9,5 +9,27 @@
 import UIKit
 
 class SignupViewController: UIViewController {
-    // TODO
+    // MARK: - IBOutlets
+    @IBOutlet private var emailContainerView: UIView!
+    @IBOutlet private var passwordContainerView: UIView!
+    @IBOutlet private var confirmPasswordContainerView: UIView!
+    @IBOutlet private var emailTextField: UITextField!
+    @IBOutlet private var passwordTextField: UITextField!
+    @IBOutlet private var confirmPasswordTextField: UITextField!
+    @IBOutlet private var createButton: UIButton!
+    @IBOutlet private var cancelButton: UIButton!
+    
+    // MARK: - Private functions
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureSubviews()
+    }
+    
+    private func configureSubviews() {
+        emailContainerView.makeRounded()
+        passwordContainerView.makeRounded()
+        confirmPasswordContainerView.makeRounded()
+        createButton.makeRoundedAndShadowed()
+        cancelButton.makeRoundedAndShadowed()
+    }
 }
