@@ -13,10 +13,13 @@
 		AEBA036D2238B36200D12F2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEBA036C2238B36200D12F2C /* Assets.xcassets */; };
 		AEBA03802238E4DF00D12F2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEBA037F2238E4DF00D12F2C /* GoogleService-Info.plist */; };
 		AEBA03842238F1D400D12F2C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA03832238F1D400D12F2C /* GradientView.swift */; };
-		AEBA03862238F24C00D12F2C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA03852238F24C00D12F2C /* Theme.swift */; };
-		AEBA038E223908F200D12F2C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA038D223908F200D12F2C /* RoundedButton.swift */; };
 		AEFB0256223912DD00EB3437 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB0255223912DD00EB3437 /* LoginViewController.swift */; };
 		AEFB0259223914A900EB3437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEFB0257223914A900EB3437 /* LaunchScreen.storyboard */; };
+		AEFB025B2239E69C00EB3437 /* UIColor+ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB025A2239E69C00EB3437 /* UIColor+ThemeColor.swift */; };
+		AEFB025D2239E86E00EB3437 /* UIView+RoundedShadowed.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB025C2239E86E00EB3437 /* UIView+RoundedShadowed.swift */; };
+		AEFB025F2239F5CE00EB3437 /* CGFloat+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB025E2239F5CE00EB3437 /* CGFloat+Constants.swift */; };
+		AEFB02612239F68100EB3437 /* CGSize+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB02602239F68100EB3437 /* CGSize+Constants.swift */; };
+		AEFB02632239F6CA00EB3437 /* Float+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB02622239F6CA00EB3437 /* Float+Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +31,13 @@
 		AEBA03712238B36200D12F2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEBA037F2238E4DF00D12F2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AEBA03832238F1D400D12F2C /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		AEBA03852238F24C00D12F2C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		AEBA038D223908F200D12F2C /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		AEFB0255223912DD00EB3437 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AEFB0258223914A900EB3437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Scenes/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AEFB025A2239E69C00EB3437 /* UIColor+ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ThemeColor.swift"; sourceTree = "<group>"; };
+		AEFB025C2239E86E00EB3437 /* UIView+RoundedShadowed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+RoundedShadowed.swift"; sourceTree = "<group>"; };
+		AEFB025E2239F5CE00EB3437 /* CGFloat+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Constants.swift"; sourceTree = "<group>"; };
+		AEFB02602239F68100EB3437 /* CGSize+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Constants.swift"; sourceTree = "<group>"; };
+		AEFB02622239F6CA00EB3437 /* Float+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Constants.swift"; sourceTree = "<group>"; };
 		BF71254C9F84380D0CE685A7 /* Pods-Money*.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money*.debug.xcconfig"; path = "Target Support Files/Pods-Money*/Pods-Money*.debug.xcconfig"; sourceTree = "<group>"; };
 		DB19ADF54A591F908C567355 /* Pods_Money_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Money_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -135,6 +141,11 @@
 		AEBA037D2238B73A00D12F2C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				AEFB025A2239E69C00EB3437 /* UIColor+ThemeColor.swift */,
+				AEFB025C2239E86E00EB3437 /* UIView+RoundedShadowed.swift */,
+				AEFB025E2239F5CE00EB3437 /* CGFloat+Constants.swift */,
+				AEFB02602239F68100EB3437 /* CGSize+Constants.swift */,
+				AEFB02622239F6CA00EB3437 /* Float+Constants.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -142,7 +153,6 @@
 		AEBA037E2238B75000D12F2C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				AEBA03852238F24C00D12F2C /* Theme.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -151,7 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				AEBA03832238F1D400D12F2C /* GradientView.swift */,
-				AEBA038D223908F200D12F2C /* RoundedButton.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -317,10 +326,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEBA038E223908F200D12F2C /* RoundedButton.swift in Sources */,
-				AEBA03862238F24C00D12F2C /* Theme.swift in Sources */,
+				AEFB025D2239E86E00EB3437 /* UIView+RoundedShadowed.swift in Sources */,
 				AEBA03662238B36100D12F2C /* AppDelegate.swift in Sources */,
+				AEFB025B2239E69C00EB3437 /* UIColor+ThemeColor.swift in Sources */,
+				AEFB02632239F6CA00EB3437 /* Float+Constants.swift in Sources */,
+				AEFB025F2239F5CE00EB3437 /* CGFloat+Constants.swift in Sources */,
 				AEFB0256223912DD00EB3437 /* LoginViewController.swift in Sources */,
+				AEFB02612239F68100EB3437 /* CGSize+Constants.swift in Sources */,
 				AEBA03842238F1D400D12F2C /* GradientView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

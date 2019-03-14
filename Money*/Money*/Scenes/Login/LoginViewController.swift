@@ -8,19 +8,35 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
     
     // MARK: - IBOutlets
-    @IBOutlet var containerEmail: UIView!
-    @IBOutlet var containerPassword: UIView!
-    @IBOutlet var tfUserEmail: UITextField!
-    @IBOutlet var tfUserPassword: UITextField!
-    @IBOutlet var btnLogin: UIButton!
-    @IBOutlet var btnSignup: UIButton!
+    @IBOutlet private var containerEmail: UIView!
+    @IBOutlet private var containerPassword: UIView!
+    @IBOutlet private var tfUserEmail: UITextField!
+    @IBOutlet private var tfUserPassword: UITextField!
+    @IBOutlet private var btnLogin: UIButton!
+    @IBOutlet private var btnSignup: UIButton!
     
     // MARK: - Private functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSubviews()
+    }
+    
+    private func configureSubviews() {
+        btnLogin.makeRoundedAndShadowed(cornerRadius: .cornerRadius,
+                                        shadowColor: .richBlack,
+                                        shadowRadius: .shadowRadius,
+                                        shadowOffset: .shadowOffset,
+                                        shadowOpacity: .shadowOpacity)
+        btnSignup.makeRoundedAndShadowed(cornerRadius: .cornerRadius,
+                                         shadowColor: .richBlack,
+                                         shadowRadius: .shadowRadius,
+                                         shadowOffset: .shadowOffset,
+                                         shadowOpacity: .shadowOpacity)
+        containerEmail.makeRounded(radius: .cornerRadius)
+        containerPassword.makeRounded(radius: .cornerRadius)
     }
 
 }
