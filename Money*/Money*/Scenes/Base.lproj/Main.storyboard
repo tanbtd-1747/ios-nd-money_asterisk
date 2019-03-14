@@ -69,6 +69,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onBtnLoginTouchUpInside:" destination="pAD-uw-n3V" eventType="touchUpInside" id="ztx-bt-iwL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8l-Ph-ZbX">
                                 <rect key="frame" x="40" y="509.5" width="295" height="50"/>
@@ -84,6 +87,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onBtnSignupTouchUpInside:" destination="pAD-uw-n3V" eventType="touchUpInside" id="hZr-hk-r1K"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YsZ-ut-W1c">
                                 <rect key="frame" x="121.5" y="616.5" width="132" height="34"/>
@@ -92,7 +98,7 @@
                                     <color key="titleColor" red="0.01176470588" green="0.01176470588" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onBtnForgotPasswordTouchUpInside:" destination="pAD-uw-n3V" eventType="touchUpInside" id="o7v-Bc-iLb"/>
+                                    <action selector="onBtnForgotPasswordTouchUpInside:" destination="pAD-uw-n3V" eventType="touchUpInside" id="lzY-uk-0dX"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6rd-y3-LPd" userLabel="Password">
@@ -174,11 +180,102 @@
                         <outlet property="containerPassword" destination="6rd-y3-LPd" id="7HM-ZI-0xh"/>
                         <outlet property="tfUserEmail" destination="hlA-FR-lf3" id="n4Y-cz-lVk"/>
                         <outlet property="tfUserPassword" destination="o01-ZG-JWy" id="RGy-KK-inD"/>
+                        <segue destination="5Xh-Vg-CQZ" kind="show" identifier="FromLoginToDashboard" id="Vak-Nw-FgS"/>
+                        <segue destination="AWY-2g-2FR" kind="show" identifier="FromLoginToSignup" id="16E-SA-sM0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nvU-Uk-eap" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="158" y="96"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="NbH-d9-EhY">
+            <objects>
+                <viewController id="AWY-2g-2FR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hGJ-Sx-BYt" customClass="GradientView" customModule="Money_" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ca0-2X-Lie"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                <color key="value" red="1" green="1" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                <color key="value" red="0.90980392160000001" green="0.90980392160000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="startPointX">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="startPointY">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="endPointX">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="endPointY">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cw0-3N-6AV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="158" y="808"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="wdK-En-TG3">
+            <objects>
+                <viewController id="qeV-Np-Gel" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ftM-W0-TS3" customClass="GradientView" customModule="Money_" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="QJj-L6-JHg"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="topColor">
+                                <color key="value" red="1" green="1" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="bottomColor">
+                                <color key="value" red="0.90980392160000001" green="0.90980392160000001" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="startPointX">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="startPointY">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="endPointX">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="endPointY">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <navigationItem key="navigationItem" title="Dashboard" id="6zV-8t-Hpj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="teY-ve-3Vc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1798" y="96"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qgL-Vg-lVh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Xh-Vg-CQZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rPi-ez-3kY">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qeV-Np-Gel" kind="relationship" relationship="rootViewController" id="ijA-IJ-dDm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9vX-Fz-tXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="999" y="96"/>
         </scene>
     </scenes>
     <resources>
