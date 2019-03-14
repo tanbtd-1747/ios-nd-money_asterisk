@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  Money*
 //
 //  Created by tran.duc.tan on 3/13/19.
@@ -9,52 +9,74 @@
 import UIKit
 import FirebaseAuth
 
-final class LoginViewController: UIViewController, UIViewControllerAlertPresenting {
+final class LoginViewController: UIViewController {
     // MARK: - IBOutlets
-    @IBOutlet private var containerEmail: UIView!
-    @IBOutlet private var containerPassword: UIView!
-    @IBOutlet private var tfUserEmail: UITextField!
-    @IBOutlet private var tfUserPassword: UITextField!
-    @IBOutlet private var btnLogin: UIButton!
-    @IBOutlet private var btnSignup: UIButton!
+    @IBOutlet private var emailContainerView: UIView!
+    @IBOutlet private var passwordContainerView: UIView!
+    @IBOutlet private var emailTextField: UITextField!
+    @IBOutlet private var passwordTextField: UITextField!
+    @IBOutlet private var loginButton: UIButton!
+    @IBOutlet private var signupButton: UIButton!
     
     // MARK: - Private functions
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSubviews()
+        configureHideKeyboardWhenTappedOnBackground()
         addAuthorizationListener()
     }
     
     private func configureSubviews() {
-        btnLogin.makeRoundedAndShadowed(cornerRadius: .cornerRadius,
-                                        shadowColor: .richBlack,
-                                        shadowRadius: .shadowRadius,
-                                        shadowOffset: .shadowOffset,
-                                        shadowOpacity: .shadowOpacity)
-        btnSignup.makeRoundedAndShadowed(cornerRadius: .cornerRadius,
-                                         shadowColor: .richBlack,
-                                         shadowRadius: .shadowRadius,
-                                         shadowOffset: .shadowOffset,
-                                         shadowOpacity: .shadowOpacity)
-        containerEmail.makeRounded(radius: .cornerRadius)
-        containerPassword.makeRounded(radius: .cornerRadius)
+        loginButton.makeRoundedAndShadowed()
+        signupButton.makeRoundedAndShadowed()
+        emailContainerView.makeRounded()
+        passwordContainerView.makeRounded()
     }
     
     private func addAuthorizationListener() {
-        Auth.auth().addStateDidChangeListener { (_, user) in
+        Auth.auth().addStateDidChangeListener { [weak self] (_, user) in
+            guard let self = self else { return }
+            
             if user != nil {
                 self.performSegue(withIdentifier: Identifier.segueFromLoginToDashboard, sender: nil)
-                self.tfUserEmail.text = nil
-                self.tfUserPassword.text = nil
+                self.emailTextField.text = nil
+                self.passwordTextField.text = nil
             }
+        }
+    }
+    
+    private func handleAuthorizationError(of code: AuthErrorCode?) {
+        guard let code = code else { return }
+        
+        switch code {
+        case .invalidEmail:
+            presentErrorAlert(title: StringConstant.titleLoginError,
+                              message: StringConstant.messageLoginErrorInvalidEmail)
+        case .wrongPassword:
+            presentErrorAlert(title: StringConstant.titleLoginError,
+                              message: StringConstant.messageLoginErrorWrongPassword)
+        case .userNotFound:
+            presentErrorAlert(title: StringConstant.titleLoginError,
+                              message: StringConstant.messageLoginErrorUserNotFound)
+        case .userDisabled:
+            presentErrorAlert(title: StringConstant.titleLoginError,
+                              message: StringConstant.messageLoginErrorUserDisabled)
+        case .invalidRecipientEmail:
+            presentErrorAlert(title: StringConstant.titleResetPasswordError,
+                              message: StringConstant.messageResetPasswordErrorInvalidRecipientEmail)
+        default:
+            presentErrorAlert(title: StringConstant.titleError,
+                              message: StringConstant.messageError)
         }
     }
 
     // MARK: - IBActions
-    @IBAction private func onBtnLoginTouchUpInside(_ sender: Any) {
+    @IBAction private func onLoginButtonTouchUpInside(_ sender: Any) {
         // Check if email or password is empty
-        guard let userEmail = tfUserEmail.text, let userPassword = tfUserPassword.text,
-            !userEmail.isEmpty, !userPassword.isEmpty else {
+        guard let userEmail = emailTextField.text,
+            let userPassword = passwordTextField.text,
+            !userEmail.isEmpty,
+            userPassword.count >= 6 else {
             presentErrorAlert(title: StringConstant.titleLoginError,
                               message: StringConstant.messageLoginErrorEmptyField)
             return
@@ -62,22 +84,25 @@ final class LoginViewController: UIViewController, UIViewControllerAlertPresenti
         
         // Firebase Auth sign in
         Auth.auth().signIn(withEmail: userEmail,
-                           password: userPassword) { (user, _) in
+                           password: userPassword) { [weak self] (_, error) in
+            guard let self = self else { return }
+            
             //Sign in failed
-            if user == nil {
-                self.presentErrorAlert(title: StringConstant.titleLoginError,
-                                       message: StringConstant.messageLoginErrorFailedAuth)
+            if let error = error as NSError? {
+                let errorCode = AuthErrorCode(rawValue: error.code)
+                self.handleAuthorizationError(of: errorCode)
             }
         }
     }
     
-    @IBAction private func onBtnSignupTouchUpInside(_ sender: Any) {
+    @IBAction private func onSignupButtonTouchUpInside(_ sender: Any) {
         performSegue(withIdentifier: Identifier.segueFromLoginToSignup, sender: nil)
     }
     
-    @IBAction private func onBtnForgotPasswordTouchUpInside(_ sender: Any) {
+    @IBAction private func onForgotPasswordButtonTouchUpInside(_ sender: Any) {
         // Check if email is empty
-        guard let userEmail = tfUserEmail.text, !userEmail.isEmpty else {
+        guard let userEmail = emailTextField.text,
+            !userEmail.isEmpty else {
             presentErrorAlert(title: StringConstant.titleResetPasswordError,
                               message: StringConstant.messageResetPasswordErrorEmptyField)
             return
@@ -86,20 +111,22 @@ final class LoginViewController: UIViewController, UIViewControllerAlertPresenti
         // Ask for confirmation to reset password
         presentAlert(title: StringConstant.titleResetPassword,
                      message: String(format: StringConstant.messageResetPasswordConfirmation, userEmail),
-                     cancelButton: StringConstant.buttonResetPasswordDeny,
-                     otherButtons: [StringConstant.buttonResetPasswordAllow]) { (_) in
+                     cancelButton: StringConstant.buttonDeny,
+                     otherButtons: [StringConstant.buttonAllow]) { (_) in
             // Send reset password email
-            Auth.auth().sendPasswordReset(withEmail: userEmail) { (error) in
-                // Reset password failed
-                guard error == nil else {
-                    self.presentErrorAlert(title: StringConstant.titleResetPasswordError,
-                                           message: StringConstant.messageResetPasswordErrorFailedAuth)
+            Auth.auth().sendPasswordReset(withEmail: userEmail) { [weak self] (error) in
+                guard let self = self else { return }
+            
+                guard let error = error as NSError? else {
+                    // Reset password succeeded
+                    self.presentErrorAlert(title: StringConstant.titleResetPassword,
+                                           message: StringConstant.messageResetPasswordErrorSuccessfulAuth)
                     return
                 }
                 
-                // Reset password succeeded
-                self.presentErrorAlert(title: StringConstant.titleResetPassword,
-                                       message: StringConstant.messageResetPasswordErrorSuccessfulAuth)
+                // Reset password failed
+                let errorCode = AuthErrorCode(rawValue: error.code)
+                self.handleAuthorizationError(of: errorCode)
             }
         }
     }

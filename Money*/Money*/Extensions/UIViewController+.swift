@@ -1,5 +1,5 @@
 //
-//  UIViewControllerAlertPresenting.swift
+//  UIViewController+.swift
 //  Money*
 //
 //  Created by tran.duc.tan on 3/14/19.
@@ -8,10 +8,7 @@
 
 import UIKit
 
-protocol UIViewControllerAlertPresenting {
-}
-
-extension UIViewControllerAlertPresenting where Self: UIViewController {
+extension UIViewController {
     func presentAlert(title: String?,
                       message: String?,
                       style: UIAlertController.Style = .alert,
@@ -44,5 +41,15 @@ extension UIViewControllerAlertPresenting where Self: UIViewController {
     
     func presentErrorAlert(title: String?, message: String?) {
         presentAlert(title: title, message: message, cancelButton: "OK")
+    }
+    
+    func configureHideKeyboardWhenTappedOnBackground() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
