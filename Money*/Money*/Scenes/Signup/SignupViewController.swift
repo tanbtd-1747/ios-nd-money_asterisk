@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignupViewController: UIViewController {
+final class SignupViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet private var emailContainerView: UIView!
     @IBOutlet private var passwordContainerView: UIView!
@@ -26,10 +26,11 @@ class SignupViewController: UIViewController {
     }
     
     private func configureSubviews() {
-        emailContainerView.makeRounded()
-        passwordContainerView.makeRounded()
-        confirmPasswordContainerView.makeRounded()
-        createButton.makeRoundedAndShadowed()
-        cancelButton.makeRoundedAndShadowed()
+        [emailContainerView,
+         passwordContainerView,
+         confirmPasswordContainerView].forEach { $0?.makeRounded() }
+        
+        [createButton,
+         cancelButton].forEach { $0?.makeRoundedAndShadowed() }
     }
 }

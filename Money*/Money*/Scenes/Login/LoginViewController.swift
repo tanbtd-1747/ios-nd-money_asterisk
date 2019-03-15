@@ -27,10 +27,11 @@ final class LoginViewController: UIViewController {
     }
     
     private func configureSubviews() {
-        loginButton.makeRoundedAndShadowed()
-        signupButton.makeRoundedAndShadowed()
-        emailContainerView.makeRounded()
-        passwordContainerView.makeRounded()
+        [emailContainerView,
+         passwordContainerView].forEach { $0?.makeRounded() }
+        
+        [loginButton,
+         signupButton].forEach { $0?.makeRoundedAndShadowed() }
     }
     
     private func addAuthorizationListener() {
