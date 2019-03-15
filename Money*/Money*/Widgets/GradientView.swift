@@ -12,19 +12,19 @@ final class GradientView: UIView {
 
     private var gradientLayer: CAGradientLayer!
     
-    @IBInspectable var topColor: UIColor = .white {
+    @IBInspectable var topColor: UIColor = .ivory {
         didSet {
             setNeedsLayout()
         }
     }
     
-    @IBInspectable var bottomColor: UIColor = .white {
+    @IBInspectable var bottomColor: UIColor = .darkIvory {
         didSet {
             setNeedsLayout()
         }
     }
     
-    @IBInspectable var startPointX: CGFloat = 0 {
+    @IBInspectable var startPointX: CGFloat = 1 {
         didSet {
             setNeedsLayout()
         }
@@ -36,7 +36,7 @@ final class GradientView: UIView {
         }
     }
     
-    @IBInspectable var endPointX: CGFloat = 1 {
+    @IBInspectable var endPointX: CGFloat = 0 {
         didSet {
             setNeedsLayout()
         }

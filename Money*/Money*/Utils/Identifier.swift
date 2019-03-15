@@ -11,4 +11,5 @@ import Foundation
 struct Identifier {
     static let segueFromLoginToDashboard = "FromLoginToDashboard"
     static let segueFromLoginToSignup = "FromLoginToSignup"
+    static let segueFromDashboardToUserSetting = "FromDashboardToUserSetting"
 }
