@@ -36,34 +36,49 @@ final class SignupViewController: UIViewController {
     }
     
     // MARK: - IBActions
-    @IBAction private func onCreateButtonTouchUpInside(_ sender: Any) {
+    @IBAction private func handleCreateButtonTouchUpInside(_ sender: Any) {
+        // Check if email is empty
         guard let email = emailTextField.text,
-            let password = passwordTextField.text,
-            let confirmPassword = confirmPasswordTextField.text,
-            !email.isEmpty,
-            !password.isEmpty,
-            !confirmPassword.isEmpty else {
-            presentErrorAlert(title: StringConstant.titleSignupError,
-                              message: StringConstant.messageSignupErrorEmptyField)
+            AccountValidator.validateNotEmpty(email) else {
+            presentErrorAlert(title: Constant.titleSignupError,
+                              message: Constant.messageErrorEmptyEmail)
             return
         }
         
-        guard password.count >= .minPasswordLength else {
-            presentErrorAlert(title: StringConstant.titleSignupError,
-                              message: StringConstant.messageSignupErrorShortPassword)
+        // Check if password is empty
+        guard let password = passwordTextField.text,
+            AccountValidator.validateNotEmpty(password) else {
+                presentErrorAlert(title: Constant.titleSignupError,
+                                  message: Constant.messageErrorEmptyPassword)
+                return
+        }
+        
+        // Check if confirm password is empty
+        guard let confirmPassword = confirmPasswordTextField.text,
+            AccountValidator.validateNotEmpty(confirmPassword) else {
+                presentErrorAlert(title: Constant.titleSignupError,
+                                  message: Constant.messageSignupErrorEmptyConfirmPassword)
+                return
+        }
+        
+        // Check if password is short
+        guard AccountValidator.validatePasswordLength(password) else {
+            presentErrorAlert(title: Constant.titleSignupError,
+                              message: Constant.messageErrorShortPassword)
             return
         }
         
-        guard confirmPassword == password else {
-            presentErrorAlert(title: StringConstant.titleSignupError,
-                              message: StringConstant.messageSignupErrorPasswordNotMatch)
+        // Check if confirm password matches with password
+        guard AccountValidator.validatePasswordMatch(confirmPassword, password) else {
+            presentErrorAlert(title: Constant.titleSignupError,
+                              message: Constant.messageSignupErrorPasswordNotMatch)
             return
         }
         
         // TODO: Create Account
     }
     
-    @IBAction private func onCancelButtonTouchUpInside(_ sender: Any) {
+    @IBAction private func handleCancelButtonTouchUpInside(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
 }
