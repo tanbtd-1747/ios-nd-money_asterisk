@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 final class SignupViewController: UIViewController {
     // MARK: - IBOutlets
@@ -75,10 +76,49 @@ final class SignupViewController: UIViewController {
             return
         }
         
-        // TODO: Create Account
+        // Firebase Auth create account
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] (_, error) in
+            guard let self = self else { return }
+            
+            if let error = error as NSError? {
+                // Create account failed
+                let errorCode = AuthErrorCode(rawValue: error.code)
+                self.handleAuthorizationError(of: errorCode)
+            } else {
+                // Create account succeeded
+                self.presentAlert(title: Constant.titleSignup,
+                                  message: String(format: Constant.messageSignupSuccessful, email),
+                                  cancelButton: Constant.buttonOK,
+                                  cancelAction: {
+                                    self.dismiss(animated: true, completion: nil)
+                })
+            }
+        }
     }
     
     @IBAction private func handleCancelButtonTouchUpInside(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: - Firebase Authorizable
+extension SignupViewController: FirebaseAuthorizable {
+    internal func handleAuthorizationError(of code: AuthErrorCode?) {
+        guard let code = code else { return }
+        
+        switch code {
+        case .invalidEmail:
+            presentErrorAlert(title: Constant.titleSignupError,
+                              message: Constant.messageErrorInvalidEmail)
+        case .emailAlreadyInUse:
+            presentErrorAlert(title: Constant.titleSignupError,
+                              message: Constant.messageSignupErrorEmailAlreadyInUse)
+        case .weakPassword:
+            presentErrorAlert(title: Constant.titleSignupError,
+                              message: Constant.messageSignupErrorWeakPassword)
+        default:
+            presentErrorAlert(title: Constant.titleError,
+                              message: Constant.messageError)
+        }
     }
 }

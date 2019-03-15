@@ -41,7 +41,7 @@ extension UIViewController {
     }
     
     func presentErrorAlert(title: String?, message: String?) {
-        presentAlert(title: title, message: message, cancelButton: "OK")
+        presentAlert(title: title, message: message, cancelButton: Constant.buttonOK)
     }
 }
 

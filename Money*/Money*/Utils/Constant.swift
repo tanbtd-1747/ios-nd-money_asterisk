@@ -31,7 +31,7 @@ struct Constant {
     static let messageErrorEmptyEmail = "Vui lòng không bỏ trống email."
     static let messageErrorEmptyPassword = "Vui lòng không bỏ trống mật khẩu."
     static let messageErrorShortPassword = "Mật khẩu đăng nhập không đủ 6 ký tự."
-    static let messageLoginErrorInvalidEmail = "Địa chỉ email không hợp lệ. Vui lòng kiểm tra lại."
+    static let messageErrorInvalidEmail = "Địa chỉ email không hợp lệ. Vui lòng kiểm tra lại."
     static let messageLoginErrorWrongPassword = "Mật khẩu không đúng. Vui lòng kiểm tra lại."
     static let messageLoginErrorUserNotFound = "Tài khoản không tồn tại. Vui lòng tạo tài khoản."
     static let messageLoginErrorUserDisabled = "Tài khoản đang tạm thời bị khoá. Vui lòng liên hệ với chúng tôi tại tran.duc.tanb@sun-asterisk.com."
@@ -40,8 +40,12 @@ struct Constant {
     static let messageResetPasswordErrorSuccessfulAuth = "Đã gửi yêu cầu đặt lại mật khẩu. Vui lòng kiểm tra email để đặt lại mật khẩu."
     static let messageResetPasswordConfirmation = "Bạn có muốn đặt lại mật khẩu cho tài khoản %@ không?"
     static let messageSignupErrorEmptyConfirmPassword = "Vui lòng không bỏ trống xác nhận mật khẩu."
+    static let messageSignupErrorWeakPassword = "Mật khẩu đăng nhập không đủ mạnh. Vui lòng chọn mật khẩu có tính bảo mật cao hơn."
     static let messageSignupErrorPasswordNotMatch = "Xác nhận mật khẩu không giống với mật khẩu."
+    static let messageSignupErrorEmailAlreadyInUse = "Tài khoản đã tồn tại. Vui lòng tạo một tài khoản khác."
+    static let messageSignupSuccessful = "Đăng ký thành công! Bạn có thể dùng email %@ để đăng nhập."
     
     static let buttonDeny = "Không"
     static let buttonAllow = "Đồng ý"
+    static let buttonOK = "OK"
 }
