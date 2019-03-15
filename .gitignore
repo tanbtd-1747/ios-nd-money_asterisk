@@ -58,7 +58,7 @@ playground.xcworkspace
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 # Pods/
 # Add this line if you want to avoid checking in source code from the Xcode workspace
-# *.xcworkspace
+*.xcworkspace
 
 # Carthage
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
@@ -91,6 +91,7 @@ iOSInjectionProject/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 Money*/Money*.xcworkspace
+Money\*/Money\*.xcworkspace/xcuserdata/tran.duc.tan.xcuserdatad/UserInterfaceState.xcuserstate
 Money*/Money*/GoogleService-Info.plist
 
 # End of https://www.gitignore.io/api/xcode,swift,cocoapods
