@@ -20,6 +20,11 @@
 		AEFB025F2239F5CE00EB3437 /* CGFloat+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB025E2239F5CE00EB3437 /* CGFloat+Constants.swift */; };
 		AEFB02612239F68100EB3437 /* CGSize+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB02602239F68100EB3437 /* CGSize+Constants.swift */; };
 		AEFB02632239F6CA00EB3437 /* Float+Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB02622239F6CA00EB3437 /* Float+Constants.swift */; };
+		AEFB026C223A0FEE00EB3437 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB026B223A0FEE00EB3437 /* Identifier.swift */; };
+		AEFB026E223A104500EB3437 /* StringConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB026D223A104500EB3437 /* StringConstant.swift */; };
+		AEFB0272223A150400EB3437 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB0271223A150400EB3437 /* SignupViewController.swift */; };
+		AEFB0274223A154100EB3437 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB0273223A154100EB3437 /* DashboardViewController.swift */; };
+		AEFB0276223A370100EB3437 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB0275223A370100EB3437 /* UIViewController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +43,12 @@
 		AEFB025E2239F5CE00EB3437 /* CGFloat+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Constants.swift"; sourceTree = "<group>"; };
 		AEFB02602239F68100EB3437 /* CGSize+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Constants.swift"; sourceTree = "<group>"; };
 		AEFB02622239F6CA00EB3437 /* Float+Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Constants.swift"; sourceTree = "<group>"; };
+		AEFB0268223A02FE00EB3437 /* Money*.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Money*.entitlements"; sourceTree = "<group>"; };
+		AEFB026B223A0FEE00EB3437 /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
+		AEFB026D223A104500EB3437 /* StringConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstant.swift; sourceTree = "<group>"; };
+		AEFB0271223A150400EB3437 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		AEFB0273223A154100EB3437 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		AEFB0275223A370100EB3437 /* UIViewController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		BF71254C9F84380D0CE685A7 /* Pods-Money*.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money*.debug.xcconfig"; path = "Target Support Files/Pods-Money*/Pods-Money*.debug.xcconfig"; sourceTree = "<group>"; };
 		DB19ADF54A591F908C567355 /* Pods_Money_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Money_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -92,6 +103,7 @@
 		AEBA03642238B36100D12F2C /* Money* */ = {
 			isa = PBXGroup;
 			children = (
+				AEFB0268223A02FE00EB3437 /* Money*.entitlements */,
 				AEBA03712238B36200D12F2C /* Info.plist */,
 				AEBA037F2238E4DF00D12F2C /* GoogleService-Info.plist */,
 				AEBA037C2238B72300D12F2C /* Resources */,
@@ -126,6 +138,8 @@
 				AEBA03692238B36100D12F2C /* Main.storyboard */,
 				AEFB0257223914A900EB3437 /* LaunchScreen.storyboard */,
 				AEBA03872238F34900D12F2C /* Login */,
+				AEFB026F223A14D500EB3437 /* Signup */,
+				AEFB0270223A14DB00EB3437 /* Dashboard */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -146,6 +160,7 @@
 				AEFB025E2239F5CE00EB3437 /* CGFloat+Constants.swift */,
 				AEFB02602239F68100EB3437 /* CGSize+Constants.swift */,
 				AEFB02622239F6CA00EB3437 /* Float+Constants.swift */,
+				AEFB0275223A370100EB3437 /* UIViewController+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -153,6 +168,8 @@
 		AEBA037E2238B75000D12F2C /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				AEFB026B223A0FEE00EB3437 /* Identifier.swift */,
+				AEFB026D223A104500EB3437 /* StringConstant.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -171,6 +188,22 @@
 				AEFB0255223912DD00EB3437 /* LoginViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		AEFB026F223A14D500EB3437 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				AEFB0271223A150400EB3437 /* SignupViewController.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		AEFB0270223A14DB00EB3437 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				AEFB0273223A154100EB3437 /* DashboardViewController.swift */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +241,11 @@
 				TargetAttributes = {
 					AEBA03612238B36100D12F2C = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -329,11 +367,16 @@
 				AEFB025D2239E86E00EB3437 /* UIView+RoundedShadowed.swift in Sources */,
 				AEBA03662238B36100D12F2C /* AppDelegate.swift in Sources */,
 				AEFB025B2239E69C00EB3437 /* UIColor+ThemeColor.swift in Sources */,
+				AEFB0276223A370100EB3437 /* UIViewController+.swift in Sources */,
 				AEFB02632239F6CA00EB3437 /* Float+Constants.swift in Sources */,
+				AEFB026C223A0FEE00EB3437 /* Identifier.swift in Sources */,
 				AEFB025F2239F5CE00EB3437 /* CGFloat+Constants.swift in Sources */,
+				AEFB0272223A150400EB3437 /* SignupViewController.swift in Sources */,
+				AEFB0274223A154100EB3437 /* DashboardViewController.swift in Sources */,
 				AEFB0256223912DD00EB3437 /* LoginViewController.swift in Sources */,
 				AEFB02612239F68100EB3437 /* CGSize+Constants.swift in Sources */,
 				AEBA03842238F1D400D12F2C /* GradientView.swift in Sources */,
+				AEFB026E223A104500EB3437 /* StringConstant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +523,7 @@
 			baseConfigurationReference = BF71254C9F84380D0CE685A7 /* Pods-Money*.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Money*/Money*.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9B9A8JD2BS;
 				INFOPLIST_FILE = "Money*/Info.plist";
@@ -499,6 +543,7 @@
 			baseConfigurationReference = 672E996E5DFA3FF671661440 /* Pods-Money*.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Money*/Money*.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9B9A8JD2BS;
 				INFOPLIST_FILE = "Money*/Info.plist";

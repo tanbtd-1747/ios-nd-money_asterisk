@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIView {
-    func makeRounded(radius: CGFloat) {
+    func makeRounded(radius: CGFloat = .cornerRadius) {
         layer.cornerRadius = radius
     }
     
@@ -20,11 +20,11 @@ extension UIView {
         layer.shadowOpacity = opacity
     }
     
-    func makeRoundedAndShadowed(cornerRadius: CGFloat,
-                                shadowColor: UIColor,
-                                shadowRadius: CGFloat,
-                                shadowOffset: CGSize,
-                                shadowOpacity: Float) {
+    func makeRoundedAndShadowed(cornerRadius: CGFloat = .cornerRadius,
+                                shadowColor: UIColor = .richBlack,
+                                shadowRadius: CGFloat = .shadowRadius,
+                                shadowOffset: CGSize = .shadowOffset,
+                                shadowOpacity: Float = .shadowOpacity) {
         makeRounded(radius: cornerRadius)
         makeShadowed(color: shadowColor, radius: shadowRadius, offset: shadowOffset, opacity: shadowOpacity)
     }
