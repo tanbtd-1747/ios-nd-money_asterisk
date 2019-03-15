@@ -51,35 +51,47 @@ final class LoginViewController: UIViewController {
         
         switch code {
         case .invalidEmail:
-            presentErrorAlert(title: StringConstant.titleLoginError,
-                              message: StringConstant.messageLoginErrorInvalidEmail)
+            presentErrorAlert(title: Constant.titleLoginError,
+                              message: Constant.messageLoginErrorInvalidEmail)
         case .wrongPassword:
-            presentErrorAlert(title: StringConstant.titleLoginError,
-                              message: StringConstant.messageLoginErrorWrongPassword)
+            presentErrorAlert(title: Constant.titleLoginError,
+                              message: Constant.messageLoginErrorWrongPassword)
         case .userNotFound:
-            presentErrorAlert(title: StringConstant.titleLoginError,
-                              message: StringConstant.messageLoginErrorUserNotFound)
+            presentErrorAlert(title: Constant.titleLoginError,
+                              message: Constant.messageLoginErrorUserNotFound)
         case .userDisabled:
-            presentErrorAlert(title: StringConstant.titleLoginError,
-                              message: StringConstant.messageLoginErrorUserDisabled)
+            presentErrorAlert(title: Constant.titleLoginError,
+                              message: Constant.messageLoginErrorUserDisabled)
         case .invalidRecipientEmail:
-            presentErrorAlert(title: StringConstant.titleResetPasswordError,
-                              message: StringConstant.messageResetPasswordErrorInvalidRecipientEmail)
+            presentErrorAlert(title: Constant.titleResetPasswordError,
+                              message: Constant.messageResetPasswordErrorInvalidRecipientEmail)
         default:
-            presentErrorAlert(title: StringConstant.titleError,
-                              message: StringConstant.messageError)
+            presentErrorAlert(title: Constant.titleError,
+                              message: Constant.messageError)
         }
     }
 
     // MARK: - IBActions
-    @IBAction private func onLoginButtonTouchUpInside(_ sender: Any) {
-        // Check if email or password is empty
+    @IBAction private func handleLoginButtonTouchUpInside(_ sender: Any) {
+        // Check if email is empty
         guard let userEmail = emailTextField.text,
-            let userPassword = passwordTextField.text,
-            !userEmail.isEmpty,
-            userPassword.count >= 6 else {
-            presentErrorAlert(title: StringConstant.titleLoginError,
-                              message: StringConstant.messageLoginErrorEmptyField)
+            AccountValidator.validateNotEmpty(userEmail) else {
+                presentErrorAlert(title: Constant.titleLoginError,
+                                  message: Constant.messageErrorEmptyEmail)
+                return
+        }
+        
+        // Check if password is empty
+        guard let userPassword = passwordTextField.text, AccountValidator.validateNotEmpty(userPassword) else {
+                presentErrorAlert(title: Constant.titleLoginError,
+                                  message: Constant.messageErrorEmptyPassword)
+                return
+        }
+        
+        // Check if password is short
+        guard AccountValidator.validatePasswordLength(userPassword) else {
+            presentErrorAlert(title: Constant.titleLoginError,
+                              message: Constant.messageErrorShortPassword)
             return
         }
         
@@ -96,32 +108,32 @@ final class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction private func onSignupButtonTouchUpInside(_ sender: Any) {
+    @IBAction private func handleSignupButtonTouchUpInside(_ sender: Any) {
         performSegue(withIdentifier: Identifier.segueFromLoginToSignup, sender: nil)
     }
     
-    @IBAction private func onForgotPasswordButtonTouchUpInside(_ sender: Any) {
+    @IBAction private func handleForgotPasswordButtonTouchUpInside(_ sender: Any) {
         // Check if email is empty
         guard let userEmail = emailTextField.text,
             !userEmail.isEmpty else {
-            presentErrorAlert(title: StringConstant.titleResetPasswordError,
-                              message: StringConstant.messageResetPasswordErrorEmptyField)
+            presentErrorAlert(title: Constant.titleResetPasswordError,
+                              message: Constant.messageResetPasswordErrorEmptyField)
             return
         }
         
         // Ask for confirmation to reset password
-        presentAlert(title: StringConstant.titleResetPassword,
-                     message: String(format: StringConstant.messageResetPasswordConfirmation, userEmail),
-                     cancelButton: StringConstant.buttonDeny,
-                     otherButtons: [StringConstant.buttonAllow]) { (_) in
+        presentAlert(title: Constant.titleResetPassword,
+                     message: String(format: Constant.messageResetPasswordConfirmation, userEmail),
+                     cancelButton: Constant.buttonDeny,
+                     otherButtons: [Constant.buttonAllow]) { (_) in
             // Send reset password email
             Auth.auth().sendPasswordReset(withEmail: userEmail) { [weak self] (error) in
                 guard let self = self else { return }
             
                 guard let error = error as NSError? else {
                     // Reset password succeeded
-                    self.presentErrorAlert(title: StringConstant.titleResetPassword,
-                                           message: StringConstant.messageResetPasswordErrorSuccessfulAuth)
+                    self.presentErrorAlert(title: Constant.titleResetPassword,
+                                           message: Constant.messageResetPasswordErrorSuccessfulAuth)
                     return
                 }
                 

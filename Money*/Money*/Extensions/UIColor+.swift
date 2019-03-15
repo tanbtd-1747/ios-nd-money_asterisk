@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Custom Colors
 extension UIColor {
     convenience init(aRed: CGFloat, aGreen: CGFloat, aBlue: CGFloat, alpha: CGFloat = 1) {
         self.init(red: aRed / 255, green: aGreen / 255, blue: aBlue / 255, alpha: alpha)

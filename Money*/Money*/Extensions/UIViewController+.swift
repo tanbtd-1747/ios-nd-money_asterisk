@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: - Present Alert Controller
 extension UIViewController {
     func presentAlert(title: String?,
                       message: String?,
@@ -42,7 +43,10 @@ extension UIViewController {
     func presentErrorAlert(title: String?, message: String?) {
         presentAlert(title: title, message: message, cancelButton: "OK")
     }
-    
+}
+
+// MARK: - Dismiss keyboard
+extension UIViewController {
     func configureHideKeyboardWhenTappedOnBackground() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture.cancelsTouchesInView = false
