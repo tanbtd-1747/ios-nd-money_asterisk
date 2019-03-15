@@ -331,6 +331,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="onCreateButtonTouchUpInside:" destination="AWY-2g-2FR" eventType="touchUpInside" id="mUC-gH-Shx"/>
                                             <action selector="onLoginButtonTouchUpInside:" destination="pAD-uw-n3V" eventType="touchUpInside" id="ekI-Sj-u9W"/>
                                         </connections>
                                     </button>
@@ -349,6 +350,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <action selector="onCancelButtonTouchUpInside:" destination="AWY-2g-2FR" eventType="touchUpInside" id="L5C-2K-D03"/>
                                             <action selector="onLoginButtonTouchUpInside:" destination="pAD-uw-n3V" eventType="touchUpInside" id="ZCB-6r-ZVo"/>
                                         </connections>
                                     </button>

@@ -77,7 +77,7 @@ final class LoginViewController: UIViewController {
         guard let userEmail = emailTextField.text,
             let userPassword = passwordTextField.text,
             !userEmail.isEmpty,
-            userPassword.count >= 6 else {
+            userPassword.count >= .minPasswordLength else {
             presentErrorAlert(title: StringConstant.titleLoginError,
                               message: StringConstant.messageLoginErrorEmptyField)
             return

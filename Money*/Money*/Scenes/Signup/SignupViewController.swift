@@ -23,6 +23,7 @@ final class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSubviews()
+        configureHideKeyboardWhenTappedOnBackground()
     }
     
     private func configureSubviews() {
@@ -32,5 +33,37 @@ final class SignupViewController: UIViewController {
         
         [createButton,
          cancelButton].forEach { $0?.makeRoundedAndShadowed() }
+    }
+    
+    // MARK: - IBActions
+    @IBAction private func onCreateButtonTouchUpInside(_ sender: Any) {
+        guard let email = emailTextField.text,
+            let password = passwordTextField.text,
+            let confirmPassword = confirmPasswordTextField.text,
+            !email.isEmpty,
+            !password.isEmpty,
+            !confirmPassword.isEmpty else {
+            presentErrorAlert(title: StringConstant.titleSignupError,
+                              message: StringConstant.messageSignupErrorEmptyField)
+            return
+        }
+        
+        guard password.count >= .minPasswordLength else {
+            presentErrorAlert(title: StringConstant.titleSignupError,
+                              message: StringConstant.messageSignupErrorShortPassword)
+            return
+        }
+        
+        guard confirmPassword == password else {
+            presentErrorAlert(title: StringConstant.titleSignupError,
+                              message: StringConstant.messageSignupErrorPasswordNotMatch)
+            return
+        }
+        
+        // TODO: Create Account
+    }
+    
+    @IBAction private func onCancelButtonTouchUpInside(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
 }
