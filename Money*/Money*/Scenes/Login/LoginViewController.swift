@@ -45,31 +45,6 @@ final class LoginViewController: UIViewController {
             }
         }
     }
-    
-    private func handleAuthorizationError(of code: AuthErrorCode?) {
-        guard let code = code else { return }
-        
-        switch code {
-        case .invalidEmail:
-            presentErrorAlert(title: Constant.titleLoginError,
-                              message: Constant.messageLoginErrorInvalidEmail)
-        case .wrongPassword:
-            presentErrorAlert(title: Constant.titleLoginError,
-                              message: Constant.messageLoginErrorWrongPassword)
-        case .userNotFound:
-            presentErrorAlert(title: Constant.titleLoginError,
-                              message: Constant.messageLoginErrorUserNotFound)
-        case .userDisabled:
-            presentErrorAlert(title: Constant.titleLoginError,
-                              message: Constant.messageLoginErrorUserDisabled)
-        case .invalidRecipientEmail:
-            presentErrorAlert(title: Constant.titleResetPasswordError,
-                              message: Constant.messageResetPasswordErrorInvalidRecipientEmail)
-        default:
-            presentErrorAlert(title: Constant.titleError,
-                              message: Constant.messageError)
-        }
-    }
 
     // MARK: - IBActions
     @IBAction private func handleLoginButtonTouchUpInside(_ sender: Any) {
@@ -141,6 +116,34 @@ final class LoginViewController: UIViewController {
                 let errorCode = AuthErrorCode(rawValue: error.code)
                 self.handleAuthorizationError(of: errorCode)
             }
+        }
+    }
+}
+
+// MARK: - Firebase Authorizable
+extension LoginViewController: FirebaseAuthorizable {
+    internal func handleAuthorizationError(of code: AuthErrorCode?) {
+        guard let code = code else { return }
+        
+        switch code {
+        case .invalidEmail:
+            presentErrorAlert(title: Constant.titleLoginError,
+                              message: Constant.messageErrorInvalidEmail)
+        case .wrongPassword:
+            presentErrorAlert(title: Constant.titleLoginError,
+                              message: Constant.messageLoginErrorWrongPassword)
+        case .userNotFound:
+            presentErrorAlert(title: Constant.titleLoginError,
+                              message: Constant.messageLoginErrorUserNotFound)
+        case .userDisabled:
+            presentErrorAlert(title: Constant.titleLoginError,
+                              message: Constant.messageLoginErrorUserDisabled)
+        case .invalidRecipientEmail:
+            presentErrorAlert(title: Constant.titleResetPasswordError,
+                              message: Constant.messageResetPasswordErrorInvalidRecipientEmail)
+        default:
+            presentErrorAlert(title: Constant.titleError,
+                              message: Constant.messageError)
         }
     }
 }
