@@ -18,6 +18,10 @@ extension UIColor {
         return UIColor(aRed: 255, aGreen: 255, aBlue: 243)
     }
     
+    @nonobjc class var darkIvory: UIColor {
+        return UIColor(aRed: 232, aGreen: 232, aBlue: 221)
+    }
+    
     @nonobjc class var khaki: UIColor {
         return UIColor(aRed: 183, aGreen: 173, aBlue: 153)
     }
