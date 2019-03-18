@@ -21,20 +21,18 @@ final class DashboardViewController: UIViewController {
     
     private func addAuthorizationListener() {
         Auth.auth().addStateDidChangeListener { [weak self] (_, user) in
-            guard let self = self else { return }
-            
             guard let user = user else {
                 return
             }
-            self.user = User(auth: user)
+            self?.user = User(auth: user)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case Identifier.segueFromDashboardToUserSetting:
-            let userSettingViewController = segue.destination as! UserSettingViewController
-            userSettingViewController.user = user
+            let userSettingViewController = segue.destination as? UserSettingViewController
+            userSettingViewController?.user = user
         default:
             return
         }
