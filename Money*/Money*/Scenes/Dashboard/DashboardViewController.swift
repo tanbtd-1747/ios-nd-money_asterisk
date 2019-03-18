@@ -22,6 +22,7 @@ final class DashboardViewController: UIViewController {
     private func addAuthorizationListener() {
         Auth.auth().addStateDidChangeListener { [weak self] (_, user) in
             guard let user = user else {
+                self?.dismiss(animated: true, completion: nil)
                 return
             }
             self?.user = User(auth: user)

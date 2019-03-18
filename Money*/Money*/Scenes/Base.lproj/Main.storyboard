@@ -459,6 +459,9 @@
                                                     <rect key="frame" x="313" y="28.5" width="51" height="31"/>
                                                     <color key="onTintColor" red="0.71764705880000002" green="0.67843137249999996" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="thumbTintColor" red="1" green="1" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <connections>
+                                                        <action selector="handleNotificationSwitch:" destination="iv4-V4-nDN" eventType="valueChanged" id="xpr-Gk-vS0"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -521,12 +524,29 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="notificationSwitch" destination="CvJ-lB-MLY" id="w5e-nn-HIG"/>
                         <outlet property="notificationTimeLabel" destination="K2b-p4-8ay" id="8w0-Hj-65U"/>
+                        <segue destination="pZQ-Dp-m8p" kind="show" identifier="FromUserSettingToWalletManagement" id="4ch-0f-Ovm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cJc-qy-dAg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2562" y="-654"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="CHL-UF-bOe">
+            <objects>
+                <viewController id="pZQ-Dp-m8p" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="N7z-p0-hLa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="jyJ-Bk-DLy"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bNv-72-gXP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3356" y="-654"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="wdK-En-TG3">
