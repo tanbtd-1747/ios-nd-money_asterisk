@@ -19,6 +19,11 @@ struct Constant {
     // MARK: - Account Params
     static let minPasswordLength = 6
     
+    // MARK: - Notification Params
+    static let defaultNotificationHour = 22
+    static let defaultNotificationMinute = 0
+    static let defaultIsNotificationEnabled = false
+    
     // MARK: - String
     static let titleError = "Lỗi"
     static let titleLoginError = "Đăng nhập thất bại"
