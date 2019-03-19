@@ -51,6 +51,8 @@ struct Constant {
     static let messageSignupErrorPasswordNotMatch = "Xác nhận mật khẩu không giống với mật khẩu."
     static let messageSignupErrorEmailAlreadyInUse = "Tài khoản đã tồn tại. Vui lòng tạo một tài khoản khác."
     static let messageSignupSuccessful = "Đăng ký thành công! Bạn có thể dùng email %@ để đăng nhập."
+    static let messageSnapshotError = "Tải dữ liệu về bị lỗi."
+    static let messageDataError = "Dữ liệu bị lỗi!"
     static let bodyUserNotification = "Hãy cập nhật thu - chi trong ngày hôm nay của bạn để quản lý tài chính tốt hơn."
     
     static let buttonDeny = "Không"
