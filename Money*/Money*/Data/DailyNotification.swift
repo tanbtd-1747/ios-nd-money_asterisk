@@ -11,7 +11,7 @@ import UserNotifications
 
 class DailyNotification {
     var notificationTime = Date()
-    var isNotificationEnabled = false
+    var isNotificationEnabled = Constant.defaultIsNotificationEnabled
     
     static let shared = DailyNotification()
     
@@ -20,8 +20,8 @@ class DailyNotification {
             notificationTime = time
         } else {
             var dateComponents = DateComponents()
-            dateComponents.hour = 22
-            dateComponents.minute = 0
+            dateComponents.hour = Constant.defaultNotificationHour
+            dateComponents.minute = Constant.defaultNotificationMinute
             if let time = Calendar.current.date(from: dateComponents) {
                 notificationTime = time
             }

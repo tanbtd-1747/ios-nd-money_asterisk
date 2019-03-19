@@ -16,4 +16,6 @@ struct Identifier {
     
     static let keyIsNofiticationEnabled = "KeyIsNotificationEnabled"
     static let keyNotificationTime = "KeyNotificationTime"
+    
+    static let cellWallet = "WalletCell"
 }

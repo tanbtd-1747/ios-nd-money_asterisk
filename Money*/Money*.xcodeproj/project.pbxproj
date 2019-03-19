@@ -18,6 +18,8 @@
 		AEC39E96223B7D180042CEBC /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39E95223B7D180042CEBC /* UserSettingViewController.swift */; };
 		AEC39E99223B88F20042CEBC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39E98223B88F20042CEBC /* User.swift */; };
 		AEC39E9D22408AD90042CEBC /* DailyNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39E9C22408AD90042CEBC /* DailyNotification.swift */; };
+		AEC39E9F224099B20042CEBC /* WalletManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39E9E224099B20042CEBC /* WalletManagementViewController.swift */; };
+		AEC39EA122409D2B0042CEBC /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EA022409D2B0042CEBC /* Wallet.swift */; };
 		AEFB0256223912DD00EB3437 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB0255223912DD00EB3437 /* LoginViewController.swift */; };
 		AEFB0259223914A900EB3437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEFB0257223914A900EB3437 /* LaunchScreen.storyboard */; };
 		AEFB025B2239E69C00EB3437 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB025A2239E69C00EB3437 /* UIColor+.swift */; };
@@ -44,6 +46,8 @@
 		AEC39E98223B88F20042CEBC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AEC39E9B223F8FD70042CEBC /* Money*.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Money*.entitlements"; sourceTree = "<group>"; };
 		AEC39E9C22408AD90042CEBC /* DailyNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNotification.swift; sourceTree = "<group>"; };
+		AEC39E9E224099B20042CEBC /* WalletManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManagementViewController.swift; sourceTree = "<group>"; };
+		AEC39EA022409D2B0042CEBC /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		AEFB0255223912DD00EB3437 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AEFB0258223914A900EB3437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Scenes/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEFB025A2239E69C00EB3437 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				AEC39E98223B88F20042CEBC /* User.swift */,
+				AEC39EA022409D2B0042CEBC /* Wallet.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 		AEC39E9A223F2CB50042CEBC /* WalletManagement */ = {
 			isa = PBXGroup;
 			children = (
+				AEC39E9E224099B20042CEBC /* WalletManagementViewController.swift */,
 			);
 			path = WalletManagement;
 			sourceTree = "<group>";
@@ -398,6 +404,7 @@
 				AEBA03662238B36100D12F2C /* AppDelegate.swift in Sources */,
 				AEFB025B2239E69C00EB3437 /* UIColor+.swift in Sources */,
 				AEFB0276223A370100EB3437 /* UIViewController+.swift in Sources */,
+				AEC39E9F224099B20042CEBC /* WalletManagementViewController.swift in Sources */,
 				AEC39E96223B7D180042CEBC /* UserSettingViewController.swift in Sources */,
 				AEC39E99223B88F20042CEBC /* User.swift in Sources */,
 				AEFB026C223A0FEE00EB3437 /* Identifier.swift in Sources */,
@@ -408,6 +415,7 @@
 				AEC39E91223B4D570042CEBC /* FirebaseAuthorizable.swift in Sources */,
 				AEBA03842238F1D400D12F2C /* GradientView.swift in Sources */,
 				AEFB026E223A104500EB3437 /* Constant.swift in Sources */,
+				AEC39EA122409D2B0042CEBC /* Wallet.swift in Sources */,
 				AEC39E9D22408AD90042CEBC /* DailyNotification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
