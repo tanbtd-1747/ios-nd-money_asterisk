@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,11 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         configureFirebase()
+        registerUserNotification()
         return true
     }
     
     private func configureFirebase() {
         FirebaseApp.configure()
     }
-
+    
+    private func registerUserNotification() {
+        DailyNotification.shared.register()
+    }
 }

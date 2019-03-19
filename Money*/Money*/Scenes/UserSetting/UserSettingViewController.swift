@@ -8,26 +8,20 @@
 
 import UIKit
 import Firebase
-import UserNotifications
 
 final class UserSettingViewController: UITableViewController {
     // MARK: - IBOutlets
     @IBOutlet private var notificationTimeLabel: UILabel!
     @IBOutlet private var notificationSwitch: UISwitch!
     
-    // MARK: - Private properties
+    // MARK: - Properties
     var user: User!
-    var notificationTime: Date?
-    var isNotificationEnabled: Bool?
-    var timePicker: UIDatePicker?
-    var isTimePickerHidden = true
+    private var timePicker = UIDatePicker()
+    private var isTimePickerHidden = true
     
     // MARK: - Private functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerUserNotification()
-        loadUserSetting()
-        updateNotificationSetting()
         configureSubviews()
     }
     
@@ -35,106 +29,39 @@ final class UserSettingViewController: UITableViewController {
         tableView.backgroundView = GradientView()
         title = user.email
         
-        if let isNotificationEnabled = isNotificationEnabled {
-            notificationSwitch.setOn(isNotificationEnabled, animated: true)
-        }
+        notificationSwitch.setOn(DailyNotification.shared.isNotificationEnabled, animated: true)
         
-        if let notificationTime = notificationTime {
-            let formatter = DateFormatter()
-            formatter.timeStyle = .short
-            notificationTimeLabel.text = formatter.string(from: notificationTime)
-        }
-    }
-    
-    private func loadUserSetting() {
-        isNotificationEnabled = UserDefaults.standard.value(forKey: Identifier.keyIsNofiticationEnabled) as? Bool
-        notificationTime = UserDefaults.standard.value(forKey: Identifier.keyNotificationTime) as? Date
-    }
-    
-    private func registerUserNotification() {
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { [weak self] (_, error) in
-            guard error == nil else {
-                self?.presentErrorAlert(title: Constant.titleError, message: Constant.messageError)
-                return
-            }
-        }
-    }
-    
-    private func scheduleUserNotification() {
-        guard let time = notificationTime else { return }
-        
-        let notificationCenter = UNUserNotificationCenter.current()
-        
-        let content = UNMutableNotificationContent()
-        content.title = Constant.titleUserNotification
-        content.body = Constant.bodyUserNotification
-        content.categoryIdentifier = "alarm"
-        content.sound = UNNotificationSound.default
-        
-        var dateComponents = DateComponents()
-        dateComponents.hour = Calendar.current.component(.hour, from: time)
-        dateComponents.minute = Calendar.current.component(.minute, from: time)
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        notificationCenter.add(request, withCompletionHandler: nil)
-    }
-    
-    private func unscheduleUserNotification() {
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.removeAllPendingNotificationRequests()
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        notificationTimeLabel.text = formatter.string(from: DailyNotification.shared.notificationTime)
     }
     
     private func showHideTimePicker() {
         if isTimePickerHidden {
-            timePicker = UIDatePicker()
-            guard let timePicker = timePicker else { return }
-            
             timePicker.datePickerMode = .time
             timePicker.frame = CGRect(x: 0.0,
-                                      y: view.frame.height / 2 + timePicker.bounds.size.height / 2,
-                                      width: view.frame.width,
-                                      height: timePicker.bounds.size.height)
+                                      y: view.bounds.size.height / 2 + timePicker.frame.size.height / 2,
+                                      width: view.bounds.size.width,
+                                      height: timePicker.frame.size.height)
             timePicker.backgroundColor = .darkIvory
             
-            if let time = notificationTime {
-                timePicker.setDate(time, animated: true)
-            }
+            timePicker.setDate(DailyNotification.shared.notificationTime, animated: true)
             
             view.addSubview(timePicker)
             timePicker.addTarget(self, action: #selector(updateNotificationTimeLabel(sender:)), for: .valueChanged)
             isTimePickerHidden = false
         } else {
-            guard let timePicker = timePicker else { return }
-            
             timePicker.removeFromSuperview()
             isTimePickerHidden = true
         }
     }
     
     @objc private func updateNotificationTimeLabel(sender: UIDatePicker) {
-        notificationTime = sender.date
-        UserDefaults.standard.set(notificationTime, forKey: Identifier.keyNotificationTime)
-        
-        guard let time = notificationTime else { return }
-        
         let formatter = DateFormatter()
         formatter.timeStyle = .short
-        notificationTimeLabel.text = formatter.string(from: time)
+        notificationTimeLabel.text = formatter.string(from: sender.date)
         
-        updateNotificationSetting()
-    }
-    
-    private func updateNotificationSetting() {
-        guard let isNotificationEnabled = isNotificationEnabled else { return }
-        
-        if isNotificationEnabled {
-            scheduleUserNotification()
-        } else {
-            unscheduleUserNotification()
-        }
+        DailyNotification.shared.updateSetting(time: sender.date)
     }
     
     private func handleSignoutButtonTapped() {
@@ -180,10 +107,7 @@ final class UserSettingViewController: UITableViewController {
     
     // MARK: - IBActions
     @IBAction func handleNotificationSwitch(_ sender: UISwitch) {
-        isNotificationEnabled = sender.isOn
-        UserDefaults.standard.set(isNotificationEnabled, forKey: Identifier.keyIsNofiticationEnabled)
-        
-        updateNotificationSetting()
+        DailyNotification.shared.updateSetting(isEnabled: sender.isOn)
     }
 }
 

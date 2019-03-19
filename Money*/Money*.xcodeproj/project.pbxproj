@@ -17,6 +17,7 @@
 		AEC39E93223B5BF60042CEBC /* AccountValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39E92223B5BF60042CEBC /* AccountValidator.swift */; };
 		AEC39E96223B7D180042CEBC /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39E95223B7D180042CEBC /* UserSettingViewController.swift */; };
 		AEC39E99223B88F20042CEBC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39E98223B88F20042CEBC /* User.swift */; };
+		AEC39E9D22408AD90042CEBC /* DailyNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39E9C22408AD90042CEBC /* DailyNotification.swift */; };
 		AEFB0256223912DD00EB3437 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB0255223912DD00EB3437 /* LoginViewController.swift */; };
 		AEFB0259223914A900EB3437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEFB0257223914A900EB3437 /* LaunchScreen.storyboard */; };
 		AEFB025B2239E69C00EB3437 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB025A2239E69C00EB3437 /* UIColor+.swift */; };
@@ -42,6 +43,7 @@
 		AEC39E95223B7D180042CEBC /* UserSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
 		AEC39E98223B88F20042CEBC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AEC39E9B223F8FD70042CEBC /* Money*.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Money*.entitlements"; sourceTree = "<group>"; };
+		AEC39E9C22408AD90042CEBC /* DailyNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNotification.swift; sourceTree = "<group>"; };
 		AEFB0255223912DD00EB3437 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AEFB0258223914A900EB3437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Scenes/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEFB025A2239E69C00EB3437 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				AEC39E97223B88E50042CEBC /* Models */,
+				AEC39E9C22408AD90042CEBC /* DailyNotification.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				AEC39E91223B4D570042CEBC /* FirebaseAuthorizable.swift in Sources */,
 				AEBA03842238F1D400D12F2C /* GradientView.swift in Sources */,
 				AEFB026E223A104500EB3437 /* Constant.swift in Sources */,
+				AEC39E9D22408AD90042CEBC /* DailyNotification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
