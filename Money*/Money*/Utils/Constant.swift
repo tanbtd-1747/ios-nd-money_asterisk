@@ -51,4 +51,6 @@ struct Constant {
     static let buttonDeny = "Không"
     static let buttonAllow = "Đồng ý"
     static let buttonOK = "OK"
+    
+    static let sceneTitleWalletManagement = "Ví của tôi"
 }
