@@ -25,6 +25,16 @@ final class UserSettingViewController: UITableViewController {
         configureSubviews()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case Identifier.segueFromUserSettingToWalletManagement:
+            let walletManagementViewController = segue.destination as? WalletManagementViewController
+            walletManagementViewController?.user = user
+        default:
+            return
+        }
+    }
+    
     private func configureSubviews() {
         tableView.backgroundView = GradientView()
         title = user.email
