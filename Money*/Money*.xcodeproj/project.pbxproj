@@ -13,10 +13,11 @@
 		AEBA036D2238B36200D12F2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEBA036C2238B36200D12F2C /* Assets.xcassets */; };
 		AEBA03802238E4DF00D12F2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AEBA037F2238E4DF00D12F2C /* GoogleService-Info.plist */; };
 		AEBA03842238F1D400D12F2C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA03832238F1D400D12F2C /* GradientView.swift */; };
-		AEC39E93223B5BF60042CEBC /* AccountValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39E92223B5BF60042CEBC /* AccountValidator.swift */; };
 		AEC39E91223B4D570042CEBC /* FirebaseAuthorizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39E90223B4D570042CEBC /* FirebaseAuthorizable.swift */; };
+		AEC39E93223B5BF60042CEBC /* AccountValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39E92223B5BF60042CEBC /* AccountValidator.swift */; };
 		AEC39E96223B7D180042CEBC /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39E95223B7D180042CEBC /* UserSettingViewController.swift */; };
 		AEC39E99223B88F20042CEBC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39E98223B88F20042CEBC /* User.swift */; };
+		AEC39E9D22408AD90042CEBC /* DailyNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39E9C22408AD90042CEBC /* DailyNotification.swift */; };
 		AEFB0256223912DD00EB3437 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB0255223912DD00EB3437 /* LoginViewController.swift */; };
 		AEFB0259223914A900EB3437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEFB0257223914A900EB3437 /* LaunchScreen.storyboard */; };
 		AEFB025B2239E69C00EB3437 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB025A2239E69C00EB3437 /* UIColor+.swift */; };
@@ -37,15 +38,16 @@
 		AEBA03712238B36200D12F2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEBA037F2238E4DF00D12F2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AEBA03832238F1D400D12F2C /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		AEC39E92223B5BF60042CEBC /* AccountValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountValidator.swift; sourceTree = "<group>"; };
 		AEC39E90223B4D570042CEBC /* FirebaseAuthorizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthorizable.swift; sourceTree = "<group>"; };
+		AEC39E92223B5BF60042CEBC /* AccountValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountValidator.swift; sourceTree = "<group>"; };
 		AEC39E95223B7D180042CEBC /* UserSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
 		AEC39E98223B88F20042CEBC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AEC39E9B223F8FD70042CEBC /* Money*.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Money*.entitlements"; sourceTree = "<group>"; };
+		AEC39E9C22408AD90042CEBC /* DailyNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNotification.swift; sourceTree = "<group>"; };
 		AEFB0255223912DD00EB3437 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AEFB0258223914A900EB3437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Scenes/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEFB025A2239E69C00EB3437 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		AEFB025C2239E86E00EB3437 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
-		AEFB0268223A02FE00EB3437 /* Money*.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Money*.entitlements"; sourceTree = "<group>"; };
 		AEFB026B223A0FEE00EB3437 /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 		AEFB026D223A104500EB3437 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		AEFB0271223A150400EB3437 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -105,7 +107,7 @@
 		AEBA03642238B36100D12F2C /* Money* */ = {
 			isa = PBXGroup;
 			children = (
-				AEFB0268223A02FE00EB3437 /* Money*.entitlements */,
+				AEC39E9B223F8FD70042CEBC /* Money*.entitlements */,
 				AEBA03712238B36200D12F2C /* Info.plist */,
 				AEBA037F2238E4DF00D12F2C /* GoogleService-Info.plist */,
 				AEBA037C2238B72300D12F2C /* Resources */,
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				AEC39E97223B88E50042CEBC /* Models */,
+				AEC39E9C22408AD90042CEBC /* DailyNotification.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 				AEFB026F223A14D500EB3437 /* Signup */,
 				AEFB0270223A14DB00EB3437 /* Dashboard */,
 				AEC39E94223B7CFB0042CEBC /* UserSetting */,
+				AEC39E9A223F2CB50042CEBC /* WalletManagement */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -207,6 +211,13 @@
 				AEC39E98223B88F20042CEBC /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		AEC39E9A223F2CB50042CEBC /* WalletManagement */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WalletManagement;
 			sourceTree = "<group>";
 		};
 		AEFB026F223A14D500EB3437 /* Signup */ = {
@@ -397,6 +408,7 @@
 				AEC39E91223B4D570042CEBC /* FirebaseAuthorizable.swift in Sources */,
 				AEBA03842238F1D400D12F2C /* GradientView.swift in Sources */,
 				AEFB026E223A104500EB3437 /* Constant.swift in Sources */,
+				AEC39E9D22408AD90042CEBC /* DailyNotification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,6 +556,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Money*/Money*.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9B9A8JD2BS;
 				INFOPLIST_FILE = "Money*/Info.plist";
@@ -553,6 +566,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tranductanb.money;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -564,6 +578,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Money*/Money*.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9B9A8JD2BS;
 				INFOPLIST_FILE = "Money*/Info.plist";
@@ -573,6 +588,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tranductanb.money;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

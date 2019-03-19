@@ -26,6 +26,8 @@ struct Constant {
     static let titleResetPasswordError = "Đặt lại mật khẩu thất bại"
     static let titleSignup = "Đăng ký Tài khoản"
     static let titleSignupError = "Đăng ký Tài khoản thất bại"
+    static let titleSignoutError = "Đăng xuất thất bại"
+    static let titleUserNotification = "Money* Hàng ngày"
     
     static let messageError = "Vui lòng thử lại."
     static let messageErrorEmptyEmail = "Vui lòng không bỏ trống email."
@@ -44,6 +46,7 @@ struct Constant {
     static let messageSignupErrorPasswordNotMatch = "Xác nhận mật khẩu không giống với mật khẩu."
     static let messageSignupErrorEmailAlreadyInUse = "Tài khoản đã tồn tại. Vui lòng tạo một tài khoản khác."
     static let messageSignupSuccessful = "Đăng ký thành công! Bạn có thể dùng email %@ để đăng nhập."
+    static let bodyUserNotification = "Hãy cập nhật thu - chi trong ngày hôm nay của bạn để quản lý tài chính tốt hơn."
     
     static let buttonDeny = "Không"
     static let buttonAllow = "Đồng ý"
