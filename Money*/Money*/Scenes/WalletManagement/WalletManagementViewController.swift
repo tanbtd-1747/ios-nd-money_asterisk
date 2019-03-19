@@ -10,7 +10,7 @@ import UIKit
 
 final class WalletManagementViewController: UIViewController {
     // MARK: - IBOutlets
-    @IBOutlet var walletTableView: UITableView!
+    @IBOutlet private var walletTableView: UITableView!
     
     // MARK: - Private functions
     override func viewDidLoad() {
