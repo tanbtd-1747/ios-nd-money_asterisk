@@ -141,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				AEC39E97223B88E50042CEBC /* Models */,
-				AEC39E9C22408AD90042CEBC /* DailyNotification.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -187,6 +186,7 @@
 				AEFB026B223A0FEE00EB3437 /* Identifier.swift */,
 				AEFB026D223A104500EB3437 /* Constant.swift */,
 				AEC39E92223B5BF60042CEBC /* AccountValidator.swift */,
+				AEC39E9C22408AD90042CEBC /* DailyNotification.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";

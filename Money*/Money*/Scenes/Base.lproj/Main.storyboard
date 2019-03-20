@@ -42,7 +42,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -229,7 +229,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -634,7 +634,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tên" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDc-xS-tb9">
                                         <rect key="frame" x="132.5" y="5" width="30" height="21"/>
@@ -678,6 +678,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="njr-AB-ALb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0ab-0q-UPW" secondAttribute="trailing" constant="8" symbolic="YES" id="7Lh-CS-NOZ"/>
                                     <constraint firstAttribute="trailing" secondItem="njr-AB-ALb" secondAttribute="trailing" constant="5" id="Dy9-sm-cYl"/>
                                     <constraint firstItem="k88-6E-sWR" firstAttribute="centerX" secondItem="Ibj-gx-so9" secondAttribute="centerX" id="FAQ-kr-qjW"/>
                                     <constraint firstItem="k88-6E-sWR" firstAttribute="top" secondItem="Ibj-gx-so9" secondAttribute="top" constant="5" id="QKW-Km-mE2"/>
@@ -697,7 +698,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Số dư" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xlf-cI-WEe">
                                         <rect key="frame" x="123.5" y="5" width="48.5" height="21"/>
@@ -742,7 +743,11 @@
                         <viewLayoutGuide key="safeArea" id="zCd-dg-OJg"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Wallet" id="YWv-y2-u3A">
-                        <barButtonItem key="rightBarButtonItem" title="Lưu" style="done" id="zVZ-c7-1gR"/>
+                        <barButtonItem key="rightBarButtonItem" title="Lưu" style="done" id="zVZ-c7-1gR">
+                            <connections>
+                                <action selector="handleSaveButtonTapped:" destination="IM3-mn-2hL" id="hlY-ZJ-fMb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="balanceContainerView" destination="eLC-Ph-WQL" id="vs4-bi-6fz"/>
@@ -751,7 +756,7 @@
                         <outlet property="nameTextField" destination="n8r-QM-JQ9" id="Dom-Cv-UfM"/>
                         <outlet property="typeContainerView" destination="Ibj-gx-so9" id="2nw-aP-I2I"/>
                         <outlet property="typeLabel" destination="0ab-0q-UPW" id="ftj-6V-FaC"/>
-                        <segue destination="DeY-RF-tGl" kind="show" identifier="AddWalletToWalletType" id="qqJ-uG-9uN"/>
+                        <segue destination="DeY-RF-tGl" kind="show" identifier="FromAddWalletToWalletType" id="qqJ-uG-9uN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lqr-wd-5GF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -807,9 +812,11 @@
                     </view>
                     <connections>
                         <outlet property="walletTypeTableView" destination="AMv-f1-H2n" id="3dq-bM-C2D"/>
+                        <segue destination="Z8v-jN-TMs" kind="unwind" identifier="UnwindToAddWallet" unwindAction="unwindSegueToAddWalletWithSegue:" id="Xeq-L7-y1r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="acf-W7-wLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Z8v-jN-TMs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5103" y="-971"/>
         </scene>

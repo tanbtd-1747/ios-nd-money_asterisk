@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-enum WalletType: Int {
+enum WalletType: Int, CaseIterable {
     case cash
     case creditCard
     case other
@@ -26,6 +26,14 @@ struct Wallet {
         return ["name": name,
                 "type": type.rawValue,
                 "balance": balance]
+    }
+    
+    init() {
+        ref = nil
+        key = ""
+        name = ""
+        type = .cash
+        balance = 0
     }
     
     init(name: String, type: WalletType, balance: UInt64, key: String = "") {

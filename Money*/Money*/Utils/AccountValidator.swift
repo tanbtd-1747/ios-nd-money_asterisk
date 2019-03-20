@@ -20,4 +20,8 @@ struct AccountValidator {
     static func validatePasswordMatch(_ confirmPassword: String, _ password: String) -> Bool {
         return confirmPassword == password
     }
+    
+    static func validateIsNumber(_ text: String) -> Bool {
+        return CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: text))
+    }
 }
