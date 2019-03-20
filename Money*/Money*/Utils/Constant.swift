@@ -63,6 +63,7 @@ struct Constant {
     
     static let sceneTitleWalletManagement = "Ví của tôi"
     static let sceneTitleAddWallet = "Thêm ví"
+    static let sceneTitleEditWallet = "Sửa ví"
     static let sceneTitleWalletType = "Loại ví"
     
     static let nameWalletTypeCash = "Tiền mặt"
