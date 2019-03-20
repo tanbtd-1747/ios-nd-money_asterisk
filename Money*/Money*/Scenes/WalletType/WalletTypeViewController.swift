@@ -12,6 +12,10 @@ final class WalletTypeViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet private var walletTypeTableView: UITableView!
     
+    // MARK: Properties
+    private var types = [String]()
+    weak var delegate: WalletTypeViewControllerDelegate?
+    
     // MARK: - Private functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,17 +24,44 @@ final class WalletTypeViewController: UIViewController {
     
     private func configureSubviews() {
         title = Constant.sceneTitleWalletType
+        
+        for walletType in WalletType.allCases {
+            switch walletType {
+            case .cash:
+                types.append(Constant.nameWalletTypeCash)
+            case .creditCard:
+                types.append(Constant.nameWalletTypeCreditCard)
+            case .other:
+                types.append(Constant.nameOther)
+            }
+        }
+        walletTypeTableView.reloadData()
     }
 }
 
 // MARK: - TableView Data Source
 extension WalletTypeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return types.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.cellWalletType, for: indexPath)
+        cell.textLabel?.text = types[indexPath.row]
         return cell
     }
+}
+
+// MARK: - TableView Delegate
+extension WalletTypeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.didSelect(type: WalletType(rawValue: indexPath.row) ?? .other,
+                            with: types[indexPath.row])
+        performSegue(withIdentifier: Identifier.segueUnwindToAddWallet, sender: nil)
+    }
+}
+
+// MARK: - WalletTypeViewControllerDelegate Protocol
+protocol WalletTypeViewControllerDelegate: class {
+    func didSelect(type: WalletType, with name: String)
 }

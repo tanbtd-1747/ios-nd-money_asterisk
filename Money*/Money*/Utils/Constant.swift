@@ -31,7 +31,6 @@ struct Constant {
     static let titleSignup = "Đăng ký Tài khoản"
     static let titleSignupError = "Đăng ký Tài khoản thất bại"
     static let titleSignoutError = "Đăng xuất thất bại"
-    static let titleUserNotification = "Money* Hàng ngày"
     
     static let messageError = "Vui lòng thử lại."
     static let messageErrorEmptyEmail = "Vui lòng không bỏ trống email."
@@ -52,6 +51,10 @@ struct Constant {
     static let messageSignupSuccessful = "Đăng ký thành công! Bạn có thể dùng email %@ để đăng nhập."
     static let messageSnapshotError = "Tải dữ liệu về bị lỗi."
     static let messageDataError = "Dữ liệu bị lỗi!"
+    static let messageWalletErrorEmptyName = "Vui lòng không bỏ trống tên ví."
+    static let messageWalletErrorNotNumberBalance = "Số dư chỉ chứa các chữ số 0-9."
+    
+    static let titleUserNotification = "Money* Hàng ngày"
     static let bodyUserNotification = "Hãy cập nhật thu - chi trong ngày hôm nay của bạn để quản lý tài chính tốt hơn."
     
     static let buttonDeny = "Không"
@@ -61,4 +64,8 @@ struct Constant {
     static let sceneTitleWalletManagement = "Ví của tôi"
     static let sceneTitleAddWallet = "Thêm ví"
     static let sceneTitleWalletType = "Loại ví"
+    
+    static let nameWalletTypeCash = "Tiền mặt"
+    static let nameWalletTypeCreditCard = "Thẻ ngân hàng"
+    static let nameOther = "Khác"
 }

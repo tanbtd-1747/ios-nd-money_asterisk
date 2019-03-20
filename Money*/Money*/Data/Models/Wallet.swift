@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-enum WalletType: Int {
+enum WalletType: Int, CaseIterable {
     case cash
     case creditCard
     case other
