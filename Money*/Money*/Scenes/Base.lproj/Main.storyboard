@@ -800,6 +800,7 @@
                     <connections>
                         <outlet property="walletTypeTableView" destination="AMv-f1-H2n" id="3dq-bM-C2D"/>
                         <segue destination="Z8v-jN-TMs" kind="unwind" identifier="UnwindToAddWallet" unwindAction="unwindSegueToAddWalletWithSegue:" id="Xeq-L7-y1r"/>
+                        <segue destination="Z8v-jN-TMs" kind="unwind" identifier="UnwindToEditWallet" unwindAction="unwindSegueToEditWalletWithSegue:" id="4eN-YY-2rH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="acf-W7-wLn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -991,6 +992,9 @@
                                 <state key="normal" title="Xoá">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="handleDeleteButtonTouchUpInside:" destination="Rzb-Ww-Oud" eventType="touchUpInside" id="W2w-5t-n4o"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1013,7 +1017,7 @@
                     <navigationItem key="navigationItem" title="Edit Wallet" id="8MT-Nl-h5X">
                         <barButtonItem key="rightBarButtonItem" title="Lưu" style="done" id="DHv-Lr-9cM">
                             <connections>
-                                <action selector="handleSaveButtonTapped:" destination="Rzb-Ww-Oud" id="EsG-Zh-vbE"/>
+                                <action selector="handleSaveButtonTapped:" destination="Rzb-Ww-Oud" id="bSh-NH-jzd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

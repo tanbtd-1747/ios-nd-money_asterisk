@@ -15,6 +15,7 @@ final class WalletTypeViewController: UIViewController {
     // MARK: Properties
     private var types = [String]()
     weak var delegate: WalletTypeViewControllerDelegate?
+    var isEdittingWallet = false
     
     // MARK: - Private functions
     override func viewDidLoad() {
@@ -57,7 +58,12 @@ extension WalletTypeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.didSelect(type: WalletType(rawValue: indexPath.row) ?? .other,
                             with: types[indexPath.row])
-        performSegue(withIdentifier: Identifier.segueUnwindToAddWallet, sender: nil)
+        
+        if isEdittingWallet {
+            performSegue(withIdentifier: Identifier.segueUnwindToEditWallet, sender: nil)
+        } else {
+            performSegue(withIdentifier: Identifier.segueUnwindToAddWallet, sender: nil)
+        }
     }
 }
 
