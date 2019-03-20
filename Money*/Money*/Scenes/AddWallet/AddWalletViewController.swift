@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 final class AddWalletViewController: UIViewController {
     // MARK: - IBOutlets
@@ -18,6 +19,7 @@ final class AddWalletViewController: UIViewController {
     @IBOutlet private var balanceTextField: UITextField!
     
     // MARK: - Properties
+    var user: User!
     private var wallet = Wallet()
     
     // MARK: - Private functions
@@ -53,6 +55,12 @@ final class AddWalletViewController: UIViewController {
         typeLabel.text = name
     }
     
+    private func saveData() {
+        Firestore.firestore()
+            .collection(user.email)
+            .addDocument(data: wallet.dictionary)
+    }
+    
     // MARK: - IBActions
     @IBAction private func handleSaveButtonTapped(_ sender: Any) {
         guard let name = nameTextField.text,
@@ -72,7 +80,8 @@ final class AddWalletViewController: UIViewController {
         wallet.name = name
         wallet.balance = UInt64(balance) ?? 0
         
-        // TODO: Save Wallet
+        saveData()
+        performSegue(withIdentifier: Identifier.segueUnwindToWalletManagement, sender: nil)
     }
     
     @IBAction func unwindSegueToAddWallet(segue: UIStoryboardSegue) {

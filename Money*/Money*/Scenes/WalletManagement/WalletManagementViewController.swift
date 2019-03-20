@@ -28,6 +28,16 @@ final class WalletManagementViewController: UIViewController {
         fetchData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case Identifier.segueFromWalletManagementToAddWallet:
+            let addWalletViewController = segue.destination as? AddWalletViewController
+            addWalletViewController?.user = user
+        default:
+            return
+        }
+    }
+    
     private func configureSubviews() {
         title = Constant.sceneTitleWalletManagement
     }
@@ -58,6 +68,9 @@ final class WalletManagementViewController: UIViewController {
     // MARK: - IBActions
     @IBAction func handleAddButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: Identifier.segueFromWalletManagementToAddWallet, sender: nil)
+    }
+    
+    @IBAction func unwindSegueToWalletManagement(segue: UIStoryboardSegue) {
     }
 }
 

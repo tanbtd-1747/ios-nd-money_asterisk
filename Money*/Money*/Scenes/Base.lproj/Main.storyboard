@@ -757,9 +757,11 @@
                         <outlet property="typeContainerView" destination="Ibj-gx-so9" id="2nw-aP-I2I"/>
                         <outlet property="typeLabel" destination="0ab-0q-UPW" id="ftj-6V-FaC"/>
                         <segue destination="DeY-RF-tGl" kind="show" identifier="FromAddWalletToWalletType" id="qqJ-uG-9uN"/>
+                        <segue destination="5rb-x6-qrl" kind="unwind" identifier="UnwindToWalletManagement" unwindAction="unwindSegueToWalletManagementWithSegue:" id="U28-BR-NEb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lqr-wd-5GF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="5rb-x6-qrl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4276" y="-971.06446776611699"/>
         </scene>
