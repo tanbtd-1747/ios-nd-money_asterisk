@@ -11,7 +11,7 @@ import UserNotifications
 
 class DailyNotification {
     var notificationTime = Date()
-    var isNotificationEnabled = Constant.defaultIsNotificationEnabled
+    var isNotificationEnabled = false
     
     static let shared = DailyNotification()
     

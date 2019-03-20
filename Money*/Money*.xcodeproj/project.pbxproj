@@ -20,6 +20,8 @@
 		AEC39E9D22408AD90042CEBC /* DailyNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39E9C22408AD90042CEBC /* DailyNotification.swift */; };
 		AEC39E9F224099B20042CEBC /* WalletManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39E9E224099B20042CEBC /* WalletManagementViewController.swift */; };
 		AEC39EA122409D2B0042CEBC /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EA022409D2B0042CEBC /* Wallet.swift */; };
+		AEC39EA42241D59B0042CEBC /* AddWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EA32241D59B0042CEBC /* AddWalletViewController.swift */; };
+		AEC39EA72241DD590042CEBC /* WalletTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EA62241DD590042CEBC /* WalletTypeViewController.swift */; };
 		AEFB0256223912DD00EB3437 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB0255223912DD00EB3437 /* LoginViewController.swift */; };
 		AEFB0259223914A900EB3437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEFB0257223914A900EB3437 /* LaunchScreen.storyboard */; };
 		AEFB025B2239E69C00EB3437 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB025A2239E69C00EB3437 /* UIColor+.swift */; };
@@ -48,6 +50,8 @@
 		AEC39E9C22408AD90042CEBC /* DailyNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyNotification.swift; sourceTree = "<group>"; };
 		AEC39E9E224099B20042CEBC /* WalletManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManagementViewController.swift; sourceTree = "<group>"; };
 		AEC39EA022409D2B0042CEBC /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		AEC39EA32241D59B0042CEBC /* AddWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWalletViewController.swift; sourceTree = "<group>"; };
+		AEC39EA62241DD590042CEBC /* WalletTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTypeViewController.swift; sourceTree = "<group>"; };
 		AEFB0255223912DD00EB3437 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AEFB0258223914A900EB3437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Scenes/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEFB025A2239E69C00EB3437 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 				AEFB0270223A14DB00EB3437 /* Dashboard */,
 				AEC39E94223B7CFB0042CEBC /* UserSetting */,
 				AEC39E9A223F2CB50042CEBC /* WalletManagement */,
+				AEC39EA22241D5820042CEBC /* AddWallet */,
+				AEC39EA52241DD330042CEBC /* WalletType */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -224,6 +230,22 @@
 				AEC39E9E224099B20042CEBC /* WalletManagementViewController.swift */,
 			);
 			path = WalletManagement;
+			sourceTree = "<group>";
+		};
+		AEC39EA22241D5820042CEBC /* AddWallet */ = {
+			isa = PBXGroup;
+			children = (
+				AEC39EA32241D59B0042CEBC /* AddWalletViewController.swift */,
+			);
+			path = AddWallet;
+			sourceTree = "<group>";
+		};
+		AEC39EA52241DD330042CEBC /* WalletType */ = {
+			isa = PBXGroup;
+			children = (
+				AEC39EA62241DD590042CEBC /* WalletTypeViewController.swift */,
+			);
+			path = WalletType;
 			sourceTree = "<group>";
 		};
 		AEFB026F223A14D500EB3437 /* Signup */ = {
@@ -413,6 +435,8 @@
 				AEFB0256223912DD00EB3437 /* LoginViewController.swift in Sources */,
 				AEC39E93223B5BF60042CEBC /* AccountValidator.swift in Sources */,
 				AEC39E91223B4D570042CEBC /* FirebaseAuthorizable.swift in Sources */,
+				AEC39EA72241DD590042CEBC /* WalletTypeViewController.swift in Sources */,
+				AEC39EA42241D59B0042CEBC /* AddWalletViewController.swift in Sources */,
 				AEBA03842238F1D400D12F2C /* GradientView.swift in Sources */,
 				AEFB026E223A104500EB3437 /* Constant.swift in Sources */,
 				AEC39EA122409D2B0042CEBC /* Wallet.swift in Sources */,

@@ -22,7 +22,6 @@ struct Constant {
     // MARK: - Notification Params
     static let defaultNotificationHour = 22
     static let defaultNotificationMinute = 0
-    static let defaultIsNotificationEnabled = false
     
     // MARK: - String
     static let titleError = "Lỗi"
@@ -60,4 +59,6 @@ struct Constant {
     static let buttonOK = "OK"
     
     static let sceneTitleWalletManagement = "Ví của tôi"
+    static let sceneTitleAddWallet = "Thêm ví"
+    static let sceneTitleWalletType = "Loại ví"
 }

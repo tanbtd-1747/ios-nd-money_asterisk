@@ -15,9 +15,11 @@ struct Identifier {
     static let segueFromUserSettingToWalletManagement = "FromUserSettingToWalletManagement"
     static let segueFromWalletManagementToAddWallet = "FromWalletManagementToAddWallet"
     static let segueFromWalletManagementToEditWallet = "FromWalletManagementToEditWallet"
+    static let segueFromAddWalletToWalletType = "FromAddWalletToWalletType"
     
     static let keyIsNofiticationEnabled = "KeyIsNotificationEnabled"
     static let keyNotificationTime = "KeyNotificationTime"
     
     static let cellWallet = "WalletCell"
+    static let cellWalletType = "WalletTypeCell"
 }
