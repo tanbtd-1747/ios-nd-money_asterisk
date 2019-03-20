@@ -18,7 +18,7 @@ final class AddWalletViewController: UIViewController {
     @IBOutlet private var balanceTextField: UITextField!
     
     // MARK: - Properties
-    private var wallet = Wallet(name: "", type: .cash, balance: 0)
+    private var wallet = Wallet()
     
     // MARK: - Private functions
     override func viewDidLoad() {

@@ -28,6 +28,14 @@ struct Wallet {
                 "balance": balance]
     }
     
+    init() {
+        ref = nil
+        key = ""
+        name = ""
+        type = .cash
+        balance = 0
+    }
+    
     init(name: String, type: WalletType, balance: UInt64, key: String = "") {
         self.ref = nil
         self.key = key
