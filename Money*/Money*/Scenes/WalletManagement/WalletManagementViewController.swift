@@ -54,6 +54,11 @@ final class WalletManagementViewController: UIViewController {
                 self?.walletTableView.reloadData()
         }
     }
+    
+    // MARK: - IBActions
+    @IBAction func handleAddButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: Identifier.segueFromWalletManagementToAddWallet, sender: nil)
+    }
 }
 
 // MARK: - TableView Data Source
@@ -67,5 +72,13 @@ extension WalletManagementViewController: UITableViewDataSource {
         let label = cell.viewWithTag(1) as? UILabel
         label?.text = wallets[indexPath.row].name
         return cell
+    }
+}
+
+// MARK: - TableView Delegate
+extension WalletManagementViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: Identifier.segueFromWalletManagementToEditWallet, sender: indexPath.row)
     }
 }
