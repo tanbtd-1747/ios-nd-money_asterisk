@@ -33,25 +33,24 @@ final class WalletManagementViewController: UIViewController {
     }
     
     private func fetchData() {
-        Firestore
-            .firestore()
+        Firestore.firestore()
             .collection(user.email)
+            .order(by: "name")
             .addSnapshotListener(includeMetadataChanges: true) { [weak self] (querySnapshot, _) in
                 guard let snapshot = querySnapshot else {
                     self?.presentErrorAlert(title: Constant.titleError, message: Constant.messageSnapshotError)
                     return
                 }
                 
-                let models = snapshot.documents.map({ (document) -> Wallet in
+                self?.wallets = []
+                for document in snapshot.documents {
                     if let model = Wallet(snapshot: document) {
-                        return model
+                        self?.wallets.append(model)
                     } else {
                         self?.presentErrorAlert(title: Constant.titleError, message: Constant.messageDataError)
-                        return Wallet(name: "", type: .other, balance: 0)
                     }
-                })
+                }
                 
-                self?.wallets = models
                 self?.walletTableView.reloadData()
         }
     }
