@@ -27,6 +27,14 @@ final class EditWalletViewController: UIViewController {
         configureSubviews()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Identifier.segueFromEditWalletToWalletType {
+            let walletTypeViewController = segue.destination as? WalletTypeViewController
+            walletTypeViewController?.isEdittingWallet = true
+            walletTypeViewController?.delegate = self
+        }
+    }
+    
     private func configureSubviews() {
         title = Constant.sceneTitleEditWallet
         [nameContainerView, typeContainerView, balanceContainerView].forEach { $0?.makeRounded() }
@@ -42,5 +50,53 @@ final class EditWalletViewController: UIViewController {
         case .other:
             typeLabel.text = Constant.nameOther
         }
+        
+        let tapOnTypeGesture = UITapGestureRecognizer(target: self, action: #selector(handleWalletTypeTapped))
+        typeContainerView.addGestureRecognizer(tapOnTypeGesture)
+    }
+    
+    @objc private func handleWalletTypeTapped() {
+        performSegue(withIdentifier: Identifier.segueFromEditWalletToWalletType, sender: nil)
+    }
+    
+    private func updateWalletType(type: WalletType, with name: String) {
+        wallet.type = type
+        typeLabel.text = name
+    }
+    
+    // MARK: - IBActions
+    @IBAction private func handleSaveButtonTapped(_ sender: Any) {
+        guard let name = nameTextField.text,
+            AccountValidator.validateNotEmpty(name) else {
+                presentErrorAlert(title: Constant.titleError,
+                                  message: Constant.messageWalletErrorEmptyName)
+                return
+        }
+        
+        guard let balance = balanceTextField.text,
+            AccountValidator.validateIsNumber(balance) else {
+                presentErrorAlert(title: Constant.titleError,
+                                  message: Constant.messageWalletErrorNotNumberBalance)
+                return
+        }
+        
+        wallet.name = name
+        wallet.balance = UInt64(balance) ?? 0
+        
+        // TODO
+    }
+    
+    @IBAction private func handleDeleteButtonTouchUpInside(_ sender: Any) {
+        // TODO
+    }
+    
+    @IBAction func unwindSegueToEditWallet(segue: UIStoryboardSegue) {
+    }
+}
+
+// MARK: - WalletTypeViewControllerDelegate
+extension EditWalletViewController: WalletTypeViewControllerDelegate {
+    func didSelect(type: WalletType, with name: String) {
+        updateWalletType(type: type, with: name)
     }
 }
