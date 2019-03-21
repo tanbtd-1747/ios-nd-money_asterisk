@@ -33,6 +33,12 @@ final class WalletManagementViewController: UIViewController {
         case Identifier.segueFromWalletManagementToAddWallet:
             let addWalletViewController = segue.destination as? AddWalletViewController
             addWalletViewController?.user = user
+        case Identifier.segueFromWalletManagementToEditWallet:
+            let editWalletViewController = segue.destination as? EditWalletViewController
+            guard let id = sender as? Int else {
+                return
+            }
+            editWalletViewController?.wallet = wallets[id]
         default:
             return
         }
