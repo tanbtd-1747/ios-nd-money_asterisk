@@ -65,11 +65,19 @@ final class EditWalletViewController: UIViewController {
     }
     
     private func updateData() {
-        wallet.ref?.updateData(wallet.dictionary)
+        wallet.ref?.updateData(wallet.dictionary, completion: { [weak self] (error) in
+            if error != nil {
+                self?.presentErrorAlert(title: Constant.titleError, message: Constant.messageWalletUpdateError)
+            }
+        })
     }
     
     private func deleteData() {
-        wallet.ref?.delete()
+        wallet.ref?.delete(completion: { [weak self] (error) in
+            if error != nil {
+                self?.presentErrorAlert(title: Constant.titleError, message: Constant.messageWalletDeleteError)
+            }
+        })
     }
     
     // MARK: - IBActions
