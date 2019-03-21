@@ -58,12 +58,9 @@ extension WalletTypeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.didSelect(type: WalletType(rawValue: indexPath.row) ?? .other,
                             with: types[indexPath.row])
-        
-        if isEdittingWallet {
-            performSegue(withIdentifier: Identifier.segueUnwindToEditWallet, sender: nil)
-        } else {
-            performSegue(withIdentifier: Identifier.segueUnwindToAddWallet, sender: nil)
-        }
+        performSegue(withIdentifier: isEdittingWallet ?
+            Identifier.segueUnwindToEditWallet : Identifier.segueUnwindToAddWallet,
+                     sender: nil)
     }
 }
 
