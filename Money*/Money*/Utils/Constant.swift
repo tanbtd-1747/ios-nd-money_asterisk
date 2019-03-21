@@ -53,6 +53,8 @@ struct Constant {
     static let messageDataError = "Dữ liệu bị lỗi!"
     static let messageWalletErrorEmptyName = "Vui lòng không bỏ trống tên ví."
     static let messageWalletErrorNotNumberBalance = "Số dư chỉ chứa các chữ số 0-9."
+    static let messageWalletUpdateError = "Ví không tồn tại. Không thể sửa ví."
+    static let messageWalletDeleteError = "Ví không tồn tại. Không thể xoá ví."
     
     static let titleUserNotification = "Money* Hàng ngày"
     static let bodyUserNotification = "Hãy cập nhật thu - chi trong ngày hôm nay của bạn để quản lý tài chính tốt hơn."

@@ -64,6 +64,22 @@ final class EditWalletViewController: UIViewController {
         typeLabel.text = name
     }
     
+    private func updateData() {
+        wallet.ref?.updateData(wallet.dictionary, completion: { [weak self] (error) in
+            if error != nil {
+                self?.presentErrorAlert(title: Constant.titleError, message: Constant.messageWalletUpdateError)
+            }
+        })
+    }
+    
+    private func deleteData() {
+        wallet.ref?.delete(completion: { [weak self] (error) in
+            if error != nil {
+                self?.presentErrorAlert(title: Constant.titleError, message: Constant.messageWalletDeleteError)
+            }
+        })
+    }
+    
     // MARK: - IBActions
     @IBAction private func handleSaveButtonTapped(_ sender: Any) {
         guard let name = nameTextField.text,
@@ -83,11 +99,13 @@ final class EditWalletViewController: UIViewController {
         wallet.name = name
         wallet.balance = UInt64(balance) ?? 0
         
-        // TODO
+        updateData()
+        performSegue(withIdentifier: Identifier.segueUnwindToWalletManagement, sender: nil)
     }
     
     @IBAction private func handleDeleteButtonTouchUpInside(_ sender: Any) {
-        // TODO
+        deleteData()
+        performSegue(withIdentifier: Identifier.segueUnwindToWalletManagement, sender: nil)
     }
     
     @IBAction func unwindSegueToEditWallet(segue: UIStoryboardSegue) {
