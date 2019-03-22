@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WalletCollectionCell" id="gTV-IL-0wX" customClass="WalletCollectionViewCell" customModule="Money_" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="250" height="70"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a5p-7K-PEO">
+                        <rect key="frame" x="10" y="5" width="235" height="60"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ví Tiền mặt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KkK-AF-vGR">
+                                <rect key="frame" x="50" y="5.5" width="88" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SmE-l4-G9E">
+                                <rect key="frame" x="50" y="35" width="59" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-currency" translatesAutoresizingMaskIntoConstraints="NO" id="TLL-9k-jXf">
+                                <rect key="frame" x="190" y="33" width="40" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="R4K-SV-4Ye"/>
+                                    <constraint firstAttribute="width" constant="40" id="ofA-IE-xzP"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TLL-9k-jXf" firstAttribute="bottom" secondItem="SmE-l4-G9E" secondAttribute="bottom" id="b3T-Y4-n4P"/>
+                            <constraint firstAttribute="trailing" secondItem="TLL-9k-jXf" secondAttribute="trailing" constant="5" id="l6R-I4-jME"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYx-Rv-Whr">
+                        <rect key="frame" x="0.0" y="10" width="50" height="50"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-wallet" translatesAutoresizingMaskIntoConstraints="NO" id="7gj-5O-6fp">
+                                <rect key="frame" x="10" y="10" width="30" height="30"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.26274509800000001" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="2iF-11-diq"/>
+                            <constraint firstAttribute="bottom" secondItem="7gj-5O-6fp" secondAttribute="bottom" constant="10" id="RZ2-8g-rhI"/>
+                            <constraint firstItem="7gj-5O-6fp" firstAttribute="top" secondItem="YYx-Rv-Whr" secondAttribute="top" constant="10" id="ZqH-eI-kJA"/>
+                            <constraint firstItem="7gj-5O-6fp" firstAttribute="leading" secondItem="YYx-Rv-Whr" secondAttribute="leading" constant="10" id="aMu-su-IGY"/>
+                            <constraint firstAttribute="height" constant="50" id="lNS-wv-BtU"/>
+                            <constraint firstAttribute="trailing" secondItem="7gj-5O-6fp" secondAttribute="trailing" constant="10" id="nRz-pD-1He"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="a5p-7K-PEO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="03Y-aJ-Lat"/>
+                <constraint firstAttribute="bottom" secondItem="a5p-7K-PEO" secondAttribute="bottom" constant="5" id="4zb-zF-aBe"/>
+                <constraint firstAttribute="trailing" secondItem="a5p-7K-PEO" secondAttribute="trailing" constant="5" id="Gxf-Qp-M6f"/>
+                <constraint firstItem="YYx-Rv-Whr" firstAttribute="centerY" secondItem="a5p-7K-PEO" secondAttribute="centerY" id="VAy-sO-Axr"/>
+                <constraint firstItem="SmE-l4-G9E" firstAttribute="centerY" secondItem="YYx-Rv-Whr" secondAttribute="centerY" multiplier="1.4" id="fjV-83-36a"/>
+                <constraint firstItem="a5p-7K-PEO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="nZg-Y9-hPe"/>
+                <constraint firstItem="KkK-AF-vGR" firstAttribute="leading" secondItem="YYx-Rv-Whr" secondAttribute="trailing" constant="10" id="rHM-QS-A6i"/>
+                <constraint firstItem="KkK-AF-vGR" firstAttribute="centerY" secondItem="YYx-Rv-Whr" secondAttribute="centerY" multiplier="0.6" id="t38-e1-VQv"/>
+                <constraint firstItem="YYx-Rv-Whr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="xq8-ES-Tre"/>
+                <constraint firstItem="SmE-l4-G9E" firstAttribute="leading" secondItem="YYx-Rv-Whr" secondAttribute="trailing" constant="10" id="z72-FG-YrY"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="balanceLabel" destination="SmE-l4-G9E" id="P3X-AA-uBm"/>
+                <outlet property="containerView" destination="a5p-7K-PEO" id="SXc-e5-faR"/>
+                <outlet property="iconContainerView" destination="YYx-Rv-Whr" id="MSn-IN-x0H"/>
+                <outlet property="iconImageView" destination="7gj-5O-6fp" id="2gi-KW-fTe"/>
+                <outlet property="nameLabel" destination="KkK-AF-vGR" id="Bzl-bG-uAL"/>
+            </connections>
+            <point key="canvasLocation" x="97.599999999999994" y="48.575712143928037"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="icon-currency" width="231" height="128"/>
+        <image name="icon-wallet" width="128" height="128"/>
+    </resources>
+</document>

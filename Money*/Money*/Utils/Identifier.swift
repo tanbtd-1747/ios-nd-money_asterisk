@@ -25,5 +25,7 @@ struct Identifier {
     static let keyNotificationTime = "KeyNotificationTime"
     
     static let cellWallet = "WalletCell"
+    static let cellCollectionWallet = "WalletCollectionCell"
     static let cellWalletType = "WalletTypeCell"
+    static let cellTransaction = "TransactionCell"
 }
