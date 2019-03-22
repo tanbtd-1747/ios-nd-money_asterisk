@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Reusable
 
-class TransactionTableViewCell: UITableViewCell {
+final class TransactionTableViewCell: UITableViewCell, NibReusable {
     // MARK: - IBOutlets
     @IBOutlet private var containerView: UIView!
     @IBOutlet private var iconImageView: UIImageView!

@@ -11,21 +11,22 @@ import CoreGraphics
 
 struct Constant {
     // MARK: - View Params
-    static let cornerRadius = CGFloat(5)
-    static let shadowRadius = CGFloat(2)
+    static let cornerRadius: CGFloat = 5
+    static let shadowRadius: CGFloat = 2
     static let shadowOffset = CGSize(width: 0, height: 1)
-    static let shadowOpacity = Float(0.6)
-    static let walletCollectionMinimumLineSpacing = CGFloat(40)
-    static let walletCollectionActiveDistance = CGFloat(200)
-    static let walletCollectionZoomFactor = CGFloat(0.15)
-    static let walletCollectionCellWidth = CGFloat(250)
-    static let walletCollectionCellHeight = CGFloat(70)
+    static let shadowOpacity: Float = 0.6
+    static let walletCollectionMinimumLineSpacing: CGFloat = 40
+    static let walletCollectionActiveDistance: CGFloat = 200
+    static let walletCollectionZoomFactor: CGFloat = 0.15
+    static let walletCollectionCellWidth: CGFloat = 250
+    static let walletCollectionCellHeight: CGFloat = 70
     
     static let transactionLastestNumRecords = 10
-    static let transactionCellHeight = CGFloat(88)
+    static let transactionCellHeight: CGFloat = 88
     
     // MARK: - Account Params
     static let minPasswordLength = 6
+    static let maxNumWallets = 6
     
     // MARK: - Notification Params
     static let defaultNotificationHour = 22

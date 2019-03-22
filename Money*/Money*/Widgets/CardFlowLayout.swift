@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CardFlowLayout: UICollectionViewFlowLayout {
+final class CardFlowLayout: UICollectionViewFlowLayout {
     let activeDistance = Constant.walletCollectionActiveDistance
     let zoomFactor = Constant.walletCollectionZoomFactor
     
@@ -43,12 +43,10 @@ class CardFlowLayout: UICollectionViewFlowLayout {
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        guard let collectionView = collectionView else {
+        guard let collectionView = collectionView,
+            let attributes = super.layoutAttributesForElements(in: rect) else {
             return nil
             
-        }
-        guard let attributes = super.layoutAttributesForElements(in: rect) else {
-            return nil
         }
         
         var rectAttributes = [UICollectionViewLayoutAttributes]()
@@ -113,8 +111,4 @@ class CardFlowLayout: UICollectionViewFlowLayout {
         context.invalidateFlowLayoutDelegateMetrics = newBounds.size != collectionView?.bounds.size
         return context
     }
-}
-
-protocol CardFlowLayoutDelegate: class {
-    func didScrollToItem(at indexPath: IndexPath)
 }

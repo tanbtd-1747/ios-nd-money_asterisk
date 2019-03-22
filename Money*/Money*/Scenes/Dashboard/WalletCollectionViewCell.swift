@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Reusable
 
-final class WalletCollectionViewCell: UICollectionViewCell {
+final class WalletCollectionViewCell: UICollectionViewCell, NibReusable {
     // MARK: - IBOutlets
     @IBOutlet private var containerView: UIView!
     @IBOutlet private var iconContainerView: UIView!

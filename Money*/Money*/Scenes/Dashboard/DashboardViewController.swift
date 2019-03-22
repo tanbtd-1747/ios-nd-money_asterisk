@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import Then
+import Reusable
 
 final class DashboardViewController: UIViewController {
     // MARK: - IBOutlets
@@ -38,24 +40,29 @@ final class DashboardViewController: UIViewController {
         
         [reportButton, budgetButton].forEach {
             $0?.imageEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-            
         }
         
-        walletCollectionView.collectionViewLayout = CardFlowLayout()
-        walletCollectionView.dataSource = self
-        walletCollectionView.delegate = self
-        transactionTableView.dataSource = self
-        transactionTableView.delegate = self
+        walletCollectionView.do {
+            $0.collectionViewLayout = CardFlowLayout()
+            $0.dataSource = self
+            $0.delegate = self
+        }
         
-        walletPageControl.numberOfPages = 5
-        walletPageControl.currentPage = 0
+        transactionTableView.do {
+            $0.dataSource = self
+            $0.delegate = self
+        }
+        
+        walletPageControl.do {
+            $0.numberOfPages = Constant.maxNumWallets
+            $0.currentPage = 0
+        }
+        
     }
     
     private func registerCustomCells() {
-        walletCollectionView.register(UINib(nibName: "WalletCollectionViewCell", bundle: nil),
-                                      forCellWithReuseIdentifier: Identifier.cellCollectionWallet)
-        transactionTableView.register(UINib(nibName: "TransactionTableViewCell", bundle: nil),
-                                      forCellReuseIdentifier: Identifier.cellTransaction)
+        walletCollectionView.register(cellType: WalletCollectionViewCell.self)
+        transactionTableView.register(cellType: TransactionTableViewCell.self)
     }
     
     private func addAuthorizationListener() {
@@ -87,14 +94,13 @@ final class DashboardViewController: UIViewController {
 // MARK: - CollectionView Data Source
 extension DashboardViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return Constant.maxNumWallets
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifier.cellCollectionWallet,
-                                                      for: indexPath) as? WalletCollectionViewCell
-        return cell ?? UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(for: indexPath) as WalletCollectionViewCell
+        return cell
     }
 }
 
@@ -128,9 +134,8 @@ extension DashboardViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.cellTransaction,
-                                                 for: indexPath) as? TransactionTableViewCell
-        return cell ?? UITableViewCell()
+        let cell = tableView.dequeueReusableCell(for: indexPath) as TransactionTableViewCell
+        return cell
     }
 }
 
