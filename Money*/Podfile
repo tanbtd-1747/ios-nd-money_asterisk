@@ -7,6 +7,8 @@ target 'Money*' do
 
   # Pods for Money*
   pod 'SwiftLint'
+  pod 'Reusable'
+  pod 'Then'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
