@@ -94,8 +94,7 @@ final class DashboardViewController: UIViewController {
         Firestore.firestore()
             .collection(user.email)
             .order(by: "name")
-            .addSnapshotListener(includeMetadataChanges: true) { [weak self] (querySnapshot, _) in
-                guard let self = self else { return }
+            .addSnapshotListener(includeMetadataChanges: true) { [unowned self] (querySnapshot, _) in
                 guard let snapshot = querySnapshot else {
                     self.presentErrorAlert(title: Constant.titleError, message: Constant.messageSnapshotError)
                     return
@@ -103,10 +102,11 @@ final class DashboardViewController: UIViewController {
                 
                 self.wallets = []
                 for document in snapshot.documents {
-                    if let model = Wallet(snapshot: document) {
-                        self.wallets.append(model)
+                    if let walletModel = Wallet(snapshot: document) {
+                        self.wallets.append(walletModel)
                     } else {
                         self.presentErrorAlert(title: Constant.titleError, message: Constant.messageDataError)
+                        break
                     }
                 }
                 
@@ -122,8 +122,7 @@ final class DashboardViewController: UIViewController {
             .collection("transactions")
             .limit(to: Constant.transactionLastestNumRecords)
             .order(by: "timestamp", descending: true)
-            .addSnapshotListener(includeMetadataChanges: true) { [weak self] (querySnapshot, _) in
-                guard let self = self else { return }
+            .addSnapshotListener(includeMetadataChanges: true) { [unowned self] (querySnapshot, _) in
                 guard let snapshot = querySnapshot else {
                     self.presentErrorAlert(title: Constant.titleError, message: Constant.messageSnapshotError)
                     return
@@ -131,10 +130,11 @@ final class DashboardViewController: UIViewController {
                 
                 self.latestTransactions = []
                 for document in snapshot.documents {
-                    if let model = Transaction(snapshot: document) {
-                        self.latestTransactions.append(model)
+                    if let transactionModel = Transaction(snapshot: document) {
+                        self.latestTransactions.append(transactionModel)
                     } else {
                         self.presentErrorAlert(title: Constant.titleError, message: Constant.messageDataError)
+                        break
                     }
                 }
                 

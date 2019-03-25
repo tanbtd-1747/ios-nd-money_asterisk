@@ -30,19 +30,15 @@ final class WalletCollectionViewCell: UICollectionViewCell, NibReusable {
     
     func configure(for wallet: Wallet) {
         nameLabel.text = wallet.name
-        
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.locale = Locale.current
-        balanceLabel.text = formatter.string(for: wallet.balance) ?? ""
+        balanceLabel.text = wallet.balance.toDecimalString()
         
         switch wallet.type {
         case .cash:
-            iconImageView.image = UIImage(named: "icon-wallet")
+            iconImageView.image = #imageLiteral(resourceName: "icon-wallet")
         case .creditCard:
-            iconImageView.image = UIImage(named: "icon-creditcard")
+            iconImageView.image = #imageLiteral(resourceName: "icon-creditcard")
         case .other:
-            iconImageView.image = UIImage(named: "icon-wallet-other")
+            iconImageView.image = #imageLiteral(resourceName: "icon-wallet-other")
         }
     }
 }
