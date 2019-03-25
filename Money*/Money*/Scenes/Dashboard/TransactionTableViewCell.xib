@@ -41,7 +41,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-money-out" translatesAutoresizingMaskIntoConstraints="NO" id="xOB-3U-d8v">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-money-expense" translatesAutoresizingMaskIntoConstraints="NO" id="xOB-3U-d8v">
                                 <rect key="frame" x="275" y="13" width="30" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="fZr-KG-V4t"/>
@@ -105,7 +105,7 @@
     </objects>
     <resources>
         <image name="icon-currency" width="231" height="128"/>
-        <image name="icon-money-out" width="177.5" height="127.5"/>
+        <image name="icon-money-expense" width="177.5" height="127.5"/>
         <image name="icon-restaurant" width="120" height="120"/>
     </resources>
 </document>

@@ -23,6 +23,8 @@ final class DashboardViewController: UIViewController {
     
     // MARK: - Private properties
     private var user: User!
+    private var wallets = [Wallet]()
+    private var latestTransactions = [Transaction]()
     
     // MARK: - Private functions
     override func viewDidLoad() {
@@ -30,6 +32,20 @@ final class DashboardViewController: UIViewController {
         configureSubviews()
         registerCustomCells()
         addAuthorizationListener()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        fetchData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case Identifier.segueFromDashboardToUserSetting:
+            let userSettingViewController = segue.destination as? UserSettingViewController
+            userSettingViewController?.user = user
+        default:
+            return
+        }
     }
     
     private func configureSubviews() {
@@ -54,10 +70,9 @@ final class DashboardViewController: UIViewController {
         }
         
         walletPageControl.do {
-            $0.numberOfPages = Constant.maxNumWallets
+            $0.numberOfPages = 0
             $0.currentPage = 0
         }
-        
     }
     
     private func registerCustomCells() {
@@ -75,13 +90,55 @@ final class DashboardViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case Identifier.segueFromDashboardToUserSetting:
-            let userSettingViewController = segue.destination as? UserSettingViewController
-            userSettingViewController?.user = user
-        default:
-            return
+    private func fetchData() {
+        Firestore.firestore()
+            .collection(user.email)
+            .order(by: "name")
+            .addSnapshotListener(includeMetadataChanges: true) { [weak self] (querySnapshot, _) in
+                guard let self = self else { return }
+                guard let snapshot = querySnapshot else {
+                    self.presentErrorAlert(title: Constant.titleError, message: Constant.messageSnapshotError)
+                    return
+                }
+                
+                self.wallets = []
+                for document in snapshot.documents {
+                    if let model = Wallet(snapshot: document) {
+                        self.wallets.append(model)
+                    } else {
+                        self.presentErrorAlert(title: Constant.titleError, message: Constant.messageDataError)
+                    }
+                }
+                
+                self.walletPageControl.numberOfPages = self.wallets.count
+                self.walletCollectionView.reloadData()
+                self.fetchTransactionData()
+        }
+    }
+    
+    private func fetchTransactionData() {
+        wallets[walletPageControl.currentPage]
+            .ref?
+            .collection("transactions")
+            .limit(to: Constant.transactionLastestNumRecords)
+            .order(by: "timestamp", descending: true)
+            .addSnapshotListener(includeMetadataChanges: true) { [weak self] (querySnapshot, _) in
+                guard let self = self else { return }
+                guard let snapshot = querySnapshot else {
+                    self.presentErrorAlert(title: Constant.titleError, message: Constant.messageSnapshotError)
+                    return
+                }
+                
+                self.latestTransactions = []
+                for document in snapshot.documents {
+                    if let model = Transaction(snapshot: document) {
+                        self.latestTransactions.append(model)
+                    } else {
+                        self.presentErrorAlert(title: Constant.titleError, message: Constant.messageDataError)
+                    }
+                }
+                
+                self.transactionTableView.reloadData()
         }
     }
     
@@ -94,26 +151,28 @@ final class DashboardViewController: UIViewController {
 // MARK: - CollectionView Data Source
 extension DashboardViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Constant.maxNumWallets
+        return wallets.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath) as WalletCollectionViewCell
+        cell.configure(for: wallets[indexPath.item])
         return cell
     }
 }
 
 // MARK: - CollectionView Delegate
 extension DashboardViewController: UICollectionViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let midX = scrollView.bounds.midX
         let midY = scrollView.bounds.midY
         let point = CGPoint(x: midX, y: midY)
         
         guard let indexPath = walletCollectionView.indexPathForItem(at: point) else { return }
-
+        
         walletPageControl.currentPage = indexPath.item
+        fetchTransactionData()
     }
 }
 
@@ -130,11 +189,12 @@ extension DashboardViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - TableView Data Source
 extension DashboardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Constant.transactionLastestNumRecords
+        return latestTransactions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath) as TransactionTableViewCell
+        cell.configure(for: latestTransactions[indexPath.row])
         return cell
     }
 }

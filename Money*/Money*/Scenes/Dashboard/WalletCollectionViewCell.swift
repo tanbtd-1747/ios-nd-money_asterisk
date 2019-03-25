@@ -27,4 +27,22 @@ final class WalletCollectionViewCell: UICollectionViewCell, NibReusable {
         containerView.makeRoundedAndShadowed()
         iconContainerView.makeRounded()
     }
+    
+    func configure(for wallet: Wallet) {
+        nameLabel.text = wallet.name
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.locale = Locale.current
+        balanceLabel.text = formatter.string(for: wallet.balance) ?? ""
+        
+        switch wallet.type {
+        case .cash:
+            iconImageView.image = UIImage(named: "icon-wallet")
+        case .creditCard:
+            iconImageView.image = UIImage(named: "icon-creditcard")
+        case .other:
+            iconImageView.image = UIImage(named: "icon-wallet-other")
+        }
+    }
 }
