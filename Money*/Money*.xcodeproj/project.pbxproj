@@ -28,6 +28,9 @@
 		AEC39EB5224385190042CEBC /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EB3224385190042CEBC /* TransactionTableViewCell.swift */; };
 		AEC39EB6224385190042CEBC /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEC39EB4224385190042CEBC /* TransactionTableViewCell.xib */; };
 		AEC39EB8224471D40042CEBC /* CardFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EB7224471D40042CEBC /* CardFlowLayout.swift */; };
+		AEC39EBA22487C990042CEBC /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EB922487C990042CEBC /* Transaction.swift */; };
+		AEC39EBC2248CA1E0042CEBC /* UInt64+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EBB2248CA1E0042CEBC /* UInt64+.swift */; };
+		AEC39EBE2248CB170042CEBC /* Timestamp+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EBD2248CB170042CEBC /* Timestamp+.swift */; };
 		AEFB0256223912DD00EB3437 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB0255223912DD00EB3437 /* LoginViewController.swift */; };
 		AEFB0259223914A900EB3437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEFB0257223914A900EB3437 /* LaunchScreen.storyboard */; };
 		AEFB025B2239E69C00EB3437 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB025A2239E69C00EB3437 /* UIColor+.swift */; };
@@ -64,6 +67,9 @@
 		AEC39EB3224385190042CEBC /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		AEC39EB4224385190042CEBC /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 		AEC39EB7224471D40042CEBC /* CardFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFlowLayout.swift; sourceTree = "<group>"; };
+		AEC39EB922487C990042CEBC /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		AEC39EBB2248CA1E0042CEBC /* UInt64+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt64+.swift"; sourceTree = "<group>"; };
+		AEC39EBD2248CB170042CEBC /* Timestamp+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timestamp+.swift"; sourceTree = "<group>"; };
 		AEFB0255223912DD00EB3437 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AEFB0258223914A900EB3437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Scenes/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEFB025A2239E69C00EB3437 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -189,6 +195,8 @@
 				AEFB025C2239E86E00EB3437 /* UIView+.swift */,
 				AEFB0275223A370100EB3437 /* UIViewController+.swift */,
 				AEC39E90223B4D570042CEBC /* FirebaseAuthorizable.swift */,
+				AEC39EBB2248CA1E0042CEBC /* UInt64+.swift */,
+				AEC39EBD2248CB170042CEBC /* Timestamp+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -234,6 +242,7 @@
 			children = (
 				AEC39E98223B88F20042CEBC /* User.swift */,
 				AEC39EA022409D2B0042CEBC /* Wallet.swift */,
+				AEC39EB922487C990042CEBC /* Transaction.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -456,6 +465,8 @@
 			files = (
 				AEFB025D2239E86E00EB3437 /* UIView+.swift in Sources */,
 				AEBA03662238B36100D12F2C /* AppDelegate.swift in Sources */,
+				AEC39EBE2248CB170042CEBC /* Timestamp+.swift in Sources */,
+				AEC39EBA22487C990042CEBC /* Transaction.swift in Sources */,
 				AEFB025B2239E69C00EB3437 /* UIColor+.swift in Sources */,
 				AEFB0276223A370100EB3437 /* UIViewController+.swift in Sources */,
 				AEC39E9F224099B20042CEBC /* WalletManagementViewController.swift in Sources */,
@@ -469,6 +480,7 @@
 				AEC39EB5224385190042CEBC /* TransactionTableViewCell.swift in Sources */,
 				AEC39E93223B5BF60042CEBC /* AccountValidator.swift in Sources */,
 				AEC39E91223B4D570042CEBC /* FirebaseAuthorizable.swift in Sources */,
+				AEC39EBC2248CA1E0042CEBC /* UInt64+.swift in Sources */,
 				AEC39EA72241DD590042CEBC /* WalletTypeViewController.swift in Sources */,
 				AEC39EA42241D59B0042CEBC /* AddWalletViewController.swift in Sources */,
 				AEC39EB8224471D40042CEBC /* CardFlowLayout.swift in Sources */,
