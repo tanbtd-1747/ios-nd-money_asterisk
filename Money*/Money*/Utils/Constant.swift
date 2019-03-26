@@ -72,6 +72,7 @@ struct Constant {
     static let buttonAllow = "Đồng ý"
     static let buttonOK = "OK"
     
+    static let sceneTitleDashboard = "Tổng: "
     static let sceneTitleWalletManagement = "Ví của tôi"
     static let sceneTitleAddWallet = "Thêm ví"
     static let sceneTitleEditWallet = "Sửa ví"

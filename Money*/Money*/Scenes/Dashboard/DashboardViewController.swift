@@ -73,6 +73,8 @@ final class DashboardViewController: UIViewController {
             $0.numberOfPages = 0
             $0.currentPage = 0
         }
+        
+        title = Constant.sceneTitleDashboard
     }
     
     private func registerCustomCells() {
@@ -112,6 +114,12 @@ final class DashboardViewController: UIViewController {
                 
                 self.walletPageControl.numberOfPages = self.wallets.count
                 self.walletCollectionView.reloadData()
+                
+                let totalBalance = self.wallets.reduce(0) {
+                    $0 + $1.balance
+                }
+                self.title = Constant.sceneTitleDashboard + totalBalance.toDecimalString()
+                
                 self.fetchTransactionData()
         }
     }
@@ -143,8 +151,16 @@ final class DashboardViewController: UIViewController {
     }
     
     // MARK: - IBActions
-    @IBAction func handleUserButtonTapped(_ sender: Any) {
+    @IBAction private func handleUserButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: Identifier.segueFromDashboardToUserSetting, sender: nil)
+    }
+    
+    @IBAction private func handleAddTransactionButtonTouchUpInside(_ sender: Any) {
+        performSegue(withIdentifier: Identifier.segueFromDashboardToAddTransaction, sender: nil)
+    }
+    
+    @IBAction private func handleShowAllTransactionsButtonTouchUpInside(_ sender: Any) {
+        performSegue(withIdentifier: Identifier.segueFromDashboardToAllTransactions, sender: nil)
     }
 }
 
