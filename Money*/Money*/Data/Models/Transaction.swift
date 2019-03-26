@@ -56,7 +56,7 @@ struct Transaction {
         ref = nil
         key = ""
         name = ""
-        type = .update
+        type = .exOther
         amount = 0
         timestamp = Timestamp(date: Date())
         note = ""

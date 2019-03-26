@@ -1128,7 +1128,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fca-nJ-pmy" userLabel="Timestamp">
-                                <rect key="frame" x="40" y="358" width="295" height="60"/>
+                                <rect key="frame" x="40" y="358" width="295" height="129"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thời gian" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqM-ob-KLg">
                                         <rect key="frame" x="109.5" y="5" width="76" height="21"/>
@@ -1136,33 +1136,29 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26/03/2019 09:23" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4w8-3C-JSR">
-                                        <rect key="frame" x="77.5" y="34" width="140" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⟩" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9cO-Ia-IXX">
-                                        <rect key="frame" x="279" y="34" width="11" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="RJM-ha-gXi">
+                                        <rect key="frame" x="5" y="34" width="285" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="ZxN-BD-YtK"/>
+                                        </constraints>
+                                        <date key="date" timeIntervalSinceReferenceDate="575282647.79292703">
+                                            <!--2019-03-26 08:44:07 +0000-->
+                                        </date>
+                                    </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="4w8-3C-JSR" secondAttribute="bottom" constant="5" id="8tC-wB-oSp"/>
+                                    <constraint firstItem="RJM-ha-gXi" firstAttribute="top" secondItem="xqM-ob-KLg" secondAttribute="bottom" constant="8" id="3MW-BY-MPB"/>
+                                    <constraint firstItem="RJM-ha-gXi" firstAttribute="centerX" secondItem="fca-nJ-pmy" secondAttribute="centerX" id="7pk-6y-ruG"/>
                                     <constraint firstItem="xqM-ob-KLg" firstAttribute="top" secondItem="fca-nJ-pmy" secondAttribute="top" constant="5" id="KRh-8b-OU6"/>
+                                    <constraint firstItem="RJM-ha-gXi" firstAttribute="leading" secondItem="fca-nJ-pmy" secondAttribute="leading" constant="5" id="Kjc-BJ-2bM"/>
                                     <constraint firstItem="xqM-ob-KLg" firstAttribute="centerX" secondItem="fca-nJ-pmy" secondAttribute="centerX" id="MwT-C5-KLd"/>
-                                    <constraint firstItem="4w8-3C-JSR" firstAttribute="centerX" secondItem="fca-nJ-pmy" secondAttribute="centerX" id="NaW-dW-vTB"/>
-                                    <constraint firstAttribute="trailing" secondItem="9cO-Ia-IXX" secondAttribute="trailing" constant="5" id="OmS-5n-oxw"/>
-                                    <constraint firstItem="4w8-3C-JSR" firstAttribute="top" secondItem="xqM-ob-KLg" secondAttribute="bottom" constant="8" id="YwU-GM-IXg"/>
-                                    <constraint firstItem="9cO-Ia-IXX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4w8-3C-JSR" secondAttribute="trailing" constant="8" symbolic="YES" id="mrK-ex-EVP"/>
-                                    <constraint firstItem="9cO-Ia-IXX" firstAttribute="centerY" secondItem="4w8-3C-JSR" secondAttribute="centerY" id="tmQ-pa-Ogp"/>
+                                    <constraint firstAttribute="bottom" secondItem="RJM-ha-gXi" secondAttribute="bottom" constant="5" id="gwy-IK-3el"/>
+                                    <constraint firstAttribute="trailing" secondItem="RJM-ha-gXi" secondAttribute="trailing" constant="5" id="ku6-5Z-EuB"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oko-zU-Cri" userLabel="Note">
-                                <rect key="frame" x="40" y="438" width="295" height="69"/>
+                                <rect key="frame" x="40" y="507" width="295" height="69"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Ghi chú" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lRI-gI-axv">
                                         <rect key="frame" x="0.0" y="34" width="295" height="30"/>
@@ -1216,7 +1212,11 @@
                         <viewLayoutGuide key="safeArea" id="Es0-UD-56M"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Transaction" id="zj3-7s-Z19">
-                        <barButtonItem key="rightBarButtonItem" title="Lưu" style="done" id="erP-xK-KgM"/>
+                        <barButtonItem key="rightBarButtonItem" title="Lưu" style="done" id="erP-xK-KgM">
+                            <connections>
+                                <action selector="handleSaveButtonTapped:" destination="OdO-TG-VcC" id="g98-GA-OxZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="amountContainerView" destination="k8E-QZ-5vd" id="R1T-tt-FhG"/>
@@ -1226,15 +1226,17 @@
                         <outlet property="noteContainerView" destination="oko-zU-Cri" id="wvL-l6-gu4"/>
                         <outlet property="noteTextField" destination="lRI-gI-axv" id="FAR-MF-FtV"/>
                         <outlet property="timestampContainerView" destination="fca-nJ-pmy" id="h0E-qu-CbZ"/>
-                        <outlet property="timestampLabel" destination="4w8-3C-JSR" id="NHF-sL-jSB"/>
+                        <outlet property="timestampDatePicker" destination="RJM-ha-gXi" id="b9S-b1-ecA"/>
                         <outlet property="typeContainerView" destination="qYE-bg-MrF" id="FvL-ks-oc4"/>
                         <outlet property="typeLabel" destination="Ldv-9F-Nat" id="Lgx-Rk-yfo"/>
                         <outlet property="walletContainerView" destination="7Hi-5r-0n5" id="vIR-AW-mSb"/>
                         <outlet property="walletNameLabel" destination="tN5-vj-oJR" id="k9p-JW-z5Z"/>
                         <segue destination="JcP-XG-p2h" kind="show" identifier="FromAddTransactionToTransactionType" id="X0O-31-gSH"/>
+                        <segue destination="8Iz-G4-9M4" kind="unwind" identifier="UnwindToDashboard" unwindAction="unwindSegueToDashboardWithSegue:" id="yad-zj-Re8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hj-yt-DwK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="8Iz-G4-9M4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2561" y="862"/>
         </scene>
@@ -1253,10 +1255,34 @@
                                     <segment title="Thu"/>
                                 </segments>
                                 <color key="tintColor" red="0.71764705880000002" green="0.67843137249999996" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="handleTransactionTypeSegmentedControlValueChanged:" destination="JcP-XG-p2h" eventType="valueChanged" id="x51-v7-70P"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bKK-pg-xYZ">
                                 <rect key="frame" x="0.0" y="68" width="375" height="535"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TransactionTypeCell" textLabel="3co-Ko-JaY" style="IBUITableViewCellStyleDefault" id="Ev2-qj-mcN">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ev2-qj-mcN" id="8Xl-eb-yio">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3co-Ko-JaY">
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1273,9 +1299,11 @@
                     </view>
                     <connections>
                         <outlet property="transactionTypeTableView" destination="bKK-pg-xYZ" id="XPo-9f-hvT"/>
+                        <segue destination="wAR-i5-hAo" kind="unwind" identifier="UnwindToAddTransaction" unwindAction="unwindSegueToAddTransactionWithSegue:" id="uRh-vd-tJC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="835-QH-Vc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="wAR-i5-hAo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3356" y="863"/>
         </scene>
