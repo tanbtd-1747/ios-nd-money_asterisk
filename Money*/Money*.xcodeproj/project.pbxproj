@@ -31,6 +31,8 @@
 		AEC39EBA22487C990042CEBC /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EB922487C990042CEBC /* Transaction.swift */; };
 		AEC39EBC2248CA1E0042CEBC /* UInt64+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EBB2248CA1E0042CEBC /* UInt64+.swift */; };
 		AEC39EBE2248CB170042CEBC /* Timestamp+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EBD2248CB170042CEBC /* Timestamp+.swift */; };
+		AEC39EC12249DA6C0042CEBC /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EC02249DA6C0042CEBC /* AddTransactionViewController.swift */; };
+		AEC39EC42249F7FD0042CEBC /* TransactionTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EC32249F7FD0042CEBC /* TransactionTypeViewController.swift */; };
 		AEFB0256223912DD00EB3437 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB0255223912DD00EB3437 /* LoginViewController.swift */; };
 		AEFB0259223914A900EB3437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEFB0257223914A900EB3437 /* LaunchScreen.storyboard */; };
 		AEFB025B2239E69C00EB3437 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB025A2239E69C00EB3437 /* UIColor+.swift */; };
@@ -70,6 +72,8 @@
 		AEC39EB922487C990042CEBC /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		AEC39EBB2248CA1E0042CEBC /* UInt64+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt64+.swift"; sourceTree = "<group>"; };
 		AEC39EBD2248CB170042CEBC /* Timestamp+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timestamp+.swift"; sourceTree = "<group>"; };
+		AEC39EC02249DA6C0042CEBC /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
+		AEC39EC32249F7FD0042CEBC /* TransactionTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTypeViewController.swift; sourceTree = "<group>"; };
 		AEFB0255223912DD00EB3437 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AEFB0258223914A900EB3437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Scenes/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEFB025A2239E69C00EB3437 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 				AEC39EA22241D5820042CEBC /* AddWallet */,
 				AEC39EA8224224160042CEBC /* EditWallet */,
 				AEC39EA52241DD330042CEBC /* WalletType */,
+				AEC39EBF2249DA440042CEBC /* AddTransaction */,
+				AEC39EC22249E5280042CEBC /* TransactionType */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -277,6 +283,22 @@
 				AEC39EA92242242F0042CEBC /* EditWalletViewController.swift */,
 			);
 			path = EditWallet;
+			sourceTree = "<group>";
+		};
+		AEC39EBF2249DA440042CEBC /* AddTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				AEC39EC02249DA6C0042CEBC /* AddTransactionViewController.swift */,
+			);
+			path = AddTransaction;
+			sourceTree = "<group>";
+		};
+		AEC39EC22249E5280042CEBC /* TransactionType */ = {
+			isa = PBXGroup;
+			children = (
+				AEC39EC32249F7FD0042CEBC /* TransactionTypeViewController.swift */,
+			);
+			path = TransactionType;
 			sourceTree = "<group>";
 		};
 		AEFB026F223A14D500EB3437 /* Signup */ = {
@@ -469,8 +491,10 @@
 				AEC39EBA22487C990042CEBC /* Transaction.swift in Sources */,
 				AEFB025B2239E69C00EB3437 /* UIColor+.swift in Sources */,
 				AEFB0276223A370100EB3437 /* UIViewController+.swift in Sources */,
+				AEC39EC12249DA6C0042CEBC /* AddTransactionViewController.swift in Sources */,
 				AEC39E9F224099B20042CEBC /* WalletManagementViewController.swift in Sources */,
 				AEC39E96223B7D180042CEBC /* UserSettingViewController.swift in Sources */,
+				AEC39EC42249F7FD0042CEBC /* TransactionTypeViewController.swift in Sources */,
 				AEC39E99223B88F20042CEBC /* User.swift in Sources */,
 				AEFB026C223A0FEE00EB3437 /* Identifier.swift in Sources */,
 				AEFB0272223A150400EB3437 /* SignupViewController.swift in Sources */,
