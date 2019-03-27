@@ -35,6 +35,7 @@ final class DashboardViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         fetchData()
     }
     
@@ -46,6 +47,9 @@ final class DashboardViewController: UIViewController {
         case Identifier.segueFromDashboardToAddTransaction:
             let addTransactionViewController = segue.destination as? AddTransactionViewController
             addTransactionViewController?.wallet = wallets[walletPageControl.currentPage]
+        case Identifier.segueFromDashboardToAllTransactions:
+            let allTransactionsViewController = segue.destination as? AllTransactionsViewController
+            allTransactionsViewController?.wallet = wallets[walletPageControl.currentPage]
         default:
             return
         }

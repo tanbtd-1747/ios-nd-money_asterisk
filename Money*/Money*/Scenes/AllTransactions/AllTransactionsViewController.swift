@@ -24,13 +24,44 @@ final class AllTransactionsViewController: UIViewController {
         configureSubviews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchTransactionData()
+    }
+    
     private func configureSubviews() {
+        title = wallet.name + ": " + wallet.balance.toDecimalString()
+        
         transactionsTableView.do {
             $0.dataSource = self
             $0.delegate = self
             $0.rowHeight = UITableView.automaticDimension
             $0.estimatedRowHeight = Constant.transactionCellHeight
             $0.register(cellType: TransactionDetailsTableViewCell.self)
+        }
+    }
+    
+    private func fetchTransactionData() {
+        wallet.ref?
+            .collection("transactions")
+            .order(by: "timestamp", descending: true)
+            .addSnapshotListener(includeMetadataChanges: true) { [unowned self] (querySnapshot, _) in
+                guard let snapshot = querySnapshot else {
+                    self.presentErrorAlert(title: Constant.titleError, message: Constant.messageSnapshotError)
+                    return
+                }
+                
+                self.transactions = []
+                for document in snapshot.documents {
+                    if let transactionModel = Transaction(snapshot: document) {
+                        self.transactions.append(transactionModel)
+                    } else {
+                        self.presentErrorAlert(title: Constant.titleError, message: Constant.messageDataError)
+                        break
+                    }
+                }
+                
+                self.transactionsTableView.reloadData()
         }
     }
 }
@@ -43,6 +74,7 @@ extension AllTransactionsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath) as TransactionDetailsTableViewCell
+        cell.configure(for: transactions[indexPath.row])
         return cell
     }
 }
