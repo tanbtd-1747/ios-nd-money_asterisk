@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Then
 
 final class AddWalletViewController: UIViewController {
     // MARK: - IBOutlets
@@ -58,7 +59,13 @@ final class AddWalletViewController: UIViewController {
     private func saveData() {
         Firestore.firestore()
             .collection(user.email)
-            .addDocument(data: wallet.dictionary)
+            .addDocument(data: wallet.dictionary) { [weak self] (error) in
+                guard error == nil else {
+                    self?.presentErrorAlert(title: Constant.titleError, message: Constant.messageWalletErrorSave)
+                    return
+                }
+                self?.performSegue(withIdentifier: Identifier.segueUnwindToWalletManagement, sender: nil)
+        }
     }
     
     // MARK: - IBActions
@@ -77,11 +84,12 @@ final class AddWalletViewController: UIViewController {
                 return
         }
         
-        wallet.name = name
-        wallet.balance = UInt64(balance) ?? 0
+        wallet.do {
+            $0.name = name
+            $0.balance = UInt64(balance) ?? 0
+        }
         
         saveData()
-        performSegue(withIdentifier: Identifier.segueUnwindToWalletManagement, sender: nil)
     }
     
     @IBAction func unwindSegueToAddWallet(segue: UIStoryboardSegue) {

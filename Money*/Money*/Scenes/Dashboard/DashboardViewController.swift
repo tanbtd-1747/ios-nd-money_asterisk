@@ -43,6 +43,9 @@ final class DashboardViewController: UIViewController {
         case Identifier.segueFromDashboardToUserSetting:
             let userSettingViewController = segue.destination as? UserSettingViewController
             userSettingViewController?.user = user
+        case Identifier.segueFromDashboardToAddTransaction:
+            let addTransactionViewController = segue.destination as? AddTransactionViewController
+            addTransactionViewController?.wallet = wallets[walletPageControl.currentPage]
         default:
             return
         }
@@ -115,12 +118,14 @@ final class DashboardViewController: UIViewController {
                 self.walletPageControl.numberOfPages = self.wallets.count
                 self.walletCollectionView.reloadData()
                 
-                let totalBalance = self.wallets.reduce(0) {
-                    $0 + $1.balance
+                if !self.wallets.isEmpty {
+                    let totalBalance = self.wallets.reduce(0) {
+                        $0 + $1.balance
+                    }
+                    self.title = Constant.sceneTitleDashboard + totalBalance.toDecimalString()
+                    
+                    self.fetchTransactionData()
                 }
-                self.title = Constant.sceneTitleDashboard + totalBalance.toDecimalString()
-                
-                self.fetchTransactionData()
         }
     }
     
@@ -156,7 +161,9 @@ final class DashboardViewController: UIViewController {
     }
     
     @IBAction private func handleAddTransactionButtonTouchUpInside(_ sender: Any) {
-        performSegue(withIdentifier: Identifier.segueFromDashboardToAddTransaction, sender: nil)
+        wallets.isEmpty
+            ? presentErrorAlert(title: Constant.titleError, message: Constant.messageWalletErrorEmpty)
+            : performSegue(withIdentifier: Identifier.segueFromDashboardToAddTransaction, sender: nil)
     }
     
     @IBAction private func handleShowAllTransactionsButtonTouchUpInside(_ sender: Any) {
