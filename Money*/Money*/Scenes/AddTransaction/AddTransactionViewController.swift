@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Then
 
 final class AddTransactionViewController: UIViewController {
     // MARK: - IBOutlets
@@ -81,12 +82,13 @@ final class AddTransactionViewController: UIViewController {
                                   message: Constant.messageTransactionErrorNotNumberBalance)
                 return
         }
-        
-        transaction.name = name
-        transaction.amount = UInt64(amount) ?? 0
-        transaction.timestamp = Timestamp(date: timestampDatePicker.date)
-        transaction.note = noteTextField.text ?? ""
-        
+
+        transaction.do {
+            $0.name = name
+            $0.amount = UInt64(amount) ?? 0
+            $0.timestamp = Timestamp(date: timestampDatePicker.date)
+            $0.note = noteTextField.text ?? ""
+        }
         // TODO: Save data
         
         performSegue(withIdentifier: Identifier.segueUnwindToDashboard, sender: nil)

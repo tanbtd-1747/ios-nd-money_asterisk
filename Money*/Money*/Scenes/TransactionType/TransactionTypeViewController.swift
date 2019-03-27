@@ -46,11 +46,7 @@ final class TransactionTypeViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction private func handleTransactionTypeSegmentedControlValueChanged(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            types = expenseTypes
-        } else {
-            types = incomeTypes
-        }
+        types = sender.selectedSegmentIndex == 0 ? expenseTypes : incomeTypes
         transactionTypeTableView.reloadData()
     }
 }

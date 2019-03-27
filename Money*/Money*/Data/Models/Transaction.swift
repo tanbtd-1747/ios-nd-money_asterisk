@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import Then
 
 enum TransactionType: String, CaseIterable {
     case exRestaurant = "expense-restaurant"
@@ -35,7 +36,7 @@ enum TransactionType: String, CaseIterable {
     case update = "update"
 }
 
-struct Transaction {
+class Transaction {
     let ref: DocumentReference?
     let key: String
     var name: String
@@ -84,3 +85,5 @@ struct Transaction {
         self.note = note
     }
 }
+
+extension Transaction: Then {}
