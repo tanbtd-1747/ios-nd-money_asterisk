@@ -18,6 +18,7 @@ final class TransactionTypeViewController: UIViewController {
     private var expenseTypes = [String]()
     private var incomeTypes = [String]()
     weak var delegate: TransactionTypeViewControllerDelegate?
+    var isEdittingTransaction = false
     
     // MARK: - Private functions
     override func viewDidLoad() {
@@ -69,7 +70,9 @@ extension TransactionTypeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.didSelect(type: TransactionType(rawValue: types[indexPath.row]) ?? .update,
                             with: Constant.TransactionName[types[indexPath.row]] ?? "")
-        performSegue(withIdentifier: Identifier.segueUnwindToAddTransaction,
+        performSegue(withIdentifier: isEdittingTransaction
+            ? Identifier.segueUnwindToEditTransaction
+            : Identifier.segueUnwindToAddTransaction,
                      sender: nil)
     }
 }

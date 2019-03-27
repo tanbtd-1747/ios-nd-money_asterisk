@@ -1464,6 +1464,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="handleDeleteButtonTouchUpInside:" destination="Vke-01-sQC" eventType="touchUpInside" id="78U-Ct-meo"/>
                                     <action selector="handleDeleteButtonTouchUpInside:" destination="Rzb-Ww-Oud" eventType="touchUpInside" id="hsG-6F-gX3"/>
                                 </connections>
                             </button>
@@ -1495,7 +1496,11 @@
                         <viewLayoutGuide key="safeArea" id="n83-9F-cuL"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Transaction" id="u0r-pg-ziE">
-                        <barButtonItem key="rightBarButtonItem" title="Lưu" style="done" id="POE-u4-9QX"/>
+                        <barButtonItem key="rightBarButtonItem" title="Lưu" style="done" id="POE-u4-9QX">
+                            <connections>
+                                <action selector="handleSaveButtonTapped:" destination="Vke-01-sQC" id="tBa-hf-75s"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="amountContainerView" destination="h8b-Ov-gVD" id="UpV-ow-OKd"/>
@@ -1511,6 +1516,7 @@
                         <outlet property="typeLabel" destination="wNi-cU-Of9" id="vGo-z7-F9u"/>
                         <outlet property="walletContainerView" destination="RPy-VR-vFN" id="yj9-Hx-HNG"/>
                         <outlet property="walletNameLabel" destination="hN7-dk-ltF" id="8Ri-O2-6vK"/>
+                        <segue destination="JcP-XG-p2h" kind="show" identifier="FromEditTransactionToTransactionType" id="3y3-ya-9Wj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fG2-vp-1Dj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1577,6 +1583,7 @@
                     <connections>
                         <outlet property="transactionTypeTableView" destination="bKK-pg-xYZ" id="XPo-9f-hvT"/>
                         <segue destination="wAR-i5-hAo" kind="unwind" identifier="UnwindToAddTransaction" unwindAction="unwindSegueToAddTransactionWithSegue:" id="uRh-vd-tJC"/>
+                        <segue destination="wAR-i5-hAo" kind="unwind" identifier="UnwindToEditTransaction" unwindAction="unwindSegueToEditTransactionWithSegue:" id="WDM-4p-IuC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="835-QH-Vc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1789,6 +1796,7 @@
         <image name="logo" width="451" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="3y3-ya-9Wj"/>
         <segue reference="1fK-g9-aqn"/>
     </inferredMetricsTieBreakers>
 </document>
