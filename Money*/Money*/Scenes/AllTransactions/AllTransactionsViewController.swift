@@ -30,7 +30,7 @@ final class AllTransactionsViewController: UIViewController {
     }
     
     private func configureSubviews() {
-        title = wallet.name + ": " + wallet.balance.toDecimalString()
+        title = wallet.name
         
         transactionsTableView.do {
             $0.dataSource = self
@@ -81,4 +81,8 @@ extension AllTransactionsViewController: UITableViewDataSource {
 
 // MARK: - UITableView Delegate
 extension AllTransactionsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: Identifier.segueFromAllTransactionsToEditTransaction, sender: nil)
+    }
 }
