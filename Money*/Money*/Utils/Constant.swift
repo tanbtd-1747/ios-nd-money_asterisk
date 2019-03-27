@@ -64,6 +64,8 @@ struct Constant {
     static let messageWalletErrorNotNumberBalance = "Số dư chỉ chứa các chữ số 0-9."
     static let messageWalletUpdateError = "Ví không tồn tại. Không thể sửa ví."
     static let messageWalletDeleteError = "Ví không tồn tại. Không thể xoá ví."
+    static let messageTransactionErrorEmptyName = "Vui lòng không bỏ trống tên giao dịch."
+    static let messageTransactionErrorNotNumberBalance = "Số tiền chỉ chứa các chữ số 0-9."
     
     static let titleUserNotification = "Money* Hàng ngày"
     static let bodyUserNotification = "Hãy cập nhật thu - chi trong ngày hôm nay của bạn để quản lý tài chính tốt hơn."
@@ -81,7 +83,34 @@ struct Constant {
     static let sceneTitleEditTransaction = "Sửa giao dịch"
     static let sceneTitleTransactionType = "Loại giao dịch"
     
-    static let nameWalletTypeCash = "Tiền mặt"
-    static let nameWalletTypeCreditCard = "Thẻ ngân hàng"
-    static let nameOther = "Khác"
+    static let WalletName = [
+        0: "Tiền mặt",
+        1: "Thẻ ngân hàng",
+        2: "Khác"
+    ]
+    
+    static let TransactionName = [
+        "expense-restaurant": "Quán ăn/Nhà hàng",
+        "expense-coffee": "Đồ uống/ Quán Cafe",
+        "expense-bill": "Hoá đơn",
+        "expense-shopping": "Mua sắm",
+        "expense-transport": "Di chuyển",
+        "expense-education": "Giáo dục",
+        "expense-entertainment": "Giải trí",
+        "expense-gift": "Quà tặng/Quyên góp",
+        "expense-travel": "Du lịch",
+        "expense-health": "Sức khoẻ",
+        "expense-insurance": "Bảo hiểm",
+        "expense-pet": "Vật nuôi",
+        "expense-investment": "Đầu tư",
+        "expense-exchange": "Chuyển khoản đi",
+        "expense-other": "Khoản chi khác",
+        "income-salary": "Lương",
+        "income-bonus": "Thưởng",
+        "income-profit": "Tiền lãi",
+        "income-sale": "Bán đồ",
+        "income-take": "Được cho, tặng",
+        "income-exchange": "Chuyển khoản đến",
+        "income-other": "Khoản thu khác"
+    ]
 }

@@ -42,14 +42,7 @@ final class EditWalletViewController: UIViewController {
         
         nameTextField.text = wallet.name
         balanceTextField.text = "\(wallet.balance)"
-        switch wallet.type {
-        case .cash:
-            typeLabel.text = Constant.nameWalletTypeCash
-        case .creditCard:
-            typeLabel.text = Constant.nameWalletTypeCreditCard
-        case .other:
-            typeLabel.text = Constant.nameOther
-        }
+        typeLabel.text = Constant.WalletName[wallet.type.rawValue]
         
         let tapOnTypeGesture = UITapGestureRecognizer(target: self, action: #selector(handleWalletTypeTapped))
         typeContainerView.addGestureRecognizer(tapOnTypeGesture)

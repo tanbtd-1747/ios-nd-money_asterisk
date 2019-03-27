@@ -15,7 +15,7 @@ enum WalletType: Int, CaseIterable {
     case other
 }
 
-struct Wallet {
+class Wallet {
     let ref: DocumentReference?
     let key: String
     var name: String

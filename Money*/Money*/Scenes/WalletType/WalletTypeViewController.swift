@@ -13,7 +13,7 @@ final class WalletTypeViewController: UIViewController {
     @IBOutlet private var walletTypeTableView: UITableView!
     
     // MARK: Properties
-    private var types = [String]()
+    private var types = [Int]()
     weak var delegate: WalletTypeViewControllerDelegate?
     var isEdittingWallet = false
     
@@ -27,14 +27,7 @@ final class WalletTypeViewController: UIViewController {
         title = Constant.sceneTitleWalletType
         
         for walletType in WalletType.allCases {
-            switch walletType {
-            case .cash:
-                types.append(Constant.nameWalletTypeCash)
-            case .creditCard:
-                types.append(Constant.nameWalletTypeCreditCard)
-            case .other:
-                types.append(Constant.nameOther)
-            }
+            types.append(walletType.rawValue)
         }
         walletTypeTableView.reloadData()
     }
@@ -48,7 +41,7 @@ extension WalletTypeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Identifier.cellWalletType, for: indexPath)
-        cell.textLabel?.text = types[indexPath.row]
+        cell.textLabel?.text = Constant.WalletName[types[indexPath.row]]
         return cell
     }
 }
@@ -57,7 +50,7 @@ extension WalletTypeViewController: UITableViewDataSource {
 extension WalletTypeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.didSelect(type: WalletType(rawValue: indexPath.row) ?? .other,
-                            with: types[indexPath.row])
+                            with: Constant.WalletName[types[indexPath.row]] ?? "")
         performSegue(withIdentifier: isEdittingWallet
             ? Identifier.segueUnwindToEditWallet
             : Identifier.segueUnwindToAddWallet,

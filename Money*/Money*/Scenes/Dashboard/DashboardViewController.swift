@@ -162,6 +162,9 @@ final class DashboardViewController: UIViewController {
     @IBAction private func handleShowAllTransactionsButtonTouchUpInside(_ sender: Any) {
         performSegue(withIdentifier: Identifier.segueFromDashboardToAllTransactions, sender: nil)
     }
+    
+    @IBAction func unwindSegueToDashboard(segue: UIStoryboardSegue) {
+    }
 }
 
 // MARK: - CollectionView Data Source
