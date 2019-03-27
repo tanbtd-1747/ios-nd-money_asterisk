@@ -33,6 +33,9 @@
 		AEC39EBE2248CB170042CEBC /* Timestamp+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EBD2248CB170042CEBC /* Timestamp+.swift */; };
 		AEC39EC12249DA6C0042CEBC /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EC02249DA6C0042CEBC /* AddTransactionViewController.swift */; };
 		AEC39EC42249F7FD0042CEBC /* TransactionTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EC32249F7FD0042CEBC /* TransactionTypeViewController.swift */; };
+		AEC39EC7224B2C370042CEBC /* AllTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EC6224B2C370042CEBC /* AllTransactionsViewController.swift */; };
+		AEC39ECA224B2D9E0042CEBC /* TransactionDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EC8224B2D9E0042CEBC /* TransactionDetailsTableViewCell.swift */; };
+		AEC39ECB224B2D9E0042CEBC /* TransactionDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEC39EC9224B2D9E0042CEBC /* TransactionDetailsTableViewCell.xib */; };
 		AEFB0256223912DD00EB3437 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB0255223912DD00EB3437 /* LoginViewController.swift */; };
 		AEFB0259223914A900EB3437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEFB0257223914A900EB3437 /* LaunchScreen.storyboard */; };
 		AEFB025B2239E69C00EB3437 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB025A2239E69C00EB3437 /* UIColor+.swift */; };
@@ -74,6 +77,9 @@
 		AEC39EBD2248CB170042CEBC /* Timestamp+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Timestamp+.swift"; sourceTree = "<group>"; };
 		AEC39EC02249DA6C0042CEBC /* AddTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
 		AEC39EC32249F7FD0042CEBC /* TransactionTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTypeViewController.swift; sourceTree = "<group>"; };
+		AEC39EC6224B2C370042CEBC /* AllTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactionsViewController.swift; sourceTree = "<group>"; };
+		AEC39EC8224B2D9E0042CEBC /* TransactionDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		AEC39EC9224B2D9E0042CEBC /* TransactionDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		AEFB0255223912DD00EB3437 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AEFB0258223914A900EB3437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Scenes/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEFB025A2239E69C00EB3437 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -182,6 +188,7 @@
 				AEC39EA52241DD330042CEBC /* WalletType */,
 				AEC39EBF2249DA440042CEBC /* AddTransaction */,
 				AEC39EC22249E5280042CEBC /* TransactionType */,
+				AEC39EC5224B2BEB0042CEBC /* AllTransactions */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -301,6 +308,16 @@
 			path = TransactionType;
 			sourceTree = "<group>";
 		};
+		AEC39EC5224B2BEB0042CEBC /* AllTransactions */ = {
+			isa = PBXGroup;
+			children = (
+				AEC39EC6224B2C370042CEBC /* AllTransactionsViewController.swift */,
+				AEC39EC8224B2D9E0042CEBC /* TransactionDetailsTableViewCell.swift */,
+				AEC39EC9224B2D9E0042CEBC /* TransactionDetailsTableViewCell.xib */,
+			);
+			path = AllTransactions;
+			sourceTree = "<group>";
+		};
 		AEFB026F223A14D500EB3437 /* Signup */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,6 +404,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEC39ECB224B2D9E0042CEBC /* TransactionDetailsTableViewCell.xib in Resources */,
 				AEBA036D2238B36200D12F2C /* Assets.xcassets in Resources */,
 				AEC39EAE22437B190042CEBC /* WalletCollectionViewCell.xib in Resources */,
 				AEFB0259223914A900EB3437 /* LaunchScreen.storyboard in Resources */,
@@ -501,6 +519,8 @@
 				AEFB0274223A154100EB3437 /* DashboardViewController.swift in Sources */,
 				AEFB0256223912DD00EB3437 /* LoginViewController.swift in Sources */,
 				AEC39EAD22437B190042CEBC /* WalletCollectionViewCell.swift in Sources */,
+				AEC39EC7224B2C370042CEBC /* AllTransactionsViewController.swift in Sources */,
+				AEC39ECA224B2D9E0042CEBC /* TransactionDetailsTableViewCell.swift in Sources */,
 				AEC39EB5224385190042CEBC /* TransactionTableViewCell.swift in Sources */,
 				AEC39E93223B5BF60042CEBC /* AccountValidator.swift in Sources */,
 				AEC39E91223B4D570042CEBC /* FirebaseAuthorizable.swift in Sources */,

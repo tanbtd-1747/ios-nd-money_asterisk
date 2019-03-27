@@ -408,14 +408,30 @@
         <!--All Transactions-->
         <scene sceneID="yXx-Lj-0Kf">
             <objects>
-                <viewController id="cMj-iH-Ts1" sceneMemberID="viewController">
+                <viewController id="cMj-iH-Ts1" customClass="AllTransactionsViewController" customModule="Money_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="keU-Tj-May" customClass="GradientView" customModule="Money_" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OaU-B8-ev3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XTm-X2-b1w" firstAttribute="trailing" secondItem="OaU-B8-ev3" secondAttribute="trailing" id="DUN-FZ-c6x"/>
+                            <constraint firstItem="OaU-B8-ev3" firstAttribute="top" secondItem="XTm-X2-b1w" secondAttribute="top" id="RcQ-DI-W69"/>
+                            <constraint firstItem="OaU-B8-ev3" firstAttribute="leading" secondItem="XTm-X2-b1w" secondAttribute="leading" id="acK-03-xj2"/>
+                            <constraint firstItem="XTm-X2-b1w" firstAttribute="bottom" secondItem="OaU-B8-ev3" secondAttribute="bottom" id="b4k-0E-PTJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="XTm-X2-b1w"/>
                     </view>
                     <navigationItem key="navigationItem" title="All Transactions" id="OQd-Te-zLv"/>
+                    <connections>
+                        <outlet property="transactionsTableView" destination="OaU-B8-ev3" id="Nn5-XT-zOF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UMt-cf-bgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
