@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import Then
 
 enum WalletType: Int, CaseIterable {
     case cash
@@ -62,3 +63,5 @@ class Wallet {
         self.balance = balance
     }
 }
+
+extension Wallet: Then {}

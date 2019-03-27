@@ -51,6 +51,7 @@ final class AddTransactionViewController: UIViewController {
         [walletContainerView, nameContainerView, amountContainerView,
          typeContainerView, typeContainerView, timestampContainerView, noteContainerView].forEach { $0?.makeRounded() }
         
+        walletNameLabel.text = wallet.name
         typeLabel.text = Constant.TransactionName[transaction.type.rawValue]
         timestampDatePicker.maximumDate = Date()
         
@@ -67,6 +68,49 @@ final class AddTransactionViewController: UIViewController {
         typeLabel.text = name
     }
     
+    private func saveData() {
+        guard validateTransactionAmount() else {
+            presentErrorAlert(title: Constant.titleError, message: Constant.messageTransactionErrorAmount)
+            return
+        }
+        
+        wallet.ref?
+            .collection("transactions")
+            .addDocument(data: transaction.dictionary, completion: { [weak self] (error) in
+                guard error == nil else {
+                    self?.presentErrorAlert(title: Constant.titleError, message: Constant.messageTransactionErrorSave)
+                    return
+                }
+                self?.updateWalletBalance()
+            })
+    }
+    
+    private func updateWalletBalance() {
+        var newBalance = wallet.balance
+        if transaction.type.rawValue.contains("expense") {
+            newBalance -= transaction.amount
+        } else if transaction.type.rawValue.contains("income") {
+            newBalance += transaction.amount
+        }
+        wallet.balance = newBalance
+        wallet.ref?
+            .updateData(["balance": newBalance], completion: { [weak self] (error) in
+            guard error == nil else {
+                self?.presentErrorAlert(title: Constant.titleError, message: Constant.messageTransactionErrorSave)
+                return
+            }
+            self?.performSegue(withIdentifier: Identifier.segueUnwindToDashboard, sender: nil)
+        })
+    }
+    
+    private func validateTransactionAmount() -> Bool {
+        guard transaction.type.rawValue.contains("expense"),
+            transaction.amount > wallet.balance else {
+            return true
+        }
+        return false
+    }
+    
     // MARK: - IBActions
     @IBAction private func handleSaveButtonTapped(_ sender: Any) {
         guard let name = nameTextField.text,
@@ -79,7 +123,7 @@ final class AddTransactionViewController: UIViewController {
         guard let amount = amountTextField.text,
             AccountValidator.validateIsNumber(amount) else {
                 presentErrorAlert(title: Constant.titleError,
-                                  message: Constant.messageTransactionErrorNotNumberBalance)
+                                  message: Constant.messageTransactionErrorNotNumberAmount)
                 return
         }
 
@@ -89,9 +133,8 @@ final class AddTransactionViewController: UIViewController {
             $0.timestamp = Timestamp(date: timestampDatePicker.date)
             $0.note = noteTextField.text ?? ""
         }
-        // TODO: Save data
         
-        performSegue(withIdentifier: Identifier.segueUnwindToDashboard, sender: nil)
+        saveData()
     }
     
     @IBAction func unwindSegueToAddTransaction(segue: UIStoryboardSegue) {
