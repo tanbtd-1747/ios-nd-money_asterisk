@@ -46,7 +46,7 @@ final class AllTransactionsViewController: UIViewController {
     
     private func configureSubviews() {
         title = wallet.name
- 
+
         transactionsTableView.do {
             $0.dataSource = self
             $0.delegate = self
@@ -60,24 +60,28 @@ final class AllTransactionsViewController: UIViewController {
         wallet.ref?
             .collection("transactions")
             .order(by: "timestamp", descending: true)
-            .addSnapshotListener(includeMetadataChanges: true) { [unowned self] (querySnapshot, _) in
+            .addSnapshotListener(includeMetadataChanges: true) { [weak self] (querySnapshot, _) in
                 guard let snapshot = querySnapshot else {
-                    self.presentErrorAlert(title: Constant.titleError, message: Constant.messageSnapshotError)
+                    self?.presentErrorAlert(title: Constant.titleError, message: Constant.messageSnapshotError)
                     return
                 }
                 
-                self.transactions = []
+                self?.transactions = []
                 for document in snapshot.documents {
                     if let transactionModel = Transaction(snapshot: document) {
-                        self.transactions.append(transactionModel)
+                        self?.transactions.append(transactionModel)
                     } else {
-                        self.presentErrorAlert(title: Constant.titleError, message: Constant.messageDataError)
+                        self?.presentErrorAlert(title: Constant.titleError, message: Constant.messageDataError)
                         break
                     }
                 }
                 
-                self.transactionsTableView.reloadData()
+                self?.transactionsTableView.reloadData()
         }
+    }
+    
+    // MARK: - IBActions
+    @IBAction func unwindSegueToAllTransactions(segue: UIStoryboardSegue) {
     }
 }
 

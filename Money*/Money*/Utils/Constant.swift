@@ -70,6 +70,8 @@ struct Constant {
     static let messageTransactionErrorNotNumberAmount = "Số tiền chỉ chứa các chữ số 0-9."
     static let messageTransactionErrorSave = "Không thể lưu lại giao dịch. Vui lòng thử lại."
     static let messageTransactionErrorAmount = "Không thể lưu lại giao dịch. Số tiền của giao dịch không được lớn hơn số dư trong tài khoản."
+    static let messageTransactionUpdateError = "Giao dịch không tồn tại. Không thể sửa giao dịch."
+    static let messageTransactionDeleteError = "Giao dịch không tồn tại. Không thể xoá giao dịch."
     
     static let titleUserNotification = "Money* Hàng ngày"
     static let bodyUserNotification = "Hãy cập nhật thu - chi trong ngày hôm nay của bạn để quản lý tài chính tốt hơn."

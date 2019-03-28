@@ -1517,9 +1517,11 @@
                         <outlet property="walletContainerView" destination="RPy-VR-vFN" id="yj9-Hx-HNG"/>
                         <outlet property="walletNameLabel" destination="hN7-dk-ltF" id="8Ri-O2-6vK"/>
                         <segue destination="JcP-XG-p2h" kind="show" identifier="FromEditTransactionToTransactionType" id="3y3-ya-9Wj"/>
+                        <segue destination="KpY-8p-aIR" kind="unwind" identifier="UnwindToAllTransactions" unwindAction="unwindSegueToAllTransactionsWithSegue:" id="UTj-r1-att"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fG2-vp-1Dj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="KpY-8p-aIR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2561" y="1629"/>
         </scene>
