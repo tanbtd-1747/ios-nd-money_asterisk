@@ -29,9 +29,24 @@ final class AllTransactionsViewController: UIViewController {
         fetchTransactionData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case Identifier.segueFromAllTransactionsToEditTransaction:
+            let editTransactionViewController = segue.destination as? EditTransactionViewController
+            
+            guard let id = sender as? Int else {
+                return
+            }
+            editTransactionViewController?.wallet = wallet
+            editTransactionViewController?.transaction = transactions[id]
+        default:
+            return
+        }
+    }
+    
     private func configureSubviews() {
         title = wallet.name
-        
+ 
         transactionsTableView.do {
             $0.dataSource = self
             $0.delegate = self
@@ -83,6 +98,6 @@ extension AllTransactionsViewController: UITableViewDataSource {
 extension AllTransactionsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        performSegue(withIdentifier: Identifier.segueFromAllTransactionsToEditTransaction, sender: nil)
+        performSegue(withIdentifier: Identifier.segueFromAllTransactionsToEditTransaction, sender: indexPath.row)
     }
 }

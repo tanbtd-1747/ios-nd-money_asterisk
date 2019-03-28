@@ -36,6 +36,7 @@
 		AEC39EC7224B2C370042CEBC /* AllTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EC6224B2C370042CEBC /* AllTransactionsViewController.swift */; };
 		AEC39ECA224B2D9E0042CEBC /* TransactionDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39EC8224B2D9E0042CEBC /* TransactionDetailsTableViewCell.swift */; };
 		AEC39ECB224B2D9E0042CEBC /* TransactionDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEC39EC9224B2D9E0042CEBC /* TransactionDetailsTableViewCell.xib */; };
+		AEC39ECE224B5E6E0042CEBC /* EditTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC39ECD224B5E6E0042CEBC /* EditTransactionViewController.swift */; };
 		AEFB0256223912DD00EB3437 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB0255223912DD00EB3437 /* LoginViewController.swift */; };
 		AEFB0259223914A900EB3437 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEFB0257223914A900EB3437 /* LaunchScreen.storyboard */; };
 		AEFB025B2239E69C00EB3437 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFB025A2239E69C00EB3437 /* UIColor+.swift */; };
@@ -80,6 +81,7 @@
 		AEC39EC6224B2C370042CEBC /* AllTransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactionsViewController.swift; sourceTree = "<group>"; };
 		AEC39EC8224B2D9E0042CEBC /* TransactionDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		AEC39EC9224B2D9E0042CEBC /* TransactionDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		AEC39ECD224B5E6E0042CEBC /* EditTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTransactionViewController.swift; sourceTree = "<group>"; };
 		AEFB0255223912DD00EB3437 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AEFB0258223914A900EB3437 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Scenes/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEFB025A2239E69C00EB3437 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				AEC39EA8224224160042CEBC /* EditWallet */,
 				AEC39EA52241DD330042CEBC /* WalletType */,
 				AEC39EBF2249DA440042CEBC /* AddTransaction */,
+				AEC39ECC224B5E500042CEBC /* EditTransaction */,
 				AEC39EC22249E5280042CEBC /* TransactionType */,
 				AEC39EC5224B2BEB0042CEBC /* AllTransactions */,
 			);
@@ -316,6 +319,14 @@
 				AEC39EC9224B2D9E0042CEBC /* TransactionDetailsTableViewCell.xib */,
 			);
 			path = AllTransactions;
+			sourceTree = "<group>";
+		};
+		AEC39ECC224B5E500042CEBC /* EditTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				AEC39ECD224B5E6E0042CEBC /* EditTransactionViewController.swift */,
+			);
+			path = EditTransaction;
 			sourceTree = "<group>";
 		};
 		AEFB026F223A14D500EB3437 /* Signup */ = {
@@ -506,6 +517,7 @@
 				AEFB025D2239E86E00EB3437 /* UIView+.swift in Sources */,
 				AEBA03662238B36100D12F2C /* AppDelegate.swift in Sources */,
 				AEC39EBE2248CB170042CEBC /* Timestamp+.swift in Sources */,
+				AEC39ECE224B5E6E0042CEBC /* EditTransactionViewController.swift in Sources */,
 				AEC39EBA22487C990042CEBC /* Transaction.swift in Sources */,
 				AEFB025B2239E69C00EB3437 /* UIColor+.swift in Sources */,
 				AEFB0276223A370100EB3437 /* UIViewController+.swift in Sources */,
