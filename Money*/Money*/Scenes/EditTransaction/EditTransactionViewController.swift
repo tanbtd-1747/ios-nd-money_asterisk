@@ -28,11 +28,13 @@ final class EditTransactionViewController: UIViewController {
     // MARK: - Properties
     var wallet: Wallet!
     var transaction: Transaction!
+    var walletBalanceBeforeTransaction: UInt64 = 0
     
     // MARK: - Private functions
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSubviews()
+        calculateWalletBalance()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -66,6 +68,14 @@ final class EditTransactionViewController: UIViewController {
         typeContainerView.addGestureRecognizer(tapOnTypeGesture)
     }
     
+    private func calculateWalletBalance() {
+        if transaction.type.rawValue.contains("expense") {
+            walletBalanceBeforeTransaction = wallet.balance + transaction.amount
+        } else if transaction.type.rawValue.contains("income") {
+            walletBalanceBeforeTransaction = wallet.balance - transaction.amount
+        }
+    }
+    
     @objc private func handleTransactionTypeTapped() {
         performSegue(withIdentifier: Identifier.segueFromEditTransactionToTransactionType, sender: nil)
     }
@@ -81,6 +91,51 @@ final class EditTransactionViewController: UIViewController {
                 return true
         }
         return false
+    }
+    
+    private func updateData() {
+        guard validateTransactionAmount() else {
+            presentErrorAlert(title: Constant.titleError, message: Constant.messageTransactionErrorAmount)
+            return
+        }
+        
+        transaction.ref?.updateData(transaction.dictionary, completion: { [weak self] (error) in
+            guard error == nil else {
+                self?.presentErrorAlert(title: Constant.titleError, message: Constant.messageTransactionUpdateError)
+                return
+            }
+            self?.updateWalletBalance(isDeleted: false)
+        })
+    }
+    
+    private func deleteData() {
+        transaction.ref?.delete(completion: { [weak self] (error) in
+            guard error == nil else {
+                self?.presentErrorAlert(title: Constant.titleError, message: Constant.messageTransactionDeleteError)
+                return
+            }
+            self?.updateWalletBalance(isDeleted: true)
+        })
+    }
+    
+    private func updateWalletBalance(isDeleted: Bool) {
+        var newBalance = walletBalanceBeforeTransaction
+        if !isDeleted {
+            if transaction.type.rawValue.contains("expense") {
+                newBalance -= transaction.amount
+            } else if transaction.type.rawValue.contains("income") {
+                newBalance += transaction.amount
+            }
+        }
+        wallet.balance = newBalance
+        wallet.ref?
+            .updateData(["balance": newBalance], completion: { [weak self] (error) in
+                guard error == nil else {
+                    self?.presentErrorAlert(title: Constant.titleError, message: Constant.messageTransactionErrorSave)
+                    return
+                }
+                self?.performSegue(withIdentifier: Identifier.segueUnwindToAllTransactions, sender: nil)
+            })
     }
     
     // MARK: - IBActions
@@ -106,11 +161,11 @@ final class EditTransactionViewController: UIViewController {
             $0.note = noteTextField.text ?? ""
         }
         
-        // TODO: Save transaction
+        updateData()
     }
     
     @IBAction func handleDeleteButtonTouchUpInside(_ sender: Any) {
-        // TODO: Delete transaction
+        deleteData()
     }
     
     @IBAction func unwindSegueToEditTransaction(segue: UIStoryboardSegue) {
