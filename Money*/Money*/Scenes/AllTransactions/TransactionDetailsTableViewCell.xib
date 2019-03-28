@@ -23,33 +23,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-restaurant" translatesAutoresizingMaskIntoConstraints="NO" id="wBS-Py-062">
-                                <rect key="frame" x="10" y="13" width="40" height="40"/>
+                                <rect key="frame" x="10" y="10" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="CjU-3e-chu"/>
-                                    <constraint firstAttribute="width" constant="40" id="nDg-iy-2id"/>
+                                    <constraint firstAttribute="height" constant="50" id="CjU-3e-chu"/>
+                                    <constraint firstAttribute="width" constant="50" id="nDg-iy-2id"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ăn trưa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="49g-LB-NtS">
-                                <rect key="frame" x="60" y="9.5" width="58.5" height="20.5"/>
+                                <rect key="frame" x="70" y="10" width="58.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21 - 03 - 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B02-b1-1M3">
-                                <rect key="frame" x="60" y="37.5" width="98" height="18"/>
+                                <rect key="frame" x="70" y="42" width="98" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-money-expense" translatesAutoresizingMaskIntoConstraints="NO" id="kql-IY-mj9">
-                                <rect key="frame" x="285" y="9.5" width="30" height="20"/>
+                                <rect key="frame" x="280" y="10" width="30" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="PQx-gh-lrZ"/>
                                     <constraint firstAttribute="width" constant="30" id="afI-B8-VRY"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="L9j-js-XwE">
-                                <rect key="frame" x="225" y="35.5" width="90" height="20"/>
+                                <rect key="frame" x="220" y="40" width="90" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="35,000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27L-dW-mqx">
                                         <rect key="frame" x="0.0" y="2" width="51" height="18"/>
@@ -67,7 +67,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cơm văn phòng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVg-AT-TNz">
-                                <rect key="frame" x="10" y="63" width="300" height="26.5"/>
+                                <rect key="frame" x="10" y="70" width="300" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -77,18 +77,18 @@
                         <constraints>
                             <constraint firstItem="B02-b1-1M3" firstAttribute="leading" secondItem="wBS-Py-062" secondAttribute="trailing" constant="10" id="220-nV-b1W"/>
                             <constraint firstAttribute="bottom" secondItem="zVg-AT-TNz" secondAttribute="bottom" constant="10" id="3UW-gJ-FDp"/>
-                            <constraint firstItem="B02-b1-1M3" firstAttribute="centerY" secondItem="wBS-Py-062" secondAttribute="centerY" multiplier="1.4" id="8Dy-F9-jP4"/>
+                            <constraint firstItem="wBS-Py-062" firstAttribute="top" secondItem="Ew6-JB-Dw8" secondAttribute="top" constant="10" id="7pK-jc-fnM"/>
                             <constraint firstItem="49g-LB-NtS" firstAttribute="leading" secondItem="wBS-Py-062" secondAttribute="trailing" constant="10" id="CUy-Qo-o2T"/>
                             <constraint firstItem="zVg-AT-TNz" firstAttribute="top" secondItem="wBS-Py-062" secondAttribute="bottom" constant="10" id="CgW-kU-IUd"/>
-                            <constraint firstAttribute="trailing" secondItem="L9j-js-XwE" secondAttribute="trailing" constant="5" id="Qf6-TO-DCG"/>
-                            <constraint firstAttribute="trailing" secondItem="kql-IY-mj9" secondAttribute="trailing" constant="5" id="WpL-HW-Bug"/>
+                            <constraint firstItem="49g-LB-NtS" firstAttribute="top" secondItem="wBS-Py-062" secondAttribute="top" id="LeQ-ao-nzg"/>
+                            <constraint firstAttribute="trailing" secondItem="L9j-js-XwE" secondAttribute="trailing" constant="10" id="Qf6-TO-DCG"/>
+                            <constraint firstAttribute="trailing" secondItem="kql-IY-mj9" secondAttribute="trailing" constant="10" id="WpL-HW-Bug"/>
                             <constraint firstItem="zVg-AT-TNz" firstAttribute="leading" secondItem="Ew6-JB-Dw8" secondAttribute="leading" constant="10" id="YGQ-s3-n2S"/>
-                            <constraint firstItem="49g-LB-NtS" firstAttribute="centerY" secondItem="wBS-Py-062" secondAttribute="centerY" multiplier="0.6" id="ZcZ-gU-EZI"/>
                             <constraint firstItem="kql-IY-mj9" firstAttribute="top" secondItem="49g-LB-NtS" secondAttribute="top" id="aHZ-Lx-2iE"/>
                             <constraint firstAttribute="trailing" secondItem="zVg-AT-TNz" secondAttribute="trailing" constant="10" id="hSf-7S-H1x"/>
-                            <constraint firstItem="wBS-Py-062" firstAttribute="centerY" secondItem="Ew6-JB-Dw8" secondAttribute="centerY" multiplier="2/3" id="mqP-FB-91I"/>
                             <constraint firstItem="wBS-Py-062" firstAttribute="leading" secondItem="Ew6-JB-Dw8" secondAttribute="leading" constant="10" id="sqN-ar-HRF"/>
                             <constraint firstItem="L9j-js-XwE" firstAttribute="bottom" secondItem="B02-b1-1M3" secondAttribute="bottom" id="xde-a4-Pp5"/>
+                            <constraint firstItem="B02-b1-1M3" firstAttribute="bottom" secondItem="wBS-Py-062" secondAttribute="bottom" id="xlL-Go-CHJ"/>
                         </constraints>
                     </view>
                 </subviews>

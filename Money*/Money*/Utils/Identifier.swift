@@ -20,6 +20,7 @@ struct Identifier {
     static let segueFromAddWalletToWalletType = "FromAddWalletToWalletType"
     static let segueFromEditWalletToWalletType = "FromEditWalletToWalletType"
     static let segueFromAddTransactionToTransactionType = "FromAddTransactionToTransactionType"
+    static let segueFromAllTransactionsToEditTransaction = "FromAllTransactionsToEditTransaction"
     static let segueUnwindToAddWallet = "UnwindToAddWallet"
     static let segueUnwindToEditWallet = "UnwindToEditWallet"
     static let segueUnwindToWalletManagement = "UnwindToWalletManagement"

@@ -431,6 +431,7 @@
                     <navigationItem key="navigationItem" title="All Transactions" id="OQd-Te-zLv"/>
                     <connections>
                         <outlet property="transactionsTableView" destination="OaU-B8-ev3" id="Nn5-XT-zOF"/>
+                        <segue destination="Vke-01-sQC" kind="show" identifier="FromAllTransactionsToEditTransaction" id="uEr-Fe-qx1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UMt-cf-bgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1255,6 +1256,21 @@
                 <exit id="8Iz-G4-9M4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2561" y="862"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="c89-vZ-A26">
+            <objects>
+                <viewController id="Vke-01-sQC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5D3-Cf-WQ8" customClass="GradientView" customModule="Money_" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="n83-9F-cuL"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fG2-vp-1Dj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2561" y="1629"/>
         </scene>
         <!--Transaction Type View Controller-->
         <scene sceneID="XJQ-Ep-hhG">
