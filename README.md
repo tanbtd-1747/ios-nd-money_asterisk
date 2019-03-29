@@ -5,6 +5,8 @@
 
 Member: Trần Đức Tân
 
+Trainer: Phạm Xuân Tiến đẹp trai dễ thương
+
 Document: http://bit.ly/2H1Oq5j
 
 Deadline: 22/03/2019
