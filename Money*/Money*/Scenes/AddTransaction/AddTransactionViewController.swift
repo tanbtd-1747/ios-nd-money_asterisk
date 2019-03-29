@@ -28,8 +28,7 @@ final class AddTransactionViewController: UIViewController {
     // MARK: - Properties
     var wallet: Wallet!
     private var transaction = Transaction()
-    var keyboardAdjusted = false
-    var lastKeyboardOffset: CGFloat = 0
+    private var lastKeyboardOffset: CGFloat = 0
     
     // MARK: - Private functions
     override func viewDidLoad() {
@@ -65,6 +64,8 @@ final class AddTransactionViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        view.endEditing(true)
+        
         switch segue.identifier {
         case Identifier.segueFromAddTransactionToTransactionType:
             let transactionTypeViewController = segue.destination as? TransactionTypeViewController
@@ -172,27 +173,21 @@ final class AddTransactionViewController: UIViewController {
 
 // MARK: - Keyboard
 extension AddTransactionViewController {
-    @objc func keyboardWillShow(notification: Notification) {
-        if keyboardAdjusted == false {
-            lastKeyboardOffset = getKeyboardHeight(notification: notification)
-            if nameTextField.isEditing {
-                lastKeyboardOffset = nameTextField.frame.origin.y
-            } else if amountTextField.isEditing {
-                lastKeyboardOffset = amountTextField.frame.origin.y
-            }
-            view.frame.origin.y -= lastKeyboardOffset
-            keyboardAdjusted = true
+    @objc private func keyboardWillShow(notification: Notification) {
+        lastKeyboardOffset = getKeyboardHeight(notification: notification)
+        if nameTextField.isEditing {
+            lastKeyboardOffset = nameContainerView.frame.origin.y
+        } else if amountTextField.isEditing {
+            lastKeyboardOffset = amountContainerView.frame.origin.y
         }
+        view.frame.origin.y -= lastKeyboardOffset
     }
     
-    @objc func keyboardWillHide(notification: Notification) {
-        if keyboardAdjusted == true {
-            view.frame.origin.y += lastKeyboardOffset
-            keyboardAdjusted = false
-        }
+    @objc private func keyboardWillHide(notification: Notification) {
+        view.frame.origin.y += lastKeyboardOffset
     }
     
-    func getKeyboardHeight(notification: Notification) -> CGFloat {
+    private func getKeyboardHeight(notification: Notification) -> CGFloat {
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
         return keyboardSize?.cgRectValue.height ?? 0
