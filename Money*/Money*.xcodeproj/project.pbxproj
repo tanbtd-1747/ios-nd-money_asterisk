@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1DF063910094F84F10D9DCD1 /* Pods_Money_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB19ADF54A591F908C567355 /* Pods_Money_.framework */; };
+		AE8A885D224DD18500B350AB /* BlankWalletCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A885B224DD18500B350AB /* BlankWalletCollectionViewCell.swift */; };
+		AE8A885E224DD18500B350AB /* BlankWalletCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8A885C224DD18500B350AB /* BlankWalletCollectionViewCell.xib */; };
+		AE8A8861224DD47200B350AB /* BlankTransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8A885F224DD47200B350AB /* BlankTransactionTableViewCell.swift */; };
+		AE8A8862224DD47200B350AB /* BlankTransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8A8860224DD47200B350AB /* BlankTransactionTableViewCell.xib */; };
 		AEBA03662238B36100D12F2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBA03652238B36100D12F2C /* AppDelegate.swift */; };
 		AEBA036B2238B36100D12F2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEBA03692238B36100D12F2C /* Main.storyboard */; };
 		AEBA036D2238B36200D12F2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEBA036C2238B36200D12F2C /* Assets.xcassets */; };
@@ -50,6 +54,10 @@
 
 /* Begin PBXFileReference section */
 		672E996E5DFA3FF671661440 /* Pods-Money*.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money*.release.xcconfig"; path = "Target Support Files/Pods-Money*/Pods-Money*.release.xcconfig"; sourceTree = "<group>"; };
+		AE8A885B224DD18500B350AB /* BlankWalletCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankWalletCollectionViewCell.swift; sourceTree = "<group>"; };
+		AE8A885C224DD18500B350AB /* BlankWalletCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlankWalletCollectionViewCell.xib; sourceTree = "<group>"; };
+		AE8A885F224DD47200B350AB /* BlankTransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankTransactionTableViewCell.swift; sourceTree = "<group>"; };
+		AE8A8860224DD47200B350AB /* BlankTransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlankTransactionTableViewCell.xib; sourceTree = "<group>"; };
 		AEBA03622238B36100D12F2C /* Money*.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Money*.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEBA03652238B36100D12F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEBA036A2238B36100D12F2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -345,6 +353,10 @@
 				AEC39EAC22437B190042CEBC /* WalletCollectionViewCell.xib */,
 				AEC39EB3224385190042CEBC /* TransactionTableViewCell.swift */,
 				AEC39EB4224385190042CEBC /* TransactionTableViewCell.xib */,
+				AE8A885B224DD18500B350AB /* BlankWalletCollectionViewCell.swift */,
+				AE8A885C224DD18500B350AB /* BlankWalletCollectionViewCell.xib */,
+				AE8A885F224DD47200B350AB /* BlankTransactionTableViewCell.swift */,
+				AE8A8860224DD47200B350AB /* BlankTransactionTableViewCell.xib */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -419,8 +431,10 @@
 				AEBA036D2238B36200D12F2C /* Assets.xcassets in Resources */,
 				AEC39EAE22437B190042CEBC /* WalletCollectionViewCell.xib in Resources */,
 				AEFB0259223914A900EB3437 /* LaunchScreen.storyboard in Resources */,
+				AE8A8862224DD47200B350AB /* BlankTransactionTableViewCell.xib in Resources */,
 				AEBA036B2238B36100D12F2C /* Main.storyboard in Resources */,
 				AEC39EB6224385190042CEBC /* TransactionTableViewCell.xib in Resources */,
+				AE8A885E224DD18500B350AB /* BlankWalletCollectionViewCell.xib in Resources */,
 				AEBA03802238E4DF00D12F2C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,6 +534,7 @@
 				AEC39ECE224B5E6E0042CEBC /* EditTransactionViewController.swift in Sources */,
 				AEC39EBA22487C990042CEBC /* Transaction.swift in Sources */,
 				AEFB025B2239E69C00EB3437 /* UIColor+.swift in Sources */,
+				AE8A885D224DD18500B350AB /* BlankWalletCollectionViewCell.swift in Sources */,
 				AEFB0276223A370100EB3437 /* UIViewController+.swift in Sources */,
 				AEC39EC12249DA6C0042CEBC /* AddTransactionViewController.swift in Sources */,
 				AEC39E9F224099B20042CEBC /* WalletManagementViewController.swift in Sources */,
@@ -532,6 +547,7 @@
 				AEFB0256223912DD00EB3437 /* LoginViewController.swift in Sources */,
 				AEC39EAD22437B190042CEBC /* WalletCollectionViewCell.swift in Sources */,
 				AEC39EC7224B2C370042CEBC /* AllTransactionsViewController.swift in Sources */,
+				AE8A8861224DD47200B350AB /* BlankTransactionTableViewCell.swift in Sources */,
 				AEC39ECA224B2D9E0042CEBC /* TransactionDetailsTableViewCell.swift in Sources */,
 				AEC39EB5224385190042CEBC /* TransactionTableViewCell.swift in Sources */,
 				AEC39E93223B5BF60042CEBC /* AccountValidator.swift in Sources */,

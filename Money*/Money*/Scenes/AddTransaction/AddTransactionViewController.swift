@@ -28,14 +28,44 @@ final class AddTransactionViewController: UIViewController {
     // MARK: - Properties
     var wallet: Wallet!
     private var transaction = Transaction()
+    private var lastKeyboardOffset: CGFloat = 0
     
     // MARK: - Private functions
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSubviews()
+        configureHideKeyboardWhenTappedOnBackground()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default
+            .addObserver(self,
+                         selector: #selector(keyboardWillShow(notification:)),
+                         name: UIResponder.keyboardWillShowNotification,
+                         object: nil)
+        NotificationCenter.default
+            .addObserver(self,
+                         selector: #selector(keyboardWillHide(notification:)),
+                         name: UIResponder.keyboardWillHideNotification,
+                         object: nil)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default
+            .removeObserver(self,
+                            name: UIResponder.keyboardWillShowNotification,
+                            object: nil)
+        NotificationCenter.default
+            .removeObserver(self,
+                            name: UIResponder.keyboardWillHideNotification,
+                            object: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        view.endEditing(true)
+        
         switch segue.identifier {
         case Identifier.segueFromAddTransactionToTransactionType:
             let transactionTypeViewController = segue.destination as? TransactionTypeViewController
@@ -138,6 +168,29 @@ final class AddTransactionViewController: UIViewController {
     }
     
     @IBAction func unwindSegueToAddTransaction(segue: UIStoryboardSegue) {
+    }
+}
+
+// MARK: - Keyboard
+extension AddTransactionViewController {
+    @objc private func keyboardWillShow(notification: Notification) {
+        lastKeyboardOffset = getKeyboardHeight(notification: notification)
+        if nameTextField.isEditing {
+            lastKeyboardOffset = nameContainerView.frame.origin.y
+        } else if amountTextField.isEditing {
+            lastKeyboardOffset = amountContainerView.frame.origin.y
+        }
+        view.frame.origin.y -= lastKeyboardOffset
+    }
+    
+    @objc private func keyboardWillHide(notification: Notification) {
+        view.frame.origin.y += lastKeyboardOffset
+    }
+    
+    private func getKeyboardHeight(notification: Notification) -> CGFloat {
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        return keyboardSize?.cgRectValue.height ?? 0
     }
 }
 

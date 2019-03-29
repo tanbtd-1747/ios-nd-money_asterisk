@@ -86,7 +86,9 @@ final class DashboardViewController: UIViewController {
     
     private func registerCustomCells() {
         walletCollectionView.register(cellType: WalletCollectionViewCell.self)
+        walletCollectionView.register(cellType: BlankWalletCollectionViewCell.self)
         transactionTableView.register(cellType: TransactionTableViewCell.self)
+        transactionTableView.register(cellType: BlankTransactionTableViewCell.self)
     }
     
     private func addAuthorizationListener() {
@@ -97,6 +99,10 @@ final class DashboardViewController: UIViewController {
             }
             self?.user = User(auth: user)
         }
+    }
+    
+    private func showHint() {
+        navigationItem.prompt = wallets.isEmpty ? Constant.promptNoWallet : nil
     }
     
     private func fetchData() {
@@ -110,6 +116,7 @@ final class DashboardViewController: UIViewController {
                 }
                 
                 self.wallets = []
+                self.latestTransactions = []
                 for document in snapshot.documents {
                     if let walletModel = Wallet(snapshot: document) {
                         self.wallets.append(walletModel)
@@ -121,6 +128,7 @@ final class DashboardViewController: UIViewController {
                 
                 self.walletPageControl.numberOfPages = self.wallets.count
                 self.walletCollectionView.reloadData()
+                self.showHint()
                 
                 if !self.wallets.isEmpty {
                     let totalBalance = self.wallets.reduce(0) {
@@ -171,7 +179,17 @@ final class DashboardViewController: UIViewController {
     }
     
     @IBAction private func handleShowAllTransactionsButtonTouchUpInside(_ sender: Any) {
-        performSegue(withIdentifier: Identifier.segueFromDashboardToAllTransactions, sender: nil)
+        wallets.isEmpty
+            ? presentErrorAlert(title: Constant.titleError, message: Constant.messageWalletErrorEmpty)
+            : performSegue(withIdentifier: Identifier.segueFromDashboardToAllTransactions, sender: nil)
+    }
+    
+    @IBAction func handleReportButtonTouchUpInside(_ sender: Any) {
+        presentErrorAlert(title: Constant.titleFeatureNotDone, message: Constant.messageFeatureReportNotDone)
+    }
+    
+    @IBAction func handleBudgetButtonTouchUpInside(_ sender: Any) {
+        presentErrorAlert(title: Constant.titleFeatureNotDone, message: Constant.messageFeatureBudgetNotDone)
     }
     
     @IBAction func unwindSegueToDashboard(segue: UIStoryboardSegue) {
@@ -181,14 +199,19 @@ final class DashboardViewController: UIViewController {
 // MARK: - CollectionView Data Source
 extension DashboardViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return wallets.count
+        return !wallets.isEmpty ? wallets.count : 1
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(for: indexPath) as WalletCollectionViewCell
-        cell.configure(for: wallets[indexPath.item])
-        return cell
+        if !wallets.isEmpty {
+            let cell = collectionView.dequeueReusableCell(for: indexPath) as WalletCollectionViewCell
+            cell.configure(for: wallets[indexPath.item])
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(for: indexPath) as BlankWalletCollectionViewCell
+            return cell
+        }
     }
 }
 
@@ -219,13 +242,18 @@ extension DashboardViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - TableView Data Source
 extension DashboardViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return latestTransactions.count
+        return !latestTransactions.isEmpty ? latestTransactions.count : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(for: indexPath) as TransactionTableViewCell
-        cell.configure(for: latestTransactions[indexPath.row])
-        return cell
+        if !latestTransactions.isEmpty {
+            let cell = tableView.dequeueReusableCell(for: indexPath) as TransactionTableViewCell
+            cell.configure(for: latestTransactions[indexPath.row])
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(for: indexPath) as BlankTransactionTableViewCell
+            return cell
+        }
     }
 }
 

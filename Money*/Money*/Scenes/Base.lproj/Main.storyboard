@@ -61,6 +61,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="NMI-Vd-3al"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <state key="normal" title="Đăng nhập">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -79,6 +80,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="rNo-fe-s1M"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <state key="normal" title="Đăng ký">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -92,8 +94,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YsZ-ut-W1c">
-                                <rect key="frame" x="121.5" y="616.5" width="132" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <rect key="frame" x="112.5" y="615.5" width="150" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <state key="normal" title="Quên mật khẩu?">
                                     <color key="titleColor" red="0.71764705880000002" green="0.67843137249999996" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -322,6 +324,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Iyo-NO-TCo"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <state key="normal" title="Tạo Tài khoản">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -341,6 +344,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="JWQ-ge-o3i"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <state key="normal" title="Huỷ">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -428,7 +432,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XTm-X2-b1w"/>
                     </view>
-                    <navigationItem key="navigationItem" title="All Transactions" id="OQd-Te-zLv"/>
+                    <navigationItem key="navigationItem" title="All Transactions" id="OQd-Te-zLv">
+                        <barButtonItem key="backBarButtonItem" title="Quay lại" id="9QE-pM-i4B"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="transactionsTableView" destination="OaU-B8-ev3" id="Nn5-XT-zOF"/>
                         <segue destination="Vke-01-sQC" kind="show" identifier="FromAllTransactionsToEditTransaction" id="uEr-Fe-qx1"/>
@@ -438,7 +444,7 @@
             </objects>
             <point key="canvasLocation" x="1420" y="864"/>
         </scene>
-        <!--User Setting View Controller-->
+        <!--User Setting-->
         <scene sceneID="0oq-EM-7yZ">
             <objects>
                 <tableViewController id="iv4-V4-nDN" customClass="UserSettingViewController" customModule="Money_" customModuleProvider="target" sceneMemberID="viewController">
@@ -556,6 +562,9 @@
                             <outlet property="delegate" destination="iv4-V4-nDN" id="eCc-2Z-cEc"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="User Setting" id="YFH-b4-ifr">
+                        <barButtonItem key="backBarButtonItem" title="Quay lại" id="7YR-fG-CWK"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="notificationSwitch" destination="CvJ-lB-MLY" id="w5e-nn-HIG"/>
                         <outlet property="notificationTimeLabel" destination="K2b-p4-8ay" id="8w0-Hj-65U"/>
@@ -618,6 +627,7 @@
                         <viewLayoutGuide key="safeArea" id="jyJ-Bk-DLy"/>
                     </view>
                     <navigationItem key="navigationItem" title="Wallets" id="JB1-wi-sSe">
+                        <barButtonItem key="backBarButtonItem" title="Quay lại" id="gch-Lm-8Ey"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bEI-cp-pVO">
                             <connections>
                                 <action selector="handleAddButtonTapped:" destination="pZQ-Dp-m8p" id="3fK-K3-UhX"/>
@@ -761,6 +771,7 @@
                         <viewLayoutGuide key="safeArea" id="zCd-dg-OJg"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Wallet" id="YWv-y2-u3A">
+                        <barButtonItem key="backBarButtonItem" title="Quay lại" id="BuD-IF-ctv"/>
                         <barButtonItem key="rightBarButtonItem" title="Lưu" style="done" id="zVZ-c7-1gR">
                             <connections>
                                 <action selector="handleSaveButtonTapped:" destination="IM3-mn-2hL" id="hlY-ZJ-fMb"/>
@@ -890,7 +901,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="NzT-hy-a1R"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <state key="normal" title="Xem Tất cả Thu - Chi">
                                     <color key="titleColor" red="0.01176470588" green="0.01176470588" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -909,6 +920,9 @@
                                             <constraint firstAttribute="width" constant="50" id="ueE-zm-b9Y"/>
                                         </constraints>
                                         <state key="normal" image="icon-report"/>
+                                        <connections>
+                                            <action selector="handleReportButtonTouchUpInside:" destination="qeV-Np-Gel" eventType="touchUpInside" id="geb-MM-xrY"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47C-yH-w22">
                                         <rect key="frame" x="80" y="0.0" width="175" height="50"/>
@@ -932,6 +946,9 @@
                                             <constraint firstAttribute="height" constant="50" id="gvY-GU-jwl"/>
                                         </constraints>
                                         <state key="normal" image="icon-budget"/>
+                                        <connections>
+                                            <action selector="handleBudgetButtonTouchUpInside:" destination="qeV-Np-Gel" eventType="touchUpInside" id="7Fi-sQ-oh9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -984,6 +1001,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <navigationItem key="navigationItem" title="Dashboard" id="6zV-8t-Hpj">
+                        <barButtonItem key="backBarButtonItem" title="Quay lại" id="c1b-3P-kKx"/>
                         <barButtonItem key="rightBarButtonItem" title="User" image="icon-user" id="O7v-DW-xBi">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -1229,6 +1247,7 @@
                         <viewLayoutGuide key="safeArea" id="Es0-UD-56M"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Transaction" id="zj3-7s-Z19">
+                        <barButtonItem key="backBarButtonItem" title="Quay lại" id="FCC-8C-Qc7"/>
                         <barButtonItem key="rightBarButtonItem" title="Lưu" style="done" id="erP-xK-KgM">
                             <connections>
                                 <action selector="handleSaveButtonTapped:" destination="OdO-TG-VcC" id="g98-GA-OxZ"/>
@@ -1459,7 +1478,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="OKh-Oz-ulM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <state key="normal" title="Xoá">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -1496,6 +1515,7 @@
                         <viewLayoutGuide key="safeArea" id="n83-9F-cuL"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Transaction" id="u0r-pg-ziE">
+                        <barButtonItem key="backBarButtonItem" title="Quay lại" id="CCF-jN-PdB"/>
                         <barButtonItem key="rightBarButtonItem" title="Lưu" style="done" id="POE-u4-9QX">
                             <connections>
                                 <action selector="handleSaveButtonTapped:" destination="Vke-01-sQC" id="tBa-hf-75s"/>
@@ -1737,7 +1757,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="XDp-ha-LNB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <state key="normal" title="Xoá">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -1764,6 +1784,7 @@
                         <viewLayoutGuide key="safeArea" id="4wu-t6-DQL"/>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Wallet" id="8MT-Nl-h5X">
+                        <barButtonItem key="backBarButtonItem" title="Quay lại" id="S7K-hr-vQi"/>
                         <barButtonItem key="rightBarButtonItem" title="Lưu" style="done" id="DHv-Lr-9cM">
                             <connections>
                                 <action selector="handleSaveButtonTapped:" destination="Rzb-Ww-Oud" id="bSh-NH-jzd"/>

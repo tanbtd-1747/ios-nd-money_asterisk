@@ -40,6 +40,7 @@ struct Constant {
     static let titleSignup = "Đăng ký Tài khoản"
     static let titleSignupError = "Đăng ký Tài khoản thất bại"
     static let titleSignoutError = "Đăng xuất thất bại"
+    static let titleFeatureNotDone = "Tính năng chưa hỗ trợ"
     
     static let messageError = "Vui lòng thử lại."
     static let messageErrorEmptyEmail = "Vui lòng không bỏ trống email."
@@ -72,6 +73,11 @@ struct Constant {
     static let messageTransactionErrorAmount = "Không thể lưu lại giao dịch. Số tiền của giao dịch không được lớn hơn số dư trong tài khoản."
     static let messageTransactionUpdateError = "Giao dịch không tồn tại. Không thể sửa giao dịch."
     static let messageTransactionDeleteError = "Giao dịch không tồn tại. Không thể xoá giao dịch."
+    
+    static let promptNoWallet = "Bạn chưa có ví nào. Hãy tạo ví trong Quản lý Tài khoản."
+    
+    static let messageFeatureReportNotDone = "Xin lỗi. Chức năng tạo Báo cáo tài chính chưa được hỗ trợ tại phiên bản này."
+    static let messageFeatureBudgetNotDone = "Xin lỗi. Chức năng tạo Quỹ Tiết kiệm chưa được hỗ trợ tại phiên bản này."
     
     static let titleUserNotification = "Money* Hàng ngày"
     static let bodyUserNotification = "Hãy cập nhật thu - chi trong ngày hôm nay của bạn để quản lý tài chính tốt hơn."

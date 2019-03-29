@@ -25,6 +25,7 @@ final class EditWalletViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSubviews()
+        configureHideKeyboardWhenTappedOnBackground()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
